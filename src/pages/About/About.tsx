@@ -1,11 +1,11 @@
 import { useRef, useEffect, useState } from 'react';
 import styles from './About.module.css';
 import {
-  FaHtml5, FaCss3Alt, FaBootstrap, FaJs, FaLaravel, FaSearch, FaPython, FaJava, FaSwift, FaGit, FaAndroid
+  FaHtml5, FaCss3Alt, FaBootstrap, FaJs, FaLaravel, FaSearch, FaPython, FaJava, FaSwift, FaGit, FaAndroid, FaGithub
 } from 'react-icons/fa';
 import { 
   SiCodeigniter, SiPwa, SiMysql, SiXcode, SiTypescript, SiVite, SiNextdotjs, SiReact, SiNodedotjs,
-  SiKotlin
+  SiKotlin, SiFigma, SiAdobephotoshop, SiVercel, SiSupabase, SiFirebase
 } from 'react-icons/si';
 import { TbSeo } from 'react-icons/tb';
 import notepadppIcon from '../../assets/notepad++.png';
@@ -15,6 +15,8 @@ import pptIcon from '../../assets/msppt.svg';
 import inspireIcon from '../../assets/inspire.png';
 import scalerIcon from '../../assets/scaler.png';
 import msqlIcon from '../../assets/msql.svg';
+import canvaIcon from '../../assets/canva.png'; // If you have a Canva icon image
+import navicatIcon from '../../assets/navicat.png'; // Add this line if you have a Navicat icon image
 
 const categories = [
   {
@@ -31,15 +33,16 @@ const categories = [
       { name: 'PWA', icon: <SiPwa />, accent: '#5a0fc8' },
       { name: 'PSI', icon: <FaSearch />, accent: '#00bcd4' },
       { name: 'MySQL', icon: <SiMysql />, accent: '#00758f' },
+      { name: 'Navicat for MySQL', icon: <img src={navicatIcon} alt="Navicat for MySQL" style={{height: '2rem'}} />, accent: '#4fa463' }, // or use <span style={{fontSize:'2rem'}}>Navicat</span> if no image
     ],
   },
   {
     title: 'Automation / Document Composition',
     desc: 'Tools I\'ve used during my internship as an Exhibit Developer.',
     tools: [
-      { name: 'Quadient Inspire Designer', icon: <img src={inspireIcon} alt="Quadient Inspire Designer" style={{height: '2rem'}} />, accent: '#00bcd4' },
-      { name: 'Quadient Inspire Scaler', icon: <img src={scalerIcon} alt="Quadient Inspire Scaler" style={{height: '2rem'}} />, accent: '#757575' },
-      { name: 'Microsoft SQL Server Management Studio', icon: <img src={msqlIcon} alt="Microsoft SQL Server Management Studio" style={{height: '2rem'}} />, accent: '#0078d4' },
+      { name: 'Inspire Designer', icon: <img src={inspireIcon} alt="Quadient Inspire Designer" style={{height: '2rem'}} />, accent: '#00bcd4' },
+      { name: 'Inspire Scaler', icon: <img src={scalerIcon} alt="Quadient Inspire Scaler" style={{height: '2rem'}} />, accent: '#757575' },
+      { name: 'SQL Server (SSMS)', icon: <img src={msqlIcon} alt="Microsoft SQL Server Management Studio" style={{height: '2rem'}} />, accent: '#0078d4' },
       { name: 'Notepad++', icon: <img src={notepadppIcon} alt="Notepad++" style={{height: '2rem'}} />, accent: '#8ec641' },
       { name: 'Microsoft Word', icon: <img src={wordIcon} alt="Microsoft Word" style={{height: '2rem'}} />, accent: '#2b579a' },
       { name: 'Microsoft Excel', icon: <img src={excelIcon} alt="Microsoft Excel" style={{height: '2rem'}} />, accent: '#217346' },
@@ -56,6 +59,11 @@ const categories = [
       { name: 'Kotlin', icon: <SiKotlin style={{fontSize: '2rem'}} />, accent: '#7f52ff' },
       { name: 'Swift', icon: <FaSwift />, accent: '#fa7343' },
       { name: 'Git', icon: <FaGit />, accent: '#f05032' },
+      { name: 'GitHub', icon: <FaGithub />, accent: '#fff' },
+      { name: 'Vercel', icon: <SiVercel />, accent: '#fff' },
+      { name: 'Figma', icon: <SiFigma />, accent: '#a259ff' },
+      { name: 'Adobe Photoshop', icon: <SiAdobephotoshop />, accent: '#31a8ff' },
+      { name: 'Canva', icon: <img src={canvaIcon} alt="Canva" style={{height: '2rem'}} />, accent: '#00c4cc' }, // or use <span style={{fontSize:'2rem'}}>Canva</span> if no image
       { name: 'Xcode', icon: <SiXcode />, accent: '#1575f9' },
       { name: 'Android Studio', icon: <FaAndroid />, accent: '#3ddc84' },
     ],
@@ -69,6 +77,8 @@ const categories = [
       { name: 'Vite', icon: <SiVite />, accent: '#646cff' },
       { name: 'Node.js', icon: <SiNodedotjs />, accent: '#3c873a' },
       { name: 'Next.js', icon: <SiNextdotjs />, accent: '#fff' },
+      { name: 'Supabase', icon: <SiSupabase />, accent: '#3ecf8e' },
+      { name: 'Firebase', icon: <SiFirebase />, accent: '#ffca28' },
     ],
   },
 ];
