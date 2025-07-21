@@ -1,165 +1,122 @@
+import { useRef, useEffect, useState } from 'react';
+import styles from './About.module.css';
 import {
-  FaHtml5, FaCss3Alt, FaBootstrap, FaJs, FaLaravel, FaPython, FaJava, FaGit, FaReact, FaNodeJs,
-  FaCuttlefish, FaSwift, FaAndroid, FaMicrosoft, FaSearch, FaRocket, FaCogs
+  FaHtml5, FaCss3Alt, FaBootstrap, FaJs, FaLaravel, FaSearch, FaPython, FaJava, FaSwift, FaGit, FaAndroid
 } from 'react-icons/fa';
-import { SiCodeigniter, SiMysql, SiTypescript, SiVite, SiNextdotjs, SiXcode } from 'react-icons/si';
+import { 
+  SiCodeigniter, SiPwa, SiMysql, SiXcode, SiTypescript, SiVite, SiNextdotjs, SiReact, SiNodedotjs,
+  SiKotlin
+} from 'react-icons/si';
+import { TbSeo } from 'react-icons/tb';
+import notepadppIcon from '../assets/notepad++.png';
+import wordIcon from '../assets/msword.svg';
+import excelIcon from '../assets/msexcel.svg';
+import pptIcon from '../assets/msppt.svg';
+import inspireIcon from '../assets/inspire.png';
+import scalerIcon from '../assets/scaler.png';
+import msqlIcon from '../assets/msql.svg';
 
-function About() {
+const categories = [
+  {
+    title: 'Web Development',
+    desc: 'A collection of frontend, backend, and optimization tools I\'ve worked with during internships and real-world web development projects.',
+    tools: [
+      { name: 'HTML5', icon: <FaHtml5 />, accent: '#e44d26' },
+      { name: 'CSS3', icon: <FaCss3Alt />, accent: '#1572b6' },
+      { name: 'Bootstrap', icon: <FaBootstrap />, accent: '#7952b3' },
+      { name: 'JavaScript', icon: <FaJs />, accent: '#f7df1e' },
+      { name: 'Laravel', icon: <FaLaravel />, accent: '#ff2d20' },
+      { name: 'CodeIgniter', icon: <SiCodeigniter />, accent: '#ee4623' },
+      { name: 'SEO', icon: <TbSeo />, accent: '#3cb371' },
+      { name: 'PWA', icon: <SiPwa />, accent: '#5a0fc8' },
+      { name: 'PSI', icon: <FaSearch />, accent: '#00bcd4' },
+      { name: 'MySQL', icon: <SiMysql />, accent: '#00758f' },
+    ],
+  },
+  {
+    title: 'Automation / Document Composition',
+    desc: 'Tools I\'ve used during my internship as an Exhibit Developer.',
+    tools: [
+      { name: 'Quadient Inspire Designer', icon: <img src={inspireIcon} alt="Quadient Inspire Designer" style={{height: '2rem'}} />, accent: '#00bcd4' },
+      { name: 'Quadient Inspire Scaler', icon: <img src={scalerIcon} alt="Quadient Inspire Scaler" style={{height: '2rem'}} />, accent: '#757575' },
+      { name: 'Microsoft SQL Server Management Studio', icon: <img src={msqlIcon} alt="Microsoft SQL Server Management Studio" style={{height: '2rem'}} />, accent: '#0078d4' },
+      { name: 'Notepad++', icon: <img src={notepadppIcon} alt="Notepad++" style={{height: '2rem'}} />, accent: '#8ec641' },
+      { name: 'Microsoft Word', icon: <img src={wordIcon} alt="Microsoft Word" style={{height: '2rem'}} />, accent: '#2b579a' },
+      { name: 'Microsoft Excel', icon: <img src={excelIcon} alt="Microsoft Excel" style={{height: '2rem'}} />, accent: '#217346' },
+      { name: 'Microsoft PowerPoint', icon: <img src={pptIcon} alt="Microsoft PowerPoint" style={{height: '2rem'}} />, accent: '#d24726' },
+    ],
+  },
+  {
+    title: 'Other Languages / Tools',
+    desc: 'Technologies I\'ve explored through academic projects and coursework during my college journey.',
+    tools: [
+      { name: 'Python', icon: <FaPython />, accent: '#3776ab' },
+      { name: 'C++', icon: <span style={{fontSize: '2rem'}}>C++</span>, accent: '#00599c' },
+      { name: 'Java', icon: <FaJava />, accent: '#007396' },
+      { name: 'Kotlin', icon: <SiKotlin style={{fontSize: '2rem'}} />, accent: '#7f52ff' },
+      { name: 'Swift', icon: <FaSwift />, accent: '#fa7343' },
+      { name: 'Git', icon: <FaGit />, accent: '#f05032' },
+      { name: 'Xcode', icon: <SiXcode />, accent: '#1575f9' },
+      { name: 'Android Studio', icon: <FaAndroid />, accent: '#3ddc84' },
+    ],
+  },
+  {
+    title: 'Trying to Learn Right Now',
+    desc: 'Technologies and frameworks I’m currently exploring to expand my skills and keep up with modern web development.',
+    tools: [
+      { name: 'React', icon: <SiReact />, accent: '#61dafb' },
+      { name: 'TypeScript', icon: <SiTypescript />, accent: '#3178c6' },
+      { name: 'Vite', icon: <SiVite />, accent: '#646cff' },
+      { name: 'Node.js', icon: <SiNodedotjs />, accent: '#3c873a' },
+      { name: 'Next.js', icon: <SiNextdotjs />, accent: '#fff' },
+    ],
+  },
+];
+
+export default function About() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div style={{ color: '#fff', paddingBottom: '2rem' }}>
-      <h2>About</h2>
-      <p>
-        I'm a passionate developer who loves building web applications and learning new technologies.
-        <br />
-        Here are some of the technologies and tools I've worked with:
-      </p>
-
-      {/* Web Development */}
-      <div style={{ marginTop: '2.5rem' }}>
-        <h3 style={{ fontWeight: 700, marginBottom: 0 }}>Web Development</h3>
-        <div style={{ color: '#aaa', marginBottom: '1.2rem', fontSize: '1rem' }}>
-          A collection of frontend, backend, and optimization tools I've worked with during internships and real-world web development projects.
-        </div>
-        <div style={{
-          display: 'flex', flexWrap: 'wrap', gap: '2.5rem 2.5rem', alignItems: 'center', marginBottom: '2rem'
-        }}>
-          <div style={{ textAlign: 'center' }}>
-            <FaHtml5 size={48} color="#e44d26" title="HTML5" />
-            <div>HTML5</div>
+    <div className={styles.aboutPage}>
+      <section className={`${styles.section} ${visible ? styles.visible : ''}`} ref={ref}>
+        <h1 className={styles.heading}>About</h1>
+        <p className={styles.bio}>
+          I'm a passionate developer who loves building web applications and learning new technologies.
+          Here are some of the technologies and tools I've worked with:
+        </p>
+        {categories.map(({ title, desc, tools }) => (
+          <div key={title} className={styles.category}>
+            <h2 className={styles.categoryTitle}>{title}</h2>
+            {desc && <p className={styles.categoryDesc}>{desc}</p>}
+            <div className={styles.grid}>
+              {tools.map(({ name, icon, accent }) => (
+                <div
+                  key={name}
+                  className={styles.toolCard}
+                  tabIndex={0}
+                  style={{ '--accent': accent } as React.CSSProperties}
+                  title={name}
+                >
+                  <span className={styles.icon}>{icon}</span>
+                  <span className={styles.tooltip}>{name}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaCss3Alt size={48} color="#1572b6" title="CSS3" />
-            <div>CSS3</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaBootstrap size={48} color="#7952b3" title="Bootstrap" />
-            <div>Bootstrap</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaJs size={48} color="#f7df1e" title="JavaScript" />
-            <div>JavaScript</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaLaravel size={48} color="#ff2d20" title="Laravel" />
-            <div>Laravel</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <SiCodeigniter size={48} color="#ee4623" title="CodeIgniter" />
-            <div>CodeIgniter</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaSearch size={48} color="#4caf50" title="SEO" />
-            <div>SEO</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaRocket size={48} color="#00bcd4" title="PWA/PageSpeed" />
-            <div>PWA/PSI</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <SiMysql size={48} color="#00758f" title="MySQL" />
-            <div>MySQL</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Automation / Document Composition */}
-      <div style={{ marginTop: '2.5rem' }}>
-        <h3 style={{ fontWeight: 700, marginBottom: 0 }}>Automation / Document Composition</h3>
-        <div style={{ color: '#aaa', marginBottom: '1.2rem', fontSize: '1rem' }}>
-          Tools I’ve used during my internship as an Exhibit Developer.
-        </div>
-        <div style={{
-          display: 'flex', flexWrap: 'wrap', gap: '2.5rem 2.5rem', alignItems: 'center', marginBottom: '2rem'
-        }}>
-          <div style={{ textAlign: 'center' }}>
-            <FaCogs size={48} color="#00bcd4" title="Quadient Inspire Designer" />
-            <div>Quadient Inspire Designer</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaCogs size={48} color="#888" title="Quadient Inspire Scaler" />
-            <div>Quadient Inspire Scaler</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaMicrosoft size={48} color="#0078d4" title="Microsoft SQL Server" />
-            <div>Microsoft SQL Server
-Management Studio</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Other Languages / Tools */}
-      <div style={{ marginTop: '2.5rem' }}>
-        <h3 style={{ fontWeight: 700, marginBottom: 0 }}>Other Languages / Tools</h3>
-        <div style={{ color: '#aaa', marginBottom: '1.2rem', fontSize: '1rem' }}>
-          Technologies I've explored through academic projects and coursework during my college journey.
-        </div>
-        <div style={{
-          display: 'flex', flexWrap: 'wrap', gap: '2.5rem 2.5rem', alignItems: 'center', marginBottom: '2rem'
-        }}>
-          <div style={{ textAlign: 'center' }}>
-            <FaPython size={48} color="#3776ab" title="Python" />
-            <div>Python</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaCuttlefish size={48} color="#00599c" title="C++" />
-            <div>C++</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaJava size={48} color="#007396" title="Java" />
-            <div>Java</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaSwift size={48} color="#fa7343" title="Swift" />
-            <div>Swift</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaGit size={48} color="#f05032" title="Git" />
-            <div>Git</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <SiXcode size={48} color="#1575f9" title="Xcode" />
-            <div>Xcode</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaAndroid size={48} color="#3ddc84" title="Android Studio" />
-            <div>Android Studio</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Trying to Learn */}
-      <div style={{ marginTop: '2.5rem' }}>
-        <h3 style={{ fontWeight: 700, marginBottom: 0 }}>Trying to Learn Right Now</h3>
-        <div style={{ color: '#aaa', marginBottom: '1.2rem', fontSize: '1rem' }}>
-          Modern web frameworks and tools I'm currently exploring.
-        </div>
-        <div style={{
-          display: 'flex', flexWrap: 'wrap', gap: '2.5rem 2.5rem', alignItems: 'center', marginBottom: '2rem'
-        }}>
-          <div style={{ textAlign: 'center' }}>
-            <FaReact size={48} color="#61dafb" title="React" />
-            <div>React</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <SiTypescript size={48} color="#3178c6" title="TypeScript" />
-            <div>TypeScript</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <SiVite size={48} color="#646cff" title="Vite" />
-            <div>Vite</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <FaNodeJs size={48} color="#3c873a" title="Node.js" />
-            <div>Node.js</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <SiNextdotjs size={48} color="#fff" title="Next.js" />
-            <div>Next.js</div>
-          </div>
-        </div>
-      </div>
+        ))}
+      </section>
     </div>
   );
 }
-
-export default About;

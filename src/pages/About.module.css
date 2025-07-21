@@ -1,0 +1,156 @@
+.aboutPage {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding: 0 0 4rem 0;
+}
+
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem 1rem 1rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: -1px;
+}
+
+.bio {
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  color: #e5e5e5;
+}
+
+.category {
+  margin-bottom: 2.5rem;
+}
+
+.categoryTitle {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.categoryDesc {
+  font-size: 1rem;
+  color: #bdbdbd;
+  margin-bottom: 1.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1.1rem 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.toolCard {
+  background: #23232b;
+  border-radius: 0.85rem;
+  padding: 1.2rem 0.5rem 0.7rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+  transition: 
+    background 0.25s,
+    transform 0.22s cubic-bezier(.4,0,.2,1),
+    box-shadow 0.22s cubic-bezier(.4,0,.2,1);
+  outline: none;
+}
+
+.toolCard:hover,
+.toolCard:focus {
+  background: #28293d;
+  transform: scale(1.07) translateY(-4px);
+  box-shadow: 0 6px 24px 0 rgba(0,0,0,0.18);
+}
+
+.icon {
+  font-size: 2.2rem;
+  color: var(--accent, #fff);
+  margin-bottom: 0.5rem;
+  transition: color 0.22s cubic-bezier(.4,0,.2,1);
+}
+
+.toolCard:hover .icon,
+.toolCard:focus .icon {
+  color: #fff;
+  filter: drop-shadow(0 0 8px var(--accent, #fff));
+}
+
+.tooltip {
+  font-size: 0.98rem;
+  color: #e5e5e5;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  bottom: 0.7rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #23232b;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.13);
+  transition: opacity 0.18s, transform 0.18s;
+  z-index: 10;
+}
+
+.toolCard:hover .tooltip,
+.toolCard:focus .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.tooltipBelow {
+  font-size: 0.98rem;
+  color: #e5e5e5;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 120%;
+  transform: translateX(-50%) translateY(10px);
+  background: #23232b;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.13);
+  transition: opacity 0.18s, transform 0.18s;
+  z-index: 10;
+}
+
+.toolCard:hover .tooltipBelow,
+.toolCard:focus .tooltipBelow {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 2rem 0.2rem 1rem 0.2rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.7rem 0.7rem;
+  }
+  .toolCard {
+    padding: 1rem 0.2rem 0.6rem 0.2rem;
+  }
+}
