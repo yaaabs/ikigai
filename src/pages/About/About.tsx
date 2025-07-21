@@ -8,13 +8,13 @@ import {
   SiKotlin
 } from 'react-icons/si';
 import { TbSeo } from 'react-icons/tb';
-import notepadppIcon from '../assets/notepad++.png';
-import wordIcon from '../assets/msword.svg';
-import excelIcon from '../assets/msexcel.svg';
-import pptIcon from '../assets/msppt.svg';
-import inspireIcon from '../assets/inspire.png';
-import scalerIcon from '../assets/scaler.png';
-import msqlIcon from '../assets/msql.svg';
+import notepadppIcon from '../../assets/notepad++.png';
+import wordIcon from '../../assets/msword.svg';
+import excelIcon from '../../assets/msexcel.svg';
+import pptIcon from '../../assets/msppt.svg';
+import inspireIcon from '../../assets/inspire.png';
+import scalerIcon from '../../assets/scaler.png';
+import msqlIcon from '../../assets/msql.svg';
 
 const categories = [
   {
