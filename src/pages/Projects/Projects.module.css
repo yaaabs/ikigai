@@ -358,6 +358,29 @@
   gap: 0.7rem;
 }
 
+.actionBtnLinkedin {
+  background: #0077b5 !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px 0 rgba(0,119,181,0.13);
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.actionBtnLinkedin:hover,
+.actionBtnLinkedin:focus {
+  background: #005582 !important;
+  color: #fff !important;
+  transform: scale(1.06);
+}
+
 .githubBtn {
   display: flex;
   align-items: center;

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { FaInfoCircle } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import styles from './Projects.module.css';
 
 const projects = [
@@ -17,8 +18,8 @@ const projects = [
 			'SEO',
 			'PageSpeed Insights',
 		],
-		image: '/src/assets/customodoro1.jpg',
-		images: ['/src/assets/customodoro2.jpg', '/src/assets/customodoro3.jpg'],
+		image: '/src/assets/customodoro2.png',
+		images: ['/src/assets/classic.png', '/src/assets/reverse.png', '/src/assets/customodoro1.png', '/src/assets/customodoro4.jpg'],
 		github: 'https://github.com/yaaabs/customodoro',
 		demo: 'https://customodoro.vercel.app',
 		tags: [
@@ -45,8 +46,8 @@ const projects = [
 			'Responsive Web Design',
 			'NFC',
 		],
-		image: '/src/assets/customodoro1.jpg',
-		images: ['/src/assets/customodoro2.jpg', '/src/assets/customodoro3.jpg'],
+		image: '/src/assets/transitease.png',
+		images: ['/src/assets/transitease1.jpg', '/src/assets/transitease2.jpg', '/src/assets/transitease3.jpg'],
 		github: 'https://github.com/yaaabs/transitease',
 		demo: 'https://transitease.tech',
 		tags: [
@@ -60,7 +61,7 @@ const projects = [
 			'NFC',
 		],
 		fullDesc:
-			'TransitEase is a web and mobile application for online ticketing, monitoring, and management system. It was designed to innovate the commuting experience for users and optimize business operations for LRT-1. TransitEase integrates NFC payment to help lessen crowd congestion. The added feature of the system also incorporates monitoring the crowd status in the station. Capstone thesis project.',
+			'TransitEase is our capstone thesis project — a web and mobile application for online ticketing, monitoring, and management system. It was designed to innovate the commuting experience for users and optimize business operations for LRT-1. TransitEase integrates NFC payment to help lessen crowd congestion. The added feature of the system also incorporates monitoring the crowd status in the station.',
 	},
 	{
 		title: 'Associates Portal - HRIS',
@@ -78,8 +79,8 @@ const projects = [
 			'HTML',
 			'CSS',
 		],
-		image: '/src/assets/customodoro1.jpg',
-		images: ['/src/assets/customodoro2.jpg', '/src/assets/customodoro3.jpg'],
+		image: '/src/assets/assoc.jpg',
+		images: ['/src/assets/assoc.png', '/src/assets/assoc2.png', '/src/assets/assoc1.png'],
 		github: '', 
 		demo: '', 
 		tags: [
@@ -105,8 +106,8 @@ const projects = [
 			'Bootstrap',
       'CSS',
 		],
-		image: '/src/assets/customodoro1.jpg',
-		images: ['/src/assets/customodoro2.jpg', '/src/assets/customodoro3.jpg'],
+		image: '/src/assets/fitcpr.png',
+		images: ['/src/assets/fitcpr2.png', '/src/assets/fitcpr1.png'],
 		github: '', 
 		demo: '', 
 		tags: [
@@ -128,8 +129,8 @@ const projects = [
 			'CSS3',
 			'PWA'
 		],
-		image: '/src/assets/customodoro1.jpg',
-		images: ['/src/assets/customodoro2.jpg', '/src/assets/customodoro3.jpg'],
+		image: '/src/assets/wakeywakey1.png',
+		images: ['/src/assets/wakeywakey.png', '/src/assets/wakeywakey1.png', '/src/assets/wakeywakey2.png'],
 		github: 'https://github.com/yaaabs/wakey-wakey',
 		demo: 'https://wakey2x.vercel.app/',
 		tags: [
@@ -172,7 +173,9 @@ function useModal(open: boolean, onClose: () => void) {
 export default function Projects() {
 	const [selected, setSelected] = useState<number | null>(null);
 	const [filter, setFilter] = useState<string>('All');
+	const [imgModal, setImgModal] = useState<{projectIdx: number, imgIdx: number} | null>(null); // image modal state
 	const modalRef = useModal(selected !== null, () => setSelected(null));
+	const imgModalRef = useModal(imgModal !== null, () => setImgModal(null));
 	const majorTags = ['Laravel', 'JavaScript', 'PWA', 'Kotlin', 'CodeIgniter'];
 
 	const filteredProjects =
@@ -356,6 +359,8 @@ export default function Projects() {
 												projects[selected].title
 											} screenshot ${i + 1}`}
 											className={styles.sliderImg}
+											style={{ cursor: 'pointer' }}
+											onClick={() => setImgModal({projectIdx: selected, imgIdx: i})}
 										/>
 									))}
 								</div>
@@ -378,6 +383,18 @@ export default function Projects() {
 									GitHub
 								</span>
 							)}
+							{/* LinkedIn button only for Customodoro Timer */}
+							{projects[selected].title === 'Customodoro Timer' && (
+								<a
+									href="https://www.linkedin.com/company/customodoro/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.actionBtnLinkedin + ' ' + styles.linkedinBtn}
+								>
+									<span className={styles.linkedinIcon}><FaLinkedin /></span>
+									LinkedIn
+								</a>
+							)}
 							{projects[selected].demo ? (
 								<a
 									href={projects[selected].demo}
@@ -394,6 +411,171 @@ export default function Projects() {
 									Live Demo
 								</span>
 							)}
+						</div>
+					</div>
+				</div>
+			)}
+			{/* Image Modal */}
+			{imgModal !== null && (
+				<div className={styles.modalBackdrop} style={{ zIndex: 9999 }}>
+					<div
+						ref={imgModalRef}
+						style={{
+							background: '#222',
+							padding: '1.5rem',
+							borderRadius: '1rem',
+							maxWidth: '90vw',
+							maxHeight: '90vh',
+							margin: 'auto',
+							position: 'relative',
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'center',
+							boxShadow: '0 2px 24px rgba(0,0,0,0.7)'
+						}}
+						role="dialog"
+						aria-modal="true"
+						tabIndex={-1}
+					>
+						<button
+							onClick={() => setImgModal(null)}
+							style={{
+								position: 'absolute',
+								top: 12,
+								right: 18,
+								background: 'none',
+								border: 'none',
+								fontSize: '2rem',
+								color: '#fff',
+								cursor: 'pointer'
+							}}
+							aria-label="Close"
+						>
+							&times;
+						</button>
+						{/* FB-style Previous Button */}
+						{projects[imgModal.projectIdx].images.length > 1 && (
+							<button
+								onClick={() =>
+									setImgModal(modal => ({
+										projectIdx: modal!.projectIdx,
+										imgIdx:
+											(modal!.imgIdx - 1 + projects[modal!.projectIdx].images.length) %
+											projects[modal!.projectIdx].images.length
+									}))
+								}
+								style={{
+									position: 'absolute',
+									left: 18,
+									top: '50%',
+									transform: 'translateY(-50%)',
+									background: 'linear-gradient(135deg, #232526 0%, #414345 100%)',
+									border: 'none',
+									width: '40px',
+									height: '40px',
+									borderRadius: '50%',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
+									cursor: 'pointer',
+									transition: 'background 0.2s, box-shadow 0.2s',
+									zIndex: 2,
+									outline: 'none',
+									padding: 0
+								}}
+								onMouseOver={e => {
+									e.currentTarget.style.background = 'linear-gradient(135deg, #232526 0%, #666 100%)';
+									e.currentTarget.style.boxShadow = '0 6px 24px rgba(0,0,0,0.35)';
+								}}
+								onMouseOut={e => {
+									e.currentTarget.style.background = 'linear-gradient(135deg, #232526 0%, #414345 100%)';
+									e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.25)';
+								}}
+								aria-label="Previous image"
+							>
+								<span style={{
+									color: '#fff',
+									fontSize: '1.8rem',
+									fontWeight: 700,
+									lineHeight: '40px',
+									width: '40px',
+									height: '40px',
+									textAlign: 'center',
+									display: 'inline-block',
+									userSelect: 'none',
+									fontFamily: 'inherit',
+									verticalAlign: 'middle'
+								}}>&lt;</span>
+							</button>
+						)}
+						<img
+							src={projects[imgModal.projectIdx].images[imgModal.imgIdx]}
+							alt={`${projects[imgModal.projectIdx].title} screenshot ${imgModal.imgIdx + 1}`}
+							style={{
+								maxWidth: '80vw',
+								maxHeight: '70vh',
+								borderRadius: '0.7rem',
+								boxShadow: '0 2px 16px rgba(0,0,0,0.5)'
+							}}
+						/>
+						{/* FB-style Next Button */}
+						{projects[imgModal.projectIdx].images.length > 1 && (
+							<button
+								onClick={() =>
+									setImgModal(modal => ({
+										projectIdx: modal!.projectIdx,
+										imgIdx:
+											(modal!.imgIdx + 1) % projects[modal!.projectIdx].images.length
+									}))
+								}
+								style={{
+									position: 'absolute',
+									right: 18,
+									top: '50%',
+									transform: 'translateY(-50%)',
+									background: 'linear-gradient(135deg, #232526 0%, #414345 100%)',
+									border: 'none',
+									width: '40px',
+									height: '40px',
+									borderRadius: '50%',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
+									cursor: 'pointer',
+									transition: 'background 0.2s, box-shadow 0.2s',
+									zIndex: 2,
+									outline: 'none',
+									padding: 0
+								}}
+								onMouseOver={e => {
+									e.currentTarget.style.background = 'linear-gradient(135deg, #232526 0%, #666 100%)';
+									e.currentTarget.style.boxShadow = '0 6px 24px rgba(0,0,0,0.35)';
+								}}
+								onMouseOut={e => {
+									e.currentTarget.style.background = 'linear-gradient(135deg, #232526 0%, #414345 100%)';
+									e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.25)';
+								}}
+								aria-label="Next image"
+							>
+								<span style={{
+									color: '#fff',
+									fontSize: '1.8rem',
+									fontWeight: 700,
+									lineHeight: '40px',
+									width: '40px',
+									height: '40px',
+									textAlign: 'center',
+									display: 'inline-block',
+									userSelect: 'none',
+									fontFamily: 'inherit',
+									verticalAlign: 'middle'
+								}}>&gt;</span>
+							</button>
+						)}
+						<div style={{ color: '#fff', marginTop: '0.7rem', fontSize: '1rem' }}>
+							{projects[imgModal.projectIdx].title} — Preview {imgModal.imgIdx + 1} / {projects[imgModal.projectIdx].images.length}
 						</div>
 					</div>
 				</div>

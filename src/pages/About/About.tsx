@@ -87,6 +87,7 @@ const categories = [
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [animMode, setAnimMode] = useState<'none' | 'breathing' | 'wave'>('breathing');
 
   useEffect(() => {
     const el = ref.current;
@@ -99,6 +100,12 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
 
+  const modeOptions = [
+    { key: 'none', label: '🚫 No Animation' },
+    { key: 'breathing', label: '🌬️ Breathing' },
+    { key: 'wave', label: '🌊 Wave' }
+  ];
+
   return (
     <div className={styles.aboutPage}>
       <section className={`${styles.section} ${visible ? styles.visible : ''}`} ref={ref}>
@@ -107,12 +114,54 @@ export default function About() {
           I'm a passionate developer who loves building web applications and learning new technologies.
           Here are some of the technologies and tools I've worked with:
         </p>
+        {/* Mode Switcher Button/Segmented Control - placed above Web Development */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '0.7rem',
+          marginBottom: '1.7rem'
+        }}>
+          {modeOptions.map(opt => (
+            <button
+              key={opt.key}
+              type="button"
+              onClick={() => setAnimMode(opt.key as any)}
+              aria-pressed={animMode === opt.key}
+              style={{
+                padding: '0.45rem 1.1rem',
+                borderRadius: '1.2rem',
+                border: animMode === opt.key ? '2px solid #69f0ae' : '2px solid #23232b',
+                background: animMode === opt.key ? '#23232b' : '#181820',
+                color: animMode === opt.key ? '#fff' : '#bdbdbd',
+                fontWeight: 600,
+                fontSize: '1rem',
+                cursor: 'pointer',
+                outline: animMode === opt.key ? '2px solid #69f0ae' : 'none',
+                transition: 'all 0.18s'
+              }}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+        {/* Technologies and Tools categories */}
         {categories.map(({ title, desc, tools }) => (
           <div key={title} className={styles.category}>
             <h2 className={styles.categoryTitle}>{title}</h2>
             {desc && <p className={styles.categoryDesc}>{desc}</p>}
-            <div className={styles.grid}>
-              {tools.map(({ name, icon, accent }) => (
+            <div
+              className={
+                styles.grid +
+                ' ' +
+                (animMode === 'none'
+                  ? styles.noAnimMode
+                  : animMode === 'wave'
+                  ? styles.waveMode
+                  : styles.breathingMode)
+              }
+            >
+              {tools.map(({ name, icon, accent }, idx) => (
                 <div
                   key={name}
                   className={styles.toolCard}
@@ -120,7 +169,16 @@ export default function About() {
                   style={{ '--accent': accent } as React.CSSProperties}
                   title={name}
                 >
-                  <span className={styles.icon}>{icon}</span>
+                  <span
+                    className={styles.icon}
+                    style={
+                      animMode === 'wave'
+                        ? { animationDelay: `${idx * 0.18}s` }
+                        : undefined
+                    }
+                  >
+                    {icon}
+                  </span>
                   <span className={styles.tooltip}>{name}</span>
                 </div>
               ))}
