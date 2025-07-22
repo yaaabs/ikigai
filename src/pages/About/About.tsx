@@ -5,7 +5,7 @@ import {
 } from 'react-icons/fa';
 import { 
   SiCodeigniter, SiPwa, SiMysql, SiXcode, SiTypescript, SiVite, SiNextdotjs, SiReact, SiNodedotjs,
-  SiKotlin, SiFigma, SiAdobephotoshop, SiVercel, SiSupabase, SiFirebase
+  SiKotlin, SiFigma, SiAdobephotoshop, SiVercel, SiSupabase, SiFirebase, SiNotion
 } from 'react-icons/si';
 import { TbSeo } from 'react-icons/tb';
 import notepadppIcon from '../../assets/notepad++.png';
@@ -15,8 +15,8 @@ import pptIcon from '../../assets/msppt.svg';
 import inspireIcon from '../../assets/inspire.png';
 import scalerIcon from '../../assets/scaler.png';
 import msqlIcon from '../../assets/msql.svg';
-import canvaIcon from '../../assets/canva.png'; // If you have a Canva icon image
-import navicatIcon from '../../assets/navicat.png'; // Add this line if you have a Navicat icon image
+import canvaIcon from '../../assets/canva.png'; 
+import navicatIcon from '../../assets/navicat.png'; 
 
 const categories = [
   {
@@ -33,7 +33,7 @@ const categories = [
       { name: 'PWA', icon: <SiPwa />, accent: '#5a0fc8' },
       { name: 'PSI', icon: <FaSearch />, accent: '#00bcd4' },
       { name: 'MySQL', icon: <SiMysql />, accent: '#00758f' },
-      { name: 'Navicat for MySQL', icon: <img src={navicatIcon} alt="Navicat for MySQL" style={{height: '2rem'}} />, accent: '#4fa463' }, // or use <span style={{fontSize:'2rem'}}>Navicat</span> if no image
+      { name: 'Navicat for MySQL', icon: <img src={navicatIcon} alt="Navicat for MySQL" style={{height: '2rem'}} />, accent: '#4fa463' }, 
     ],
   },
   {
@@ -63,7 +63,8 @@ const categories = [
       { name: 'Vercel', icon: <SiVercel />, accent: '#fff' },
       { name: 'Figma', icon: <SiFigma />, accent: '#a259ff' },
       { name: 'Adobe Photoshop', icon: <SiAdobephotoshop />, accent: '#31a8ff' },
-      { name: 'Canva', icon: <img src={canvaIcon} alt="Canva" style={{height: '2rem'}} />, accent: '#00c4cc' }, // or use <span style={{fontSize:'2rem'}}>Canva</span> if no image
+      { name: 'Canva', icon: <img src={canvaIcon} alt="Canva" style={{height: '2rem'}} />, accent: '#00c4cc' }, 
+      { name: 'Notion', icon: <SiNotion />, accent: '#fff' },
       { name: 'Xcode', icon: <SiXcode />, accent: '#1575f9' },
       { name: 'Android Studio', icon: <FaAndroid />, accent: '#3ddc84' },
     ],
