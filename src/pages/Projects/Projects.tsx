@@ -297,41 +297,41 @@ export default function Projects() {
 							&times;
 						</button>
 						<h2 className={styles.modalTitle}>
-							{projects[selected].title}
+							{filteredProjects[selected].title}
 						</h2>
 						<p
 							className={styles.modalDesc}
 							dangerouslySetInnerHTML={{
 								__html:
-									selected !== null && projects[selected].title === 'Customodoro Timer'
-										? projects[selected].fullDesc.replace(
+									filteredProjects[selected].title === 'Customodoro Timer'
+										? filteredProjects[selected].fullDesc.replace(
 											'Co-Founder & Lead Developer',
 											'<strong>Co-Founder &amp; Lead Developer</strong>'
 										)
-									: selected !== null && projects[selected].title === 'TransitEase'
-										? projects[selected].fullDesc.replace(
+									: filteredProjects[selected].title === 'TransitEase'
+										? filteredProjects[selected].fullDesc.replace(
 											'Researcher & Full-Stack Web Developer',
 											'<strong>Researcher &amp; Full-Stack Web Developer</strong>'
 										)
-									: selected !== null && projects[selected].title === 'Associates Portal - HRIS'
-										? projects[selected].fullDesc.replace(
+									: filteredProjects[selected].title === 'Associates Portal - HRIS'
+										? filteredProjects[selected].fullDesc.replace(
 											'Junior Systems Developer',
 											'<strong>Junior Systems Developer</strong>'
 										)
-									: selected !== null && projects[selected].title === 'FEU Tech Capstone Project Repository'
-										? projects[selected].fullDesc.replace(
+									: filteredProjects[selected].title === 'FEU Tech Capstone Project Repository'
+										? filteredProjects[selected].fullDesc.replace(
 											'Full-Stack Developer',
 											'<strong>Full-Stack Developer</strong>'
 										)
-									: selected !== null && projects[selected].title === 'Wakey Wakey'
-										? projects[selected].fullDesc.replace(
+									: filteredProjects[selected].title === 'Wakey Wakey'
+										? filteredProjects[selected].fullDesc.replace(
 											'Developer & Designer',
 											'<strong>Developer &amp; Designer</strong>'
 										)
-									: selected !== null && projects[selected].fullDesc
+									: filteredProjects[selected].fullDesc
 							}}
 						/>
-						{selected !== null && projects[selected].title === 'FEU Tech Capstone Project Repository' && (
+						{filteredProjects[selected].title === 'FEU Tech Capstone Project Repository' && (
 							<div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', margin: '1.1rem 0 0.7rem 0', color: '#ffb74d', fontSize: '1.08rem' }}>
 								<FaInfoCircle style={{ fontSize: '1.2em', verticalAlign: 'middle' }} />
 								<span>
@@ -341,23 +341,21 @@ export default function Projects() {
 						)}
 						<div style={{ height: '1.2rem' }} /> {/* Safe vertical space, similar to <br> but for spacing */}
 						<div className={styles.modalTechList}>
-							{projects[selected].tech.map(t => (
+							{filteredProjects[selected].tech.map(t => (
 								<span key={t} className={styles.tech}>
 									{t}
 								</span>
 							))}
 						</div>
 						<div style={{ height: '1.2rem' }} /> {/* Spacer between tech stack and screenshots */}
-						{projects[selected].images &&
-							projects[selected].images.length > 0 && (
+						{filteredProjects[selected].images &&
+							filteredProjects[selected].images.length > 0 && (
 								<div className={styles.slider}>
-									{projects[selected].images.map((img, i) => (
+									{filteredProjects[selected].images.map((img, i) => (
 										<img
 											key={img}
 											src={img}
-											alt={`${
-												projects[selected].title
-											} screenshot ${i + 1}`}
+											alt={`${filteredProjects[selected].title} screenshot ${i + 1}`}
 											className={styles.sliderImg}
 											style={{ cursor: 'pointer' }}
 											onClick={() => setImgModal({projectIdx: selected, imgIdx: i})}
@@ -367,9 +365,9 @@ export default function Projects() {
 							)}
 						<div style={{ height: '1.2rem' }} /> {/* Spacer before buttons */}
 						<div className={styles.modalActions}>
-							{projects[selected].github ? (
+							{filteredProjects[selected].github ? (
 								<a
-									href={projects[selected].github}
+									href={filteredProjects[selected].github}
 									target="_blank"
 									rel="noopener noreferrer"
 									className={styles.actionBtnRed + ' ' + styles.githubBtn}
@@ -384,7 +382,7 @@ export default function Projects() {
 								</span>
 							)}
 							{/* LinkedIn button only for Customodoro Timer */}
-							{projects[selected].title === 'Customodoro Timer' && (
+							{filteredProjects[selected].title === 'Customodoro Timer' && (
 								<a
 									href="https://www.linkedin.com/company/customodoro/"
 									target="_blank"
@@ -395,9 +393,9 @@ export default function Projects() {
 									LinkedIn
 								</a>
 							)}
-							{projects[selected].demo ? (
+							{filteredProjects[selected].demo ? (
 								<a
-									href={projects[selected].demo}
+									href={filteredProjects[selected].demo}
 									target="_blank"
 									rel="noopener noreferrer"
 									className={styles.actionBtnRed + ' ' + styles.demoBtn}
@@ -454,14 +452,14 @@ export default function Projects() {
 							&times;
 						</button>
 						{/* FB-style Previous Button */}
-						{projects[imgModal.projectIdx].images.length > 1 && (
+						{filteredProjects[imgModal.projectIdx].images.length > 1 && (
 							<button
 								onClick={() =>
 									setImgModal(modal => ({
 										projectIdx: modal!.projectIdx,
 										imgIdx:
-											(modal!.imgIdx - 1 + projects[modal!.projectIdx].images.length) %
-											projects[modal!.projectIdx].images.length
+											(modal!.imgIdx - 1 + filteredProjects[modal!.projectIdx].images.length) %
+											filteredProjects[modal!.projectIdx].images.length
 									}))
 								}
 								style={{
@@ -510,8 +508,8 @@ export default function Projects() {
 							</button>
 						)}
 						<img
-							src={projects[imgModal.projectIdx].images[imgModal.imgIdx]}
-							alt={`${projects[imgModal.projectIdx].title} screenshot ${imgModal.imgIdx + 1}`}
+							src={filteredProjects[imgModal.projectIdx].images[imgModal.imgIdx]}
+							alt={`${filteredProjects[imgModal.projectIdx].title} screenshot ${imgModal.imgIdx + 1}`}
 							style={{
 								maxWidth: '80vw',
 								maxHeight: '70vh',
@@ -520,13 +518,13 @@ export default function Projects() {
 							}}
 						/>
 						{/* FB-style Next Button */}
-						{projects[imgModal.projectIdx].images.length > 1 && (
+						{filteredProjects[imgModal.projectIdx].images.length > 1 && (
 							<button
 								onClick={() =>
 									setImgModal(modal => ({
 										projectIdx: modal!.projectIdx,
 										imgIdx:
-											(modal!.imgIdx + 1) % projects[modal!.projectIdx].images.length
+											(modal!.imgIdx + 1) % filteredProjects[modal!.projectIdx].images.length
 									}))
 								}
 								style={{
@@ -575,7 +573,7 @@ export default function Projects() {
 							</button>
 						)}
 						<div style={{ color: '#fff', marginTop: '0.7rem', fontSize: '1rem' }}>
-							{projects[imgModal.projectIdx].title} — Preview {imgModal.imgIdx + 1} / {projects[imgModal.projectIdx].images.length}
+							{filteredProjects[imgModal.projectIdx].title} — Preview {imgModal.imgIdx + 1} / {filteredProjects[imgModal.projectIdx].images.length}
 						</div>
 					</div>
 				</div>
