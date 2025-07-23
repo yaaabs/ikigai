@@ -2,13 +2,13 @@
   background: #000;
   color: #fff;
   min-height: 100vh;
-  padding: 0 0 4rem 0;
+  padding: 0 0 1rem 0; /* Reduced from 4rem to 1rem */
 }
 
 .section {
   max-width: 900px;
   margin: 0 auto;
-  padding: 3rem 1rem 1rem 1rem;
+  padding: 3rem 1rem 2rem 1rem; /* Reduced bottom padding from 1rem to 2rem */
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
@@ -33,7 +33,11 @@
 }
 
 .category {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.8rem; /* Reduced from 2.5rem to 1.8rem */
+}
+
+.category:last-child {
+  margin-bottom: 0.5rem; /* Even smaller margin for the last category */
 }
 
 .categoryTitle {
@@ -53,7 +57,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 1.1rem 1.1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Reduced from 1.5rem to 1rem */
 }
 
 .toolCard {

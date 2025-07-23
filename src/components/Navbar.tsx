@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import logo from '../assets/YABUTEK.png';
-import { FaHome, FaUser, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
 import yabutechIcon from '../assets/yabutech.png';
 import jsIcon from '../assets/js.png';
 import customodoroIcon from '../assets/customodoro.png';
@@ -12,6 +11,14 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeHash, setActiveHash] = useState(window.location.hash || '#home');
   const navRef = useRef<HTMLDivElement>(null);
+  const isManualClick = useRef(false);
+
+  const navLinks = [
+    { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#contact', label: 'Contact' },
+  ];
 
   // Change navbar color on scroll
   useEffect(() => {
@@ -41,8 +48,15 @@ function Navbar() {
         const el = document.querySelector(target.hash);
         if (el) {
           e.preventDefault();
+          isManualClick.current = true;
+          setActiveHash(target.hash);
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           setMenuOpen(false);
+          
+          // Reset manual click flag after scroll animation
+          setTimeout(() => {
+            isManualClick.current = false;
+          }, 1000);
         }
       }
     };
@@ -51,24 +65,73 @@ function Navbar() {
     return () => nav?.removeEventListener('click', handleAnchorClick);
   }, []);
 
-  // Track active link based on hash
+  // Track active link based on hash change
   useEffect(() => {
     const onHashChange = () => {
-      // Default to #home if hash is empty or not matching any navLinks
       const hash = window.location.hash || '#home';
       const validHashes = navLinks.map(l => l.href);
-      setActiveHash(validHashes.includes(hash) ? hash : '#home');
+      if (validHashes.includes(hash)) {
+        setActiveHash(hash);
+      }
     };
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
-  ];
+  // IntersectionObserver for scroll syncing
+  useEffect(() => {
+    const sectionIds = navLinks.map(link => link.href.replace('#', ''));
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Don't update if user just clicked a nav link
+        if (isManualClick.current) return;
+
+        // Find the section that's most visible
+        const visibleSections = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => {
+            // Sort by how much of the section is visible (intersection ratio)
+            // and prioritize sections that are closer to the top
+            const aTop = a.boundingClientRect.top;
+            const bTop = b.boundingClientRect.top;
+            
+            // If both sections are in view, prioritize the one closer to the top
+            if (a.intersectionRatio > 0.1 && b.intersectionRatio > 0.1) {
+              return Math.abs(aTop) - Math.abs(bTop);
+            }
+            
+            // Otherwise, prioritize by intersection ratio
+            return b.intersectionRatio - a.intersectionRatio;
+          });
+
+        if (visibleSections.length > 0) {
+          const activeSection = `#${visibleSections[0].target.id}`;
+          if (activeSection !== activeHash) {
+            setActiveHash(activeSection);
+            // Update URL hash without triggering scroll
+            window.history.replaceState(null, '', activeSection);
+          }
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px', // Start detecting when section is 20% from top
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0]
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, [activeHash]);
 
   return (
     <nav
