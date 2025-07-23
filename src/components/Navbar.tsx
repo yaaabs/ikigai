@@ -4,6 +4,7 @@ import logo from '../assets/YABUTEK.png';
 import yabutechIcon from '../assets/yabutech.png';
 import jsIcon from '../assets/js.png';
 import customodoroIcon from '../assets/customodoro.png';
+import freeCodeCampIcon from '../assets/fcc.png';
 import linkedinIcon from '../assets/linkedin.png';
 
 function Navbar() {
@@ -17,6 +18,7 @@ function Navbar() {
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#projects', label: 'Projects' },
+    { href: '#achievements', label: 'Achievements' }, // <-- Add Achievements
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -174,7 +176,6 @@ function Navbar() {
                 aria-current={activeHash === link.href ? 'page' : undefined}
                 style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               >
-                {/* Only show label on desktop */}
                 <span className={styles.linkLabel}>{link.label}</span>
               </a>
             </li>
@@ -199,7 +200,6 @@ function Navbar() {
                   style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                   onClick={() => setMenuOpen(false)}
                 >
-                  {/* Show custom icon and label on mobile */}
                   <span
                     className={`${styles.linkIcon} ${activeHash === link.href ? styles.iconActive : styles.iconInactive}`}
                     aria-hidden="true"
@@ -207,7 +207,8 @@ function Navbar() {
                     {idx === 0 && <img src={yabutechIcon} alt="Home" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
                     {idx === 1 && <img src={jsIcon} alt="About" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
                     {idx === 2 && <img src={customodoroIcon} alt="Projects" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
-                    {idx === 3 && <img src={linkedinIcon} alt="Contact" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
+                    {idx === 3 && <img src={freeCodeCampIcon} alt="Achievements" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />} 
+                    {idx === 4 && <img src={linkedinIcon} alt="Contact" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
                   </span>
                   <span className={styles.linkLabel}>{link.label}</span>
                 </a>
