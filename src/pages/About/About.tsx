@@ -104,7 +104,7 @@ export default function About() {
   const modeOptions = [
     { key: 'none', label: '🚫 No Animation' },
     { key: 'breathing', label: '🌬️ Breathing' },
-    { key: 'wave', label: '🌊 Wave' }
+    { key: 'wave', label: '🌊 Great Wave' }
   ];
 
   return (
