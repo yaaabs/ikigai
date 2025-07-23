@@ -2,6 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import logo from '../assets/YABUTEK.png';
 import { FaHome, FaUser, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
+import yabutechIcon from '../assets/yabutech.png';
+import jsIcon from '../assets/js.png';
+import customodoroIcon from '../assets/customodoro.png';
+import linkedinIcon from '../assets/linkedin.png';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,10 +64,10 @@ function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: '#home', label: 'Home', icon: <FaHome /> },
-    { href: '#about', label: 'About', icon: <FaUser /> },
-    { href: '#projects', label: 'Projects', icon: <FaFolderOpen /> },
-    { href: '#contact', label: 'Contact', icon: <FaEnvelope /> },
+    { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   return (
@@ -121,7 +125,7 @@ function Navbar() {
             role="menu"
             aria-modal="true"
           >
-            {navLinks.map((link) => (
+            {navLinks.map((link, idx) => (
               <li key={link.href} role="none">
                 <a
                   href={link.href}
@@ -132,12 +136,15 @@ function Navbar() {
                   style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                   onClick={() => setMenuOpen(false)}
                 >
-                  {/* Show icon and label on mobile */}
+                  {/* Show custom icon and label on mobile */}
                   <span
                     className={`${styles.linkIcon} ${activeHash === link.href ? styles.iconActive : styles.iconInactive}`}
                     aria-hidden="true"
                   >
-                    {link.icon}
+                    {idx === 0 && <img src={yabutechIcon} alt="Home" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
+                    {idx === 1 && <img src={jsIcon} alt="About" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
+                    {idx === 2 && <img src={customodoroIcon} alt="Projects" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
+                    {idx === 3 && <img src={linkedinIcon} alt="Contact" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />}
                   </span>
                   <span className={styles.linkLabel}>{link.label}</span>
                 </a>
