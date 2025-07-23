@@ -23,9 +23,9 @@
 
 .card {
   background: rgba(24,24,31,0.85);
+  border: 2.5px solid #D80024;
+  box-shadow: 0 0 0 3px #23232b, 0 2px 16px 0 rgba(216,0,36,0.13);
   border-radius: 1.3rem;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(216,0,36,0.08);
-  backdrop-filter: blur(8px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,8 @@
   min-width: 0;
   position: relative;
   animation: fadeCardIn 0.7s cubic-bezier(.4,0,.2,1) both;
+  height: 100%; /* Ensure card fills grid cell */
+  justify-content: flex-start;
 }
 
 @keyframes fadeCardIn {
@@ -108,6 +110,13 @@
   color: #fff;
   text-align: center;
   letter-spacing: -0.5px;
+  min-height: 2.7em; /* Reserve space for 2 lines */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .date {
@@ -116,15 +125,21 @@
   margin-bottom: 0.7rem;
 }
 
+.card > .date {
+  margin-bottom: 0.7rem;
+}
+
 .buttonRow {
   display: flex;
   gap: 0.7rem;
   justify-content: center;
-  margin-top: 0.7rem;
+  margin-top: auto; /* Push buttons to bottom */
   flex-wrap: wrap;
-  /* breathing space handled inline in TSX */
+  width: 100%;
+  padding-bottom: 1rem;
 }
 
+/* breathing space handled inline in TSX */
 .pdfBtn,
 .credentialBtn,
 .credentialBtnOutline {
@@ -228,7 +243,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 1.2rem;
   margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .pdfTitle {
@@ -236,6 +255,13 @@
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.5px;
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 3rem; /* Reserve space for close button */
 }
 
 .pdfClose {
@@ -252,11 +278,16 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  flex-shrink: 0;
+  margin-left: -2.5rem; /* Pull close button into reserved space */
+  position: absolute;
+  right: 0.7rem;
+  top: 60%;
+  transform: translateY(-60%);
 }
 
 .pdfClose:hover {
   color: #D80024;
-  background: #23232b;
 }
 
 .pdfFrame {
@@ -267,6 +298,12 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   margin-bottom: 0.7rem;
   border: none;
+}
+
+.bio {
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  color: #e5e5e5;
 }
 
 @media (max-width: 700px) {

@@ -266,6 +266,29 @@
   to { transform: scale(1) translateY(0); opacity: 1; }
 }
 
+
+.imgModalCloseBtn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.18s;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgModalCloseBtn:hover {
+  color: #D80024;
+}
+
 .closeBtn {
   position: absolute;
   top: 2.1rem; /* Increase top spacing to align with modalTitle */
@@ -285,7 +308,7 @@
 }
 
 .closeBtn:hover {
-  color: #646cff;
+  color: #D80024;
 }
 
 .modalTitle {
@@ -461,4 +484,7 @@
     width: 2.2rem;
     height: 2.2rem;
   }
+  .closeBtn:hover {
+  color: #D80024;
+}
 }

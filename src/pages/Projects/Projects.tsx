@@ -435,22 +435,13 @@ export default function Projects() {
 						aria-modal="true"
 						tabIndex={-1}
 					>
-						<button
-							onClick={() => setImgModal(null)}
-							style={{
-								position: 'absolute',
-								top: 12,
-								right: 18,
-								background: 'none',
-								border: 'none',
-								fontSize: '2rem',
-								color: '#fff',
-								cursor: 'pointer'
-							}}
-							aria-label="Close"
-						>
-							&times;
-						</button>
+					<button
+    					className={styles.imgModalCloseBtn}
+    					onClick={() => setImgModal(null)}
+    					aria-label="Close"
+                    >
+    					&times;
+					</button>
 						{/* FB-style Previous Button */}
 						{filteredProjects[imgModal.projectIdx].images.length > 1 && (
 							<button
@@ -496,7 +487,7 @@ export default function Projects() {
 									color: '#fff',
 									fontSize: '1.8rem',
 									fontWeight: 700,
-									lineHeight: '40px',
+									lineHeight: '35px',
 									width: '40px',
 									height: '40px',
 									textAlign: 'center',
@@ -561,7 +552,7 @@ export default function Projects() {
 									color: '#fff',
 									fontSize: '1.8rem',
 									fontWeight: 700,
-									lineHeight: '40px',
+									lineHeight: '35px',
 									width: '40px',
 									height: '40px',
 									textAlign: 'center',
