@@ -3,7 +3,7 @@ import styles from './Contact.module.css';
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaDownload, FaFacebook, FaTwitter } from 'react-icons/fa';
 import customodoroLogo from '../../assets/customodoro.png'; // Make sure this asset exists
 
-const RESUME_URL = '/resume/Resume 2025.pdf'; 
+const RESUME_URL = '/resume/BrianYabut_Resume_2025.pdf'; 
 
 const SOCIALS = [
   {
