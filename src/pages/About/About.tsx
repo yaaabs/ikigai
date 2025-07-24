@@ -127,7 +127,7 @@ export default function About() {
             <button
               key={opt.key}
               type="button"
-              onClick={() => setAnimMode(opt.key as any)}
+              onClick={() => setAnimMode(opt.key as 'none' | 'breathing' | 'wave')}
               aria-pressed={animMode === opt.key}
               style={{
                 padding: '0.45rem 1.1rem',

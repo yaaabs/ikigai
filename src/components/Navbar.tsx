@@ -65,7 +65,7 @@ function Navbar() {
     const nav = navRef.current;
     nav?.addEventListener('click', handleAnchorClick);
     return () => nav?.removeEventListener('click', handleAnchorClick);
-  }, []);
+  }, [navLinks]);
 
   // Track active link based on hash change
   useEffect(() => {
@@ -78,7 +78,7 @@ function Navbar() {
     };
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
+  }, [navLinks]);
 
   // IntersectionObserver for scroll syncing
   useEffect(() => {

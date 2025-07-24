@@ -108,12 +108,14 @@ export default function Contact() {
         try {
           const data = await res.json();
           if (data && data.errors && data.errors.length > 0) {
-            errorMsg = data.errors.map((e: any) => e.message).join(' ');
+            errorMsg = data.errors.map((e: { message: string }) => e.message).join(' ');
           }
-        } catch {}
+        } catch {
+          // ignore JSON parse errors
+        }
         setToast(errorMsg);
       }
-    } catch (err) {
+    } catch {
       setToast('An error occurred. Please try again.');
     } finally {
       setLoading(false);
