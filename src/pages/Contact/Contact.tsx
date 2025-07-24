@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import styles from './Contact.module.css';
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import beaconsLogo from '../../assets/beacons.png'; // Import your custom Beacons icon
 import customodoroLogo from '../../assets/customodoro.png'; // Make sure this asset exists
 // import resumeSvg from '../../assets/resume-download.svg'; // Optional: if you want to use a local SVG
 
@@ -18,14 +19,27 @@ const SOCIALS = [
     url: 'https://github.com/yaaabs',
   },
   {
-    icon: <FaFacebook />,
-    label: 'Facebook',
-    url: 'https://facebook.com/brianyabut',
+    icon: <FaInstagram />,
+    label: 'Instagram',
+    url: 'https://www.instagram.com/brianjyabut/',
   },
   {
-    icon: <FaTwitter />,
-    label: 'Twitter',
-    url: 'https://twitter.com/brianyabut',
+    icon: (
+      <img
+        src={beaconsLogo}
+        alt="Beacons"
+        style={{
+          width: '1.35em',
+          height: '1.35em',
+          borderRadius: '50%',
+          background: 'transparent', // Use transparent background
+          objectFit: 'cover',
+          display: 'block',
+        }}
+      />
+    ),
+    label: 'Beacons',
+    url: 'https://beacons.ai/yabutech',
   },
 ];
 
