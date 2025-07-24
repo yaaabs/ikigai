@@ -94,22 +94,12 @@ function Navbar() {
         // Don't update if user just clicked a nav link
         if (isManualClick.current) return;
 
-        // Find the section that's most visible
+        // Find the section whose top is closest to the top of the viewport and is intersecting
         const visibleSections = entries
           .filter(entry => entry.isIntersecting)
           .sort((a, b) => {
-            // Sort by how much of the section is visible (intersection ratio)
-            // and prioritize sections that are closer to the top
-            const aTop = a.boundingClientRect.top;
-            const bTop = b.boundingClientRect.top;
-            
-            // If both sections are in view, prioritize the one closer to the top
-            if (a.intersectionRatio > 0.1 && b.intersectionRatio > 0.1) {
-              return Math.abs(aTop) - Math.abs(bTop);
-            }
-            
-            // Otherwise, prioritize by intersection ratio
-            return b.intersectionRatio - a.intersectionRatio;
+            // Prioritize the section whose top is closest to the top of the viewport
+            return Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top);
           });
 
         if (visibleSections.length > 0) {
@@ -123,8 +113,10 @@ function Navbar() {
       },
       {
         root: null,
-        rootMargin: '-20% 0px -60% 0px', // Start detecting when section is 20% from top
-        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0]
+        // Make the observer more sensitive to section changes:
+        // When the top 30% of the viewport hits a section, it becomes active
+        rootMargin: '-30% 0px -60% 0px',
+        threshold: [0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.5, 0.75, 1.0]
       }
     );
 

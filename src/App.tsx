@@ -23,7 +23,7 @@ function App() {
             <Projects />
           </div>
         </section>
-        <section id="achievements" style={{ minHeight: '100vh', paddingTop: '4rem' }}>
+        <section id="achievements" style={{ minHeight: '80vh', paddingTop: '4rem' }}>
           <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 1rem' }}>
             <Achievements />
           </div>
