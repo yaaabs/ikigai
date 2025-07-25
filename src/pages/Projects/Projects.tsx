@@ -11,7 +11,7 @@ import reverse from '../../assets/reverse.png';
 import customodoro1 from '../../assets/customodoro1.png';
 import customodoro4 from '../../assets/customodoro4.jpg';
 
-import transitease from '../../assets/transitease.PNG';
+import transitease from '../../assets/transitease.png';
 import transitease1 from '../../assets/transitease1.jpg';
 import transitease2 from '../../assets/transitease2.jpg';
 import transitease3 from '../../assets/transitease3.jpg';
