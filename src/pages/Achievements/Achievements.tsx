@@ -1,19 +1,34 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './Achievements.module.css';
 
+import html5Img from '../../assets/certificates/HTML5.png';
+import html5Pdf from '../../assets/certificates/HTML5.pdf';
+import jsImg from '../../assets/certificates/JS.png';
+import rwdImg from '../../assets/certificates/RWD.png';
+import networkingImg from '../../assets/certificates/networking.png';
+import networkingPdf from '../../assets/certificates/networking.pdf';
+import bestwebImg from '../../assets/certificates/bestweb.png';
+import bestwebPdf from '../../assets/certificates/bestweb.pdf';
+import innovativeImg from '../../assets/certificates/innovative.png';
+import innovativePdf from '../../assets/certificates/innovative.pdf';
+import bestideaImg from '../../assets/certificates/bestidea.jpg';
+import bestideaPdf from '../../assets/certificates/bestidea.pdf';
+import deanslisterImg from '../../assets/certificates/deanslister.jpg';
+import deanslisterPdf from '../../assets/certificates/deanslister.pdf';
+
 const certifications = [
 	{
 		title: 'IT Specialist - HTML5 Application Development',
 		date: 'March 2025',
-		image: '/src/assets/certificates/HTML5.png',
-		pdf: '/src/assets/certificates/HTML5.pdf',
+		image: html5Img,
+		pdf: html5Pdf,
 		link: 'https://www.credly.com/badges/32f7221c-baff-4662-b189-f5598d2b30d3/public_url',
 		desc: 'Earned for demonstrating proficiency in HTML5 application development concepts and practices.',
 	},
 	{
 		title: 'JavaScript Algorithms and Data Structures',
 		date: 'February 2025',
-		image: '/src/assets/certificates/JS.png',
+		image: jsImg,
 		pdf: '',
 		link: 'https://www.freecodecamp.org/certification/brianyabut/javascript-algorithms-and-data-structures-v8',
 		desc: "Completed FreeCodeCamp's JavaScript Algorithms and Data Structures certification.",
@@ -21,7 +36,7 @@ const certifications = [
 	{
 		title: 'Responsive Web Design',
 		date: 'December 2024',
-		image: '/src/assets/certificates/RWD.png',
+		image: rwdImg,
 		pdf: '',
 		link: 'https://www.freecodecamp.org/certification/brianyabut/responsive-web-design',
 		desc: "Completed FreeCodeCamp's Responsive Web Design certification.",
@@ -29,40 +44,40 @@ const certifications = [
 	{
 		title: 'IT Specialist - Networking',
 		date: 'July 2023',
-		image: '/src/assets/certificates/networking.png',
-		pdf: '/src/assets/certificates/networking.pdf',
+		image: networkingImg,
+		pdf: networkingPdf,
 		link: 'https://www.credly.com/badges/f560df2c-1630-4c89-b383-f8fb26ba1d70/linked_in_profile',
 		desc: 'Earned for demonstrating proficiency in networking concepts and practices.',
 	},
 	{
 		title: 'Best Web Application Capstone Project',
 		date: 'April 2025',
-		image: '/src/assets/certificates/bestweb.png',
-		pdf: '/src/assets/certificates/bestweb.pdf',
+		image: bestwebImg,
+		pdf: bestwebPdf,
 		link: '',
 		desc: 'Awarded for the Best Web Application Capstone Project during the TICAP 18 Project Exhibit and Presentation',
 	},
 	{
 		title: 'Most Innovative Capstone Project',
 		date: 'April 2025',
-		image: '/src/assets/certificates/innovative.png',
-		pdf: '/src/assets/certificates/innovative.pdf',
+		image: innovativeImg,
+		pdf: innovativePdf,
 		link: '',
 		desc: 'Awarded for the Most Innovative Capstone Project during the TICAP 18 Project Exhibit and Presentation',
 	},
 	{
 		title: 'Spying the Spectrum: Software-Defined Radio (SDR) Hackathon - Best Idea',
 		date: 'Nov 2023',
-		image: '/src/assets/certificates/bestidea.jpg',
-		pdf: '/src/assets/certificates/bestidea.pdf',
+		image: bestideaImg,
+		pdf: bestideaPdf,
 		link: '',
 		desc: 'Recognized for Best Idea in SDR Hackathon.',
 	},
 	{
 		title: "2TSY2122 CCSMA Dean's Lister (Bronze)",
 		date: 'March 2022',
-		image: '/src/assets/certificates/deanslister.jpg',
-		pdf: '/src/assets/certificates/deanslister.pdf',
+		image: deanslisterImg,
+		pdf: deanslisterPdf,
 		link: '',
 		desc: "Dean's Lister (Bronze) for academic excellence.",
 	},
