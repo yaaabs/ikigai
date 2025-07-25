@@ -11,6 +11,24 @@ import reverse from '../../assets/reverse.png';
 import customodoro1 from '../../assets/customodoro1.png';
 import customodoro4 from '../../assets/customodoro4.jpg';
 
+import transitease from '../../assets/transitease.png';
+import transitease1 from '../../assets/transitease1.jpg';
+import transitease2 from '../../assets/transitease2.jpg';
+import transitease3 from '../../assets/transitease3.jpg';
+
+import assoc from '../../assets/assoc.jpg';
+import assocPng from '../../assets/assoc.png';
+import assoc2 from '../../assets/assoc2.png';
+import assoc1 from '../../assets/assoc1.png';
+
+import fitcpr from '../../assets/fitcpr.png';
+import fitcpr2 from '../../assets/fitcpr2.png';
+import fitcpr1 from '../../assets/fitcpr1.png';
+
+import wakeywakey1 from '../../assets/wakeywakey1.png';
+import wakeywakey from '../../assets/wakeywakey.png';
+import wakeywakey2 from '../../assets/wakeywakey2.png';
+
 const projects = [
 	{
 		title: 'Customodoro Timer',
@@ -52,8 +70,8 @@ const projects = [
 			'Responsive Web Design',
 			'NFC',
 		],
-		image: '/src/assets/transitease.png',
-		images: ['/src/assets/transitease1.jpg', '/src/assets/transitease2.jpg', '/src/assets/transitease3.jpg'],
+		image: transitease,
+		images: [transitease1, transitease2, transitease3],
 		github: 'https://github.com/yaaabs/transitease',
 		demo: 'https://transitease.tech',
 		tags: [
@@ -85,8 +103,8 @@ const projects = [
 			'HTML',
 			'CSS',
 		],
-		image: '/src/assets/assoc.jpg',
-		images: ['/src/assets/assoc.png', '/src/assets/assoc2.png', '/src/assets/assoc1.png'],
+		image: assoc,
+		images: [assocPng, assoc2, assoc1],
 		github: '', 
 		demo: '', 
 		tags: [
@@ -112,8 +130,8 @@ const projects = [
 			'Bootstrap',
       'CSS',
 		],
-		image: '/src/assets/fitcpr.png',
-		images: ['/src/assets/fitcpr2.png', '/src/assets/fitcpr1.png'],
+		image: fitcpr,
+		images: [fitcpr2, fitcpr1],
 		github: '', 
 		demo: '', 
 		tags: [
@@ -135,8 +153,8 @@ const projects = [
 			'CSS3',
 			'PWA'
 		],
-		image: '/src/assets/wakeywakey1.png',
-		images: ['/src/assets/wakeywakey.png', '/src/assets/wakeywakey1.png', '/src/assets/wakeywakey2.png'],
+		image: wakeywakey1,
+		images: [wakeywakey, wakeywakey1, wakeywakey2],
 		github: 'https://github.com/yaaabs/wakey-wakey',
 		demo: 'https://wakey2x.vercel.app/',
 		tags: [
