@@ -5,6 +5,12 @@ import { FaInfoCircle } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa';
 import styles from './Projects.module.css';
 
+import customodoro2 from '../../assets/customodoro2.png';
+import classic from '../../assets/classic.png';
+import reverse from '../../assets/reverse.png';
+import customodoro1 from '../../assets/customodoro1.png';
+import customodoro4 from '../../assets/customodoro4.jpg';
+
 const projects = [
 	{
 		title: 'Customodoro Timer',
@@ -18,8 +24,8 @@ const projects = [
 			'SEO',
 			'PageSpeed Insights',
 		],
-		image: '/src/assets/customodoro2.png',
-		images: ['/src/assets/classic.png', '/src/assets/reverse.png', '/src/assets/customodoro1.png', '/src/assets/customodoro4.jpg'],
+		image: customodoro2,
+		images: [classic, reverse, customodoro1, customodoro4],
 		github: 'https://github.com/yaaabs/customodoro',
 		demo: 'https://customodoro.vercel.app',
 		tags: [

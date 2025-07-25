@@ -160,8 +160,8 @@ export default function Contact() {
           </div>
           <div className={styles.detailItem}>
             <FaEnvelope className={styles.detailIcon} />
-            <a href="mailto:bianyabutech@gmail.com" className={styles.detailLink}>
-              bianyabutech@gmail.com
+            <a href="mailto:brianyabutech@gmail.com" className={styles.detailLink}>
+              brianyabutech@gmail.com
             </a>
           </div>
           <div className={styles.detailItem}>
@@ -207,6 +207,7 @@ export default function Contact() {
               aria-invalid={!!errors.name}
               aria-describedby={errors.name ? 'name-error' : undefined}
               required
+              placeholder="Brian Yabut"
             />
             {errors.name && <span className={styles.error} id="name-error">{errors.name}</span>}
           </div>
@@ -223,6 +224,7 @@ export default function Contact() {
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? 'email-error' : undefined}
               required
+              placeholder="brianyabutech@email.com"
             />
             {errors.email && <span className={styles.error} id="email-error">{errors.email}</span>}
           </div>
@@ -238,10 +240,18 @@ export default function Contact() {
               aria-invalid={!!errors.message}
               aria-describedby={errors.message ? 'message-error' : undefined}
               required
+              placeholder="Type your message here..."
             />
             {errors.message && <span className={styles.error} id="message-error">{errors.message}</span>}
           </div>
-          <button type="submit" className={styles.submitBtn} disabled={sent || loading}>
+          <button
+            type="submit"
+            className={styles.submitBtn}
+            disabled={sent || loading}
+            // For accessibility, add an aria-label as well
+            aria-label="Send Message"
+            // Placeholder is not valid for button, but aria-label is best practice
+          >
             {loading ? 'Sending...' : sent ? 'Message Sent!' : 'Send Message'}
           </button>
         </form>
