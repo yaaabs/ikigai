@@ -5,7 +5,7 @@ import {
 } from 'react-icons/fa';
 import { 
   SiCodeigniter, SiPwa, SiMysql, SiXcode, SiTypescript, SiVite, SiNextdotjs, SiReact, SiNodedotjs,
-  SiKotlin, SiFigma, SiAdobephotoshop, SiVercel, SiSupabase, SiFirebase, SiNotion, SiMongodb
+  SiKotlin, SiFigma, SiAdobephotoshop, SiVercel, SiSupabase, SiFirebase, SiNotion, SiMongodb, SiExpress
 } from 'react-icons/si';
 import { TbSeo } from 'react-icons/tb';
 import notepadppIcon from '../../assets/notepad++.png';
@@ -77,10 +77,11 @@ const categories = [
       { name: 'TypeScript', icon: <SiTypescript />, accent: '#3178c6' },
       { name: 'Vite', icon: <SiVite />, accent: '#646cff' },
       { name: 'Node.js', icon: <SiNodedotjs />, accent: '#3c873a' },
+      { name: 'Express.js', icon: <SiExpress />, accent: '#fff' },
       { name: 'Next.js', icon: <SiNextdotjs />, accent: '#fff' },
       { name: 'Supabase', icon: <SiSupabase />, accent: '#3ecf8e' },
       { name: 'Firebase', icon: <SiFirebase />, accent: '#ffca28' },
-      { name: 'MongoDB', icon: <SiMongodb />, accent: '#47A248' }, // Added MongoDB
+      { name: 'MongoDB', icon: <SiMongodb />, accent: '#47A248' }, 
     ],
   },
 ];
