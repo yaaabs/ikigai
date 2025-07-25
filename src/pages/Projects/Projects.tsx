@@ -11,7 +11,7 @@ import reverse from '../../assets/reverse.png';
 import customodoro1 from '../../assets/customodoro1.png';
 import customodoro4 from '../../assets/customodoro4.jpg';
 
-import transitease from '../../assets/transitease.png';
+//import transitease from '../../assets/transitease.png';
 import transitease1 from '../../assets/transitease1.jpg';
 import transitease2 from '../../assets/transitease2.jpg';
 import transitease3 from '../../assets/transitease3.jpg';
@@ -21,9 +21,9 @@ import assocPng from '../../assets/assoc.png';
 import assoc2 from '../../assets/assoc2.png';
 import assoc1 from '../../assets/assoc1.png';
 
-import fitcpr from '../../assets/fitcpr.png';
-import fitcpr2 from '../../assets/fitcpr2.png';
-import fitcpr1 from '../../assets/fitcpr1.png';
+//import fitcpr from '../../assets/fitcpr.png';
+//import fitcpr2 from '../../assets/fitcpr2.png';
+//import fitcpr1 from '../../assets/fitcpr1.png';
 
 import wakeywakey1 from '../../assets/wakeywakey1.png';
 import wakeywakey from '../../assets/wakeywakey.png';
@@ -70,7 +70,7 @@ const projects = [
 			'Responsive Web Design',
 			'NFC',
 		],
-		image: transitease,
+		image: '',
 		images: [transitease1, transitease2, transitease3],
 		github: 'https://github.com/yaaabs/transitease',
 		demo: 'https://transitease.tech',
@@ -130,8 +130,8 @@ const projects = [
 			'Bootstrap',
       'CSS',
 		],
-		image: fitcpr,
-		images: [fitcpr2, fitcpr1],
+		image: '',
+		images: [],
 		github: '', 
 		demo: '', 
 		tags: [
