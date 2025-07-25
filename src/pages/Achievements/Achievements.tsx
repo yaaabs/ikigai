@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './Achievements.module.css';
 
-import html5Img from '../../assets/certificates/HTML5.png';
+//import html5Img from '../../assets/certificates/HTML5.png';
 import html5Pdf from '../../assets/certificates/HTML5.pdf';
 import jsImg from '../../assets/certificates/js.png';
 import rwdImg from '../../assets/certificates/rwd.png';
@@ -20,7 +20,7 @@ const certifications = [
 	{
 		title: 'IT Specialist - HTML5 Application Development',
 		date: 'March 2025',
-		image: html5Img,
+		image: '',
 		pdf: html5Pdf,
 		link: 'https://www.credly.com/badges/32f7221c-baff-4662-b189-f5598d2b30d3/public_url',
 		desc: 'Earned for demonstrating proficiency in HTML5 application development concepts and practices.',
