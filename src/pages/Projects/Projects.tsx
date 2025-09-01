@@ -36,15 +36,20 @@ import ukiyo2 from '../../assets/ukiyo2.png';
 const projects = [
 	{
 		title: 'Customodoro Timer',
-		desc: 'SEO-Optimized Progressive Web App (PWA) | Co-Founder & Lead Developer',
+		desc: 'The ultimate customizable Pomodoro timer for productive work | Co-Founder & Lead Developer',
 		tech: [
 			'JavaScript',
 			'HTML5',
-			'CSS3',
+			'CSS',
 			'Semantic HTML',
+			'Express.js',
+			'PostgreSQL',
 			'PWA',
 			'SEO',
+			'Node.js',			
 			'PageSpeed Insights',
+			'Productivity Tool',
+			'Supabase',
 		],
 		image: customodoro2,
 		images: [classic, reverse, customodoro1, customodoro4],
@@ -58,7 +63,7 @@ const projects = [
 			'PageSpeed Insights',
 		],
 		fullDesc:
-			'Customodoro is a powerful and fully customizable Pomodoro timer designed to help students, professionals, and creatives stay focused and productive. Featuring classic and reverse Pomodoro modes, immersive audio, beautiful themes, task tracking, and smart automation — all in one sleek, distraction-free app. Built with Vanilla JavaScript, Semantic HTML, CSS3, and optimized for SEO and PWA best practices. PageSpeed Insights aware.',
+			'Customodoro is a powerful and fully customizable Pomodoro timer designed to help students, professionals, and creatives stay focused and productive. Featuring classic and reverse Pomodoro modes, immersive audio, beautiful themes, task tracking, and smart automation — all in one sleek, distraction-free app. Built with Vanilla JavaScript, Semantic HTML, CSS, and optimized for SEO and PWA best practices. PageSpeed Insights aware.',
 	},
 	{
 		title: 'TransitEase',
@@ -73,6 +78,8 @@ const projects = [
 			'Web Application Development',
 			'Responsive Web Design',
 			'NFC',
+			'Capstone Project',
+			'TICAP 18',
 		],
 		image: transitease,
 		images: [transitease1, transitease2, transitease3],
@@ -89,13 +96,14 @@ const projects = [
 			'NFC',
 		],
 		fullDesc:
-			'TransitEase is our capstone thesis project — a web and mobile application for online ticketing, monitoring, and management system. It was designed to innovate the commuting experience for users and optimize business operations for LRT-1. TransitEase integrates NFC payment to help lessen crowd congestion. The added feature of the system also incorporates monitoring the crowd status in the station.',
+			'TransitEase is our capstone project — a web and mobile application for online ticketing, monitoring, and management system. It was designed to innovate the commuting experience for users and optimize business operations for LRT-1. TransitEase integrates NFC payment to help lessen crowd congestion. The added feature of the system also incorporates monitoring the crowd status in the station.',
 	},
 	{
 		title: 'Associates Portal - HRIS',
 		desc: 'HRIS for FEU Tech, FEU Alabang, and FEU Diliman | Junior Systems Developer',
 		tech: [
 			'CodeIgniter',
+			'FEU TECH',
 			'Navicat for MySQL',
 			'PHP',
 			'MySQL',
@@ -106,6 +114,8 @@ const projects = [
 			'Bootstrap',
 			'HTML',
 			'CSS',
+
+
 		],
 		image: assoc,
 		images: [assocPng, assoc2, assoc1],
@@ -127,12 +137,13 @@ const projects = [
 		desc: 'Academic Showcase Platform | Full-Stack Web Developer',
 		tech: [
 			'PHP',
-      'Web Development',
-      'Responsive Web Design',
-			'HTML5',
+			'Responsive Web Design',
+      		'CSS',
 			'JavaScript',
 			'Bootstrap',
-      'CSS',
+			'HTML5',
+      		'Web Development',
+
 		],
 		image: fitcpr,
 		images: [fitcpr2, fitcpr1],
@@ -154,8 +165,10 @@ const projects = [
 		tech: [
 			'JavaScript',
 			'HTML5',
-			'CSS3',
-			'PWA'
+			'CSS',
+			'PWA',
+			'Web APIs',
+			'Responsive Web Design',
 		],
 		image: wakeywakey1,
 		images: [wakeywakey, wakeywakey1, wakeywakey2],
@@ -179,7 +192,7 @@ const projects = [
             'Flask',
             'JavaScript',
             'HTML5',
-            'CSS3',
+            'CSS',
             'Jinja2',
             'PWA',
             'QRCode Generation',
@@ -303,7 +316,7 @@ export default function Projects() {
 							<p className={styles.cardDesc}>
 								{project.title === 'Customodoro Timer'
 									? <>
-										SEO-Optimized Progressive Web App (PWA) | <strong>Co-Founder &amp; Lead Developer</strong>
+										The ultimate customizable Pomodoro timer for productive work | <strong>Co-Founder &amp; Lead Developer</strong>
 									</>
 									: project.title === 'TransitEase'
 									? <>
