@@ -29,6 +29,10 @@ import wakeywakey1 from '../../assets/wakeywakey1.png';
 import wakeywakey from '../../assets/wakeywakey.png';
 import wakeywakey2 from '../../assets/wakeywakey2.png';
 
+import ukiyo from '../../assets/ukiyo.png';
+import ukiyo1 from '../../assets/ukiyo1.png';
+import ukiyo2 from '../../assets/ukiyo2.png';
+
 const projects = [
 	{
 		title: 'Customodoro Timer',
@@ -120,7 +124,7 @@ const projects = [
 	},
 	{
 		title: 'FEU Tech Capstone Project Repository',
-		desc: 'Academic Showcase Platform | Full-Stack Developer',
+		desc: 'Academic Showcase Platform | Full-Stack Web Developer',
 		tech: [
 			'PHP',
       'Web Development',
@@ -167,6 +171,32 @@ const projects = [
 		<strong>Why I Built This?</strong><br>
 		As an intern on the graveyard shift, my work laptop would sleep every 5 minutes — and I couldn’t change the settings. I built this so I could eat lunch, grab a snack, or take a break without constant interruptions.<br>`
 	},
+		{
+		title: 'Ukiyo QR',
+        desc: 'Lightweight QR generator for everyone | Full-Stack Web Developer',
+        tech: [
+            'Python',
+            'Flask',
+            'JavaScript',
+            'HTML5',
+            'CSS3',
+            'Jinja2',
+            'PWA',
+            'QRCode Generation',
+
+        ],
+		image: ukiyo,
+		images: [ukiyo, ukiyo1, ukiyo2],
+		github: 'https://github.com/yaaabs/ukiyo',
+		demo: 'https://ukiyo-qr.onrender.com/',
+		tags: [
+			'Python',
+			'JavaScript'
+		],
+		fullDesc:
+			`Inspired by the Japanese concept of "ukiyo" (浮世) - meaning "floating world" or "living in the moment" - our tool embodies the philosophy of finding beauty in transient connections. Just as Hokusai's "The Great Wave off Kanagawa" captures a moment of natural power and beauty, QR codes create momentary bridges between the physical and digital worlds.`
+	},
+	
 	
 ];
 
@@ -200,7 +230,7 @@ export default function Projects() {
 	const [imgModal, setImgModal] = useState<{projectIdx: number, imgIdx: number} | null>(null); // image modal state
 	const modalRef = useModal(selected !== null, () => setSelected(null));
 	const imgModalRef = useModal(imgModal !== null, () => setImgModal(null));
-	const majorTags = ['Laravel', 'JavaScript', 'PWA', 'Kotlin', 'CodeIgniter'];
+	const majorTags = ['JavaScript', 'PWA', 'Python', 'Laravel', 'Kotlin', 'CodeIgniter'];
 
 	const filteredProjects =
 		filter === 'All'
@@ -232,6 +262,7 @@ export default function Projects() {
 					if (tag === 'PWA') tagClass += ' ' + styles.filterPWA;
 					if (tag === 'Kotlin') tagClass += ' ' + styles.filterKotlin;
 					if (tag === 'CodeIgniter') tagClass += ' ' + styles.filterCodeIgniter;
+					if (tag === 'Python') tagClass += ' ' + styles.filterPython;
 					return (
 						<button
 							key={tag}
@@ -290,7 +321,12 @@ export default function Projects() {
 									? <>
 										Keep your computer awake | <strong>Developer &amp; Designer</strong>
 									</>
+									: project.title === 'Ukiyo QR'
+        							? <>
+            							Lightweight QR generator for everyone | <strong>Full-Stack Web Developer</strong>
+       								</>
 									: project.desc
+									
 								}
 							</p>
 							<div className={styles.techList}>
@@ -344,14 +380,19 @@ export default function Projects() {
 										)
 									: filteredProjects[selected].title === 'FEU Tech Capstone Project Repository'
 										? filteredProjects[selected].fullDesc.replace(
-											'Full-Stack Developer',
-											'<strong>Full-Stack Developer</strong>'
+											'Full-Stack Web Developer',
+											'<strong>Full-Stack Web Developer</strong>'
 										)
 									: filteredProjects[selected].title === 'Wakey Wakey'
 										? filteredProjects[selected].fullDesc.replace(
 											'Developer & Designer',
 											'<strong>Developer &amp; Designer</strong>'
 										)
+									: filteredProjects[selected].title === 'Ukiyo QR'
+            							? filteredProjects[selected].fullDesc.replace(
+                							'Full-Stack Web Developer',
+                							'<strong>Full-Stack Web Developer</strong>'
+           								)
 									: filteredProjects[selected].fullDesc
 							}}
 						/>

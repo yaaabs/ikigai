@@ -34,6 +34,7 @@
 .filterKotlin { background: #231a2a; color: #7f52ff; }       /* Muted Kotlin purple */
 .filterBootstrap { background: #221532; color: #7952b3; }    /* Muted Bootstrap purple */
 .filterCodeIgniter { background: #2a1812; color: #ee4623; } /* Muted CodeIgniter orange */
+.filterPython { background: #1a2632; color: #407EAF; }       /* Muted Python blue */
 
 /* Default filter button style */
 .filterBtnRed {
@@ -95,6 +96,12 @@
 .filterCodeIgniter.activeFilter {
   background: #3c241a;
   color: #ee4623;
+}
+
+.filterPython:hover,
+.filterPython.activeFilter {
+  background: #2a3d52;
+  color: #3776ab;
 }
 
 .filterAll {
