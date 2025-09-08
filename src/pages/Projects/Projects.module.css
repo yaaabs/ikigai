@@ -531,4 +531,19 @@
   .closeBtn:hover {
   color: #D80024;
 }
+  .modalActions {
+    flex-direction: column !important;
+    gap: 0.7rem;
+    margin-top: 1.2rem;
+    align-items: stretch !important;
+    width: 100%;
+  }
+  .modalActions > * {
+    width: 100% !important;
+    min-width: 0 !important;
+    justify-content: center;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
 }
