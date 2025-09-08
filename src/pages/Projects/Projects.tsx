@@ -237,18 +237,63 @@ function useModal(open: boolean, onClose: () => void) {
 	return modalRef;
 }
 
+function useImgModal(
+	open: boolean,
+	imgModal: { projectIdx: number; imgIdx: number } | null,
+	setImgModal: React.Dispatch<React.SetStateAction<{ projectIdx: number; imgIdx: number } | null>>,
+	imagesLength: number
+) {
+	const modalRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (!open) return;
+		function handleKey(e: KeyboardEvent) {
+			if (e.key === 'Escape') setImgModal(null);
+			if (e.key === 'ArrowLeft' && imgModal) {
+				setImgModal(modal => ({
+					projectIdx: modal ? modal.projectIdx : 0,
+					imgIdx: modal ? (modal.imgIdx - 1 + imagesLength) % imagesLength : 0
+				}));
+			}
+			if (e.key === 'ArrowRight' && imgModal) {
+				setImgModal(modal => ({
+					projectIdx: modal ? modal.projectIdx : 0,
+					imgIdx: modal ? (modal.imgIdx + 1) % imagesLength : 0
+				}));
+			}
+		}
+		function handleClick(e: MouseEvent) {
+			if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+				setImgModal(null);
+			}
+		}
+        document.addEventListener('keydown', handleKey);
+        document.addEventListener('mousedown', handleClick);
+        return () => {
+            document.removeEventListener('keydown', handleKey);
+            document.removeEventListener('mousedown', handleClick);
+        };
+    }, [open, imgModal, setImgModal, imagesLength]);
+    return modalRef;
+}
+
 export default function Projects() {
 	const [selected, setSelected] = useState<number | null>(null);
 	const [filter, setFilter] = useState<string>('All');
 	const [imgModal, setImgModal] = useState<{projectIdx: number, imgIdx: number} | null>(null); // image modal state
-	const modalRef = useModal(selected !== null, () => setSelected(null));
-	const imgModalRef = useModal(imgModal !== null, () => setImgModal(null));
 	const majorTags = ['JavaScript', 'PWA', 'Python', 'Laravel', 'Kotlin', 'CodeIgniter'];
 
 	const filteredProjects =
 		filter === 'All'
 			? projects
 			: projects.filter(p => p.tags?.includes(filter));
+
+	const modalRef = useModal(selected !== null, () => setSelected(null));
+	const imgModalRef = useImgModal(
+		imgModal !== null,
+		imgModal,
+		setImgModal,
+		imgModal !== null ? filteredProjects[imgModal.projectIdx].images.length : 0
+	);
 
 	return (
 		<div className={styles.projectsPage}>
