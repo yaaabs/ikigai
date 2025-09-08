@@ -246,7 +246,9 @@ function useImgModal(
 	const modalRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (!open) return;
-		function handleKey(e: KeyboardEvent) {
+        let touchStartX: number | null = null;
+        let touchEndX: number | null = null;
+        function handleKey(e: KeyboardEvent) {
 			if (e.key === 'Escape') setImgModal(null);
 			if (e.key === 'ArrowLeft' && imgModal) {
 				setImgModal(modal => ({
@@ -266,11 +268,45 @@ function useImgModal(
 				setImgModal(null);
 			}
 		}
+		function handleTouchStart(e: TouchEvent) {
+            touchStartX = e.touches[0].clientX;
+        }
+        function handleTouchEnd(e: TouchEvent) {
+            touchEndX = e.changedTouches[0].clientX;
+            if (touchStartX !== null && touchEndX !== null && imgModal) {
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) { // threshold for swipe
+                    if (diff > 0) {
+                        // Swipe left (next image)
+                        setImgModal(modal => ({
+                            projectIdx: modal ? modal.projectIdx : 0,
+                            imgIdx: modal ? (modal.imgIdx + 1) % imagesLength : 0
+                        }));
+                    } else {
+                        // Swipe right (prev image)
+                        setImgModal(modal => ({
+                            projectIdx: modal ? modal.projectIdx : 0,
+                            imgIdx: modal ? (modal.imgIdx - 1 + imagesLength) % imagesLength : 0
+                        }));
+                    }
+                }
+            }
+            touchStartX = null;
+            touchEndX = null;
+        }
         document.addEventListener('keydown', handleKey);
         document.addEventListener('mousedown', handleClick);
+        if (modalRef.current) {
+            modalRef.current.addEventListener('touchstart', handleTouchStart);
+            modalRef.current.addEventListener('touchend', handleTouchEnd);
+        }
         return () => {
             document.removeEventListener('keydown', handleKey);
             document.removeEventListener('mousedown', handleClick);
+            if (modalRef.current) {
+                modalRef.current.removeEventListener('touchstart', handleTouchStart);
+                modalRef.current.removeEventListener('touchend', handleTouchEnd);
+            }
         };
     }, [open, imgModal, setImgModal, imagesLength]);
     return modalRef;
