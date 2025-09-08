@@ -307,6 +307,13 @@ export default function Projects() {
 								alt={project.title}
 								className={styles.thumb}
 							/>
+							{/* Award badge for TransitEase */}
+							{project.title === 'TransitEase' && (
+								<div className={styles.awardBadge}>
+									<span className={styles.awardIcon}>🏆</span>
+									<span className={styles.awardText}>Award Winner</span>
+								</div>
+							)}
 							<div className={styles.overlay}>
 								<button className={styles.viewMoreRed}>View More</button>
 							</div>
@@ -415,6 +422,18 @@ export default function Projects() {
 								<span>
 									Please note that this is not the official website of the school but a final project created for the course IT0129 IT Elective - System Integration & Architecture 2.
 								</span>
+							</div>
+						)}
+						{/* Award information for TransitEase */}
+						{filteredProjects[selected].title === 'TransitEase' && (
+							<div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', margin: '1.1rem 0 0.7rem 0', color: '#ffd700', fontSize: '1.08rem' }}>
+								<div>
+									<div style={{ fontWeight: '600', marginBottom: '0.2rem' }}>🏆 Award-Winning Project</div>
+									<div style={{ fontSize: '0.95rem', opacity: '0.9' }}>
+										• Best Web Application Capstone Project<br />
+										• Most Innovative Capstone Project
+									</div>
+								</div>
 							</div>
 						)}
 						<div style={{ height: '1.2rem' }} /> {/* Safe vertical space, similar to <br> but for spacing */}
