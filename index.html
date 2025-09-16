@@ -20,11 +20,26 @@
     <meta name="twitter:title" content="YabuTech Portfolio - Brian Yabut" />
     <meta name="twitter:description" content="Explore Brian Yabut's web development projects, achievements, and contact information. Download resume and connect with YabuTech." />
     <meta name="twitter:image" content="/og-image.png" />
-    <!-- Accessibility: Set theme color for mobile browsers -->
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#D80024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="YabuTech" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
   </head>
   <body>
     <main id="root"></main>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Check if service workers are supported
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/serviceWorker.js')
+            .then((reg) => console.log('Service Worker registered', reg))
+            .catch((err) => console.log('Service Worker registration failed', err));
+        });
+      }
+    </script>
   </body>
 </html>
