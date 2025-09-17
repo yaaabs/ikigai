@@ -84,7 +84,7 @@ const projects = [
 		image: transitease,
 		images: [transitease1, transitease2, transitease3],
 		github: 'https://github.com/yaaabs/transitease',
-		demo: 'https://transitease.tech',
+		demo: 'https://transitease.up.railway.app/',
 		tags: [
 			'Laravel',
 			'Kotlin',
