@@ -1,16 +1,14 @@
 // This is the service worker with the Cache-first network strategy
 
-const CACHE = "yabutech-portfolio-cache-v1";
+const CACHE = "yabutech-portfolio-cache-v2"; // Increment version to force a clean cache
+
 const precacheResources = [
   '/',
   '/index.html',
   '/favicon.png',
   '/manifest.json',
-  '/src/main.tsx',
-  '/src/App.tsx',
-  '/src/App.css',
-  '/src/index.css',
-  // Add other important assets here
+  // Remove specific source files that might cause issues
+  // They will be bundled into static assets anyway
 ];
 
 self.addEventListener("install", (event) => {
@@ -43,7 +41,7 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  console.log("Service Worker: Fetching");
+  // Don't log every fetch to reduce console spam
   
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
@@ -55,6 +53,11 @@ self.addEventListener("fetch", (event) => {
       // Otherwise, fetch from network
       return fetch(event.request)
         .then((response) => {
+          // Only cache successful responses
+          if (!response || response.status !== 200 || response.type !== 'basic') {
+            return response;
+          }
+          
           // Make a copy of the response
           const responseClone = response.clone();
           

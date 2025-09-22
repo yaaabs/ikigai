@@ -276,20 +276,21 @@
   font-weight: 500;
 }
 
+/* Modal styles - ensure they're centered and properly sized */
 .modalBackdrop {
   position: fixed;
-  inset: 0;
-  background: rgba(10,10,20,0.65);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10,10,20,0.75);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: fadeIn 0.22s;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  padding: 16px;
+  overflow: auto; /* Allow scrolling for mobile */
 }
 
 .modal {
@@ -298,11 +299,12 @@
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22);
   padding: 2.2rem 2rem 1.7rem 2rem;
   max-width: 480px;
-  width: 95vw;
-  max-height: 90vh;
+  width: 100%;
+  max-height: 80vh; /* Slightly reduced for better mobile viewing */
   overflow-y: auto;
   position: relative;
   animation: modalPop 0.28s cubic-bezier(.4,0,.2,1);
+  margin: auto;
 }
 
 @keyframes modalPop {
@@ -499,17 +501,15 @@
   opacity: 1;
 }
 
-/* Marquee Section Styles */
+/* Marquee Section Styles - Fix the width and positioning */
 .marqueeSection {
   margin-top: 4rem;
-  width: 100vw;
+  width: 100%; /* Keep at 100% to prevent overflow */
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
   background: #000;
   padding: 2rem 0;
+  z-index: 1;
+  overflow: hidden; /* Important to contain any overflow */
 }
 
 .marqueeInner {
@@ -535,8 +535,9 @@
 
 /* Added padding wrapper to create safe space for items to expand into */
 .marqueeWrapper {
-  padding: 15px 0;  /* Crucial padding that creates space for hover effects */
-  margin: -15px 0;  /* Negative margin to compensate for padding */
+  padding: 15px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .marqueeContainer {
@@ -638,6 +639,9 @@
     font-size: 1rem;
   }
   
+.marqueeItemText p {
+  font-size: 0.8rem;
+}
   .marqueeItemText p {
     font-size: 0.8rem;
   }

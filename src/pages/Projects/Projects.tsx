@@ -353,7 +353,7 @@ function useImgModal(
 export default function Projects() {
 	const [selected, setSelected] = useState<number | null>(null);
 	const [filter, setFilter] = useState<string>('All');
-	const [imgModal, setImgModal] = useState<{projectIdx: number, imgIdx: number} | null>(null); // image modal state
+	const [imgModal, setImgModal] = useState<{projectIdx: number, imgIdx: number} | null>(null);
 	const majorTags = ['JavaScript', 'PWA', 'Python', 'Laravel', 'Kotlin', 'CodeIgniter'];
 
 	const filteredProjects =
@@ -368,6 +368,11 @@ export default function Projects() {
 		setImgModal,
 		imgModal !== null ? filteredProjects[imgModal.projectIdx].images.length : 0
 	);
+	
+	// Remove the custom handler and use simple function
+	const handleCardClick = (idx: number) => {
+		setSelected(idx);
+	};
 
 	return (
 		<div className={styles.projectsPage}>
@@ -415,7 +420,7 @@ export default function Projects() {
 						key={project.title}
 						className={styles.card}
 						tabIndex={0}
-						onClick={() => setSelected(idx)}
+						onClick={() => handleCardClick(idx)}
 						onKeyDown={e => {
 							if (e.key === 'Enter') setSelected(idx);
 						}}
@@ -551,111 +556,119 @@ export default function Projects() {
 				))}
 			</div>
 			
-			{/* Technology Showcase Marquee - Full Width */}
+			{/* Technology Showcase Marquee - Fixed width implementation */}
 			<div className={styles.marqueeSection}>
-  <div className={styles.marqueeInner}>
-    <h3 className={styles.marqueeHeading}>Projects I’ve Brought to Life</h3>
-    <p className={styles.marqueeSubheading}>
-      Hover over the showcase below to pause and explore
-    </p>
-  </div>
-  <div className={styles.marqueeWrapper}>
-    <div className={styles.marqueeContainer}>
-      <Marquee
-        pauseOnHover={true}
-        speed={40} /* Adjust marquee speed */
-        gradientWidth={100}
-        gradient={true}
-        gradientColor="#000"
-        className={styles.marqueeContent}
-      >
-        <div className={styles.marqueeItemContainer}>
-          {/* Customodoro Timer */}
-          <div className={styles.marqueeItem}>
-            <img src={customodoroLogo} alt="Customodoro Timer" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>Customodoro Timer</h4>
-              <p>The ultimate customizable Pomodoro timer</p>
-            </div>
-          </div>
-          {/* Ukiyo QR */}
-          <div className={styles.marqueeItem}>
-            <img src={ukiyoLogo} alt="Ukiyo QR" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>Ukiyo QR</h4>
-              <p>Lightweight QR generator for everyone</p>
-            </div>
-          </div>
-          {/* Wakey Wakey */}
-          <div className={styles.marqueeItem}>
-            <img src={wakeyLogo} alt="Wakey Wakey" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>Wakey Wakey</h4>
-              <p>Wakey wakey, wakey wakey! It's time for scoo!</p>
-            </div>
-          </div>
-          {/* Lover App */}
-          <div className={styles.marqueeItem}>
-            <img src={loverLogo} alt="Lover App" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>Lover App</h4>
-              <p>Tinder, but it's only your lover</p>
-            </div>
-          </div>
-          {/* Associates Portal - HRIS */}
-          <div className={styles.marqueeItem}>
-            <img src={assocLogo} alt="Associates Portal - HRIS" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>Associates Portal - HRIS</h4>
-              <p>HRIS for FEU Tech, FEU Alabang, and FEU Diliman</p>
-            </div>
-          </div>
-          {/* TransitEase */}
-          <div className={styles.marqueeItem}>
-            <img src={transiteaseLogo} alt="TransitEase" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>TransitEase</h4>
-              <p>Web & Mobile Application using NFC for LRT - 1</p>
-            </div>
-          </div>
-          {/* FEU Tech Capstone Project Repository */}
-          <div className={styles.marqueeItem}>
-            <img src={feutechLogo} alt="FEU Tech Capstone Project Repository" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>FEU Tech Capstone Project Repository</h4>
-              <p>Unofficial Academic Showcase Platform for FEU Tech</p>
-            </div>
-          </div>
-          {/* Drink PH - Not Official */}
-          <div className={styles.marqueeItem}>
-            <img src={drinkLogo} alt="Drink PH" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>Drink PH - Not Official</h4>
-              <p>Client Communication Portal Demo for Interview</p>
-            </div>
-          </div>
-          {/* YabuTech */}
-          <div className={styles.marqueeItem}>
-            <img src={yabutechLogo} alt="YabuTech" className={styles.marqueeLogo} />
-            <div className={styles.marqueeItemText}>
-              <h4>YabuTech</h4>
-              <p>Learning never stops</p>
-            </div>
+        <div className={styles.marqueeInner}>
+          <h3 className={styles.marqueeHeading}>Projects I've Brought to Life</h3>
+          <p className={styles.marqueeSubheading}>
+            Hover over the showcase below to pause and explore
+          </p>
+        </div>
+        <div className={styles.marqueeWrapper}>
+          <div className={styles.marqueeContainer}>
+            <Marquee
+              pauseOnHover={true}
+              speed={40}
+              gradientWidth={100}
+              gradient={true}
+              gradientColor="#000"
+              className={styles.marqueeContent}
+            >
+              <div className={styles.marqueeItemContainer}>
+                {/* Customodoro Timer */}
+                <div className={styles.marqueeItem}>
+                  <img src={customodoroLogo} alt="Customodoro Timer" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>Customodoro Timer</h4>
+                    <p>The ultimate customizable Pomodoro timer</p>
+                  </div>
+                </div>
+                {/* Ukiyo QR */}
+                <div className={styles.marqueeItem}>
+                  <img src={ukiyoLogo} alt="Ukiyo QR" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>Ukiyo QR</h4>
+                    <p>Lightweight QR generator for everyone</p>
+                  </div>
+                </div>
+                {/* Wakey Wakey */}
+                <div className={styles.marqueeItem}>
+                  <img src={wakeyLogo} alt="Wakey Wakey" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>Wakey Wakey</h4>
+                    <p>Wakey wakey, wakey wakey! It's time for scoo!</p>
+                  </div>
+                </div>
+                {/* Lover App */}
+                <div className={styles.marqueeItem}>
+                  <img src={loverLogo} alt="Lover App" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>Lover App</h4>
+                    <p>Tinder, but it's only your lover</p>
+                  </div>
+                </div>
+                {/* Associates Portal - HRIS */}
+                <div className={styles.marqueeItem}>
+                  <img src={assocLogo} alt="Associates Portal - HRIS" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>Associates Portal - HRIS</h4>
+                    <p>HRIS for FEU Tech, FEU Alabang, and FEU Diliman</p>
+                  </div>
+                </div>
+                {/* TransitEase */}
+                <div className={styles.marqueeItem}>
+                  <img src={transiteaseLogo} alt="TransitEase" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>TransitEase</h4>
+                    <p>Web & Mobile Application using NFC for LRT - 1</p>
+                  </div>
+                </div>
+                {/* FEU Tech Capstone Project Repository */}
+                <div className={styles.marqueeItem}>
+                  <img src={feutechLogo} alt="FEU Tech Capstone Project Repository" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>FEU Tech Capstone Project Repository</h4>
+                    <p>Unofficial Academic Showcase Platform for FEU Tech</p>
+                  </div>
+                </div>
+                {/* Drink PH - Not Official */}
+                <div className={styles.marqueeItem}>
+                  <img src={drinkLogo} alt="Drink PH" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>Drink PH - Not Official</h4>
+                    <p>Client Communication Portal Demo for Interview</p>
+                  </div>
+                </div>
+                {/* YabuTech */}
+                <div className={styles.marqueeItem}>
+                  <img src={yabutechLogo} alt="YabuTech" className={styles.marqueeLogo} />
+                  <div className={styles.marqueeItemText}>
+                    <h4>YabuTech</h4>
+                    <p>Learning never stops</p>
+                  </div>
+                </div>
+              </div>
+            </Marquee>
           </div>
         </div>
-      </Marquee>
-    </div>
-  </div>
-</div>
+      </div>
 			
+			{/* Project Modal - Fix position and z-index */}
 			{selected !== null && (
-				<div className={styles.modalBackdrop}>
+				<div 
+          className={styles.modalBackdrop}
+          onClick={(e) => {
+            // Close modal when clicking the backdrop (but not the modal itself)
+            if (e.target === e.currentTarget) setSelected(null);
+          }}
+        >
 					<div
 						className={styles.modal}
 						ref={modalRef}
 						role="dialog"
 						aria-modal="true"
 						tabIndex={-1}
+						onClick={(e) => e.stopPropagation()} // Prevent clicks from bubbling up
 					>
 						<button
 							className={styles.closeBtn}
@@ -800,7 +813,13 @@ export default function Projects() {
 			)}
 			{/* Image Modal */}
 			{imgModal !== null && (
-				<div className={styles.modalBackdrop} style={{ zIndex: 9999 }}>
+				<div 
+          className={styles.modalBackdrop} 
+          style={{ zIndex: 1050 }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setImgModal(null);
+          }}
+        >
 					<div
 						ref={imgModalRef}
 						style={{
@@ -808,7 +827,7 @@ export default function Projects() {
 							padding: '1.5rem',
 							borderRadius: '1rem',
 							maxWidth: '90vw',
-							maxHeight: '90vh',
+							maxHeight: '85vh', /* Smaller to prevent overflow */
 							margin: 'auto',
 							position: 'relative',
 							display: 'flex',
@@ -819,6 +838,7 @@ export default function Projects() {
 						role="dialog"
 						aria-modal="true"
 						tabIndex={-1}
+						onClick={(e) => e.stopPropagation()} // Prevent clicks from bubbling up
 					>
 					<button
     					className={styles.imgModalCloseBtn}
