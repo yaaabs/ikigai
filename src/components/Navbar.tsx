@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import styles from './Navbar.module.css';
 import logo from '../assets/YABUTEK.png';
 import yabutechIcon from '../assets/yabutech.png';
@@ -14,13 +14,13 @@ function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const isManualClick = useRef(false);
 
-  const navLinks = [
+  const navLinks = useMemo(() => [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#projects', label: 'Projects' },
     { href: '#achievements', label: 'Achievements' }, // <-- Add Achievements
     { href: '#contact', label: 'Contact' },
-  ];
+  ], []);
 
   // Change navbar color on scroll
   useEffect(() => {
@@ -125,7 +125,7 @@ function Navbar() {
     return () => {
       observer.disconnect();
     };
-  }, [activeHash]);
+  }, [activeHash, navLinks]);
 
   return (
     <nav

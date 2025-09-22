@@ -77,14 +77,10 @@ const projects = [
 			'JavaScript',
 			'HTML5',
 			'CSS',
-			'Semantic HTML',
 			'Express.js',
 			'PostgreSQL',
 			'PWA',
-			'SEO',
 			'Node.js',
-			'PageSpeed Insights',
-			'Productivity Tool',
 			'Supabase',
 			'Vercel',
 			'Render',
@@ -101,7 +97,7 @@ const projects = [
 			'PageSpeed Insights',
 		],
 		fullDesc:
-			'Customodoro is a powerful and fully customizable Pomodoro timer designed to help students, professionals, and creatives stay focused and productive. Featuring classic and reverse Pomodoro modes, immersive audio, beautiful themes, task tracking, and smart automation — all in one sleek, distraction-free app. Built with Vanilla JavaScript, Semantic HTML, CSS, and optimized for SEO and PWA best practices. PageSpeed Insights aware.',
+			'Customodoro is a powerful and fully customizable Pomodoro timer designed to help students, professionals, and creatives stay focused and productive. Featuring classic and reverse Pomodoro modes, immersive audio, beautiful themes, task tracking, and smart automation — all in one sleek, distraction-free app.',
 	},
 	{
 		title: 'TransitEase',
@@ -114,12 +110,10 @@ const projects = [
 			'HTML5',
 			'CSS',
 			'Bootstrap',
-			'Web Application Development',
-			'Railway',
-			'Responsive Web Design',
 			'NFC',
 			'Capstone Project',
-			'TICAP 18',
+			'Railway',
+
 
 		],
 		image: transitease,
@@ -137,18 +131,16 @@ const projects = [
 			'NFC',
 		],
 		fullDesc:
-			'TransitEase is our capstone project — a web and mobile application for online ticketing, monitoring, and management system. It was designed to innovate the commuting experience for users and optimize business operations for LRT-1. TransitEase integrates NFC payment to help lessen crowd congestion. The added feature of the system also incorporates monitoring the crowd status in the station.',
+			'TransitEase is our capstone project — a web and mobile application for online ticketing, monitoring, and management system. It was designed to innovate the commuting experience for users and optimize business operations for LRT-1. TransitEase integrates NFC payment to help lessen crowd congestion.',
 	},
 	{
 		title: 'Associates Portal - HRIS',
 		desc: 'HRIS for FEU Tech, FEU Alabang, and FEU Diliman | Junior Systems Developer',
 		tech: [
 			'CodeIgniter',
-			'FEU TECH',
 			'Navicat for MySQL',
 			'PHP',
-			'MySQL', // Ensure MySQL is present
-			'Database Triggers',
+			'MySQL', 
 			'JavaScript',
 			'HTML5',
 			'CSS',
@@ -169,7 +161,7 @@ const projects = [
 			'JavaScript',
 		],
 		fullDesc:
-			"The FEU Alabang, FEU Diliman, and FEU Institute of Technology Associates’ Portal is a web-based application that enables associates to create profiles and manage their work information, including attendance, overtime, leave, official business, and work schedules.<br><br>As a Junior Systems Developer, I was part of the development team responsible for creating and improving the Associates Portal - Human Resources Information System (HRIS) used across FEU Tech, FEU Alabang, and FEU Diliman. <br>",
+			"The FEU Alabang, FEU Diliman, and FEU Institute of Technology Associates’ Portal is a web-based application that enables associates to create profiles and manage their work information, including attendance, overtime, leave, official business, and work schedules.<br><br>As a Junior Systems Developer, my role focused on Profile Management, implementing key features, etc. <br>",
 	},
 		{
 				title: 'FEU Tech Capstone Project Repository',
@@ -180,8 +172,7 @@ const projects = [
 						'HTML5',
 						'CSS',
 						'Bootstrap',
-						'Responsive Web Design',
-						'Web Development',
+						'MySQL',
 				],
 		image: fitcpr,
 		images: [fitcpr2, fitcpr1],
@@ -206,7 +197,8 @@ const projects = [
 			'CSS',
 			'PWA',
 			'Web APIs',
-			'Responsive Web Design',
+			'Vercel'
+
 		],
 		image: wakeywakey1,
 		images: [wakeywakey, wakeywakey1, wakeywakey2],
@@ -231,9 +223,9 @@ const projects = [
             'JavaScript',
             'HTML5',
             'CSS',
-            'Jinja2',
             'PWA',
             'QRCode Generation',
+			'Vercel',
 
         ],
 		image: ukiyo,
@@ -260,7 +252,8 @@ function useModal(open: boolean, onClose: () => void) {
 			if (e.key === 'Escape') onClose();
 		}
 		function handleClick(e: MouseEvent) {
-			if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+			const node = modalRef.current;
+			if (node && !node.contains(e.target as Node)) {
 				onClose();
 			}
 		}
@@ -302,7 +295,8 @@ function useImgModal(
 			}
 		}
 		function handleClick(e: MouseEvent) {
-			if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+			const node = modalRef.current;
+			if (node && !node.contains(e.target as Node)) {
 				setImgModal(null);
 			}
 		}
@@ -332,20 +326,21 @@ function useImgModal(
             touchStartX = null;
             touchEndX = null;
         }
-        document.addEventListener('keydown', handleKey);
-        document.addEventListener('mousedown', handleClick);
-        if (modalRef.current) {
-            modalRef.current.addEventListener('touchstart', handleTouchStart);
-            modalRef.current.addEventListener('touchend', handleTouchEnd);
-        }
-        return () => {
-            document.removeEventListener('keydown', handleKey);
-            document.removeEventListener('mousedown', handleClick);
-            if (modalRef.current) {
-                modalRef.current.removeEventListener('touchstart', handleTouchStart);
-                modalRef.current.removeEventListener('touchend', handleTouchEnd);
-            }
-        };
+		document.addEventListener('keydown', handleKey);
+		document.addEventListener('mousedown', handleClick);
+		const node = modalRef.current;
+		if (node) {
+			node.addEventListener('touchstart', handleTouchStart);
+			node.addEventListener('touchend', handleTouchEnd);
+		}
+		return () => {
+			document.removeEventListener('keydown', handleKey);
+			document.removeEventListener('mousedown', handleClick);
+			if (node) {
+				node.removeEventListener('touchstart', handleTouchStart);
+				node.removeEventListener('touchend', handleTouchEnd);
+			}
+		};
     }, [open, imgModal, setImgModal, imagesLength]);
     return modalRef;
 }
