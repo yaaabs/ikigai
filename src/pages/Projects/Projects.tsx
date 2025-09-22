@@ -4,6 +4,7 @@ import { FaExternalLinkAlt, FaInfoCircle, FaLinkedin, FaHtml5, FaCss3Alt, FaJs, 
 import { SiExpress, SiPostgresql, SiSupabase, SiLaravel, SiKotlin, SiCodeigniter, SiJquery, SiFlask } from 'react-icons/si';
 import { SiVercel, SiRender, SiRailway } from 'react-icons/si';
 import { SiMysql } from 'react-icons/si';
+import Marquee from 'react-fast-marquee';
 // Map tech names to icon components
 
 const techIconMeta: Record<string, { icon: React.ReactElement, color: string, url?: string }> = {
@@ -56,6 +57,17 @@ import wakeywakey2 from '../../assets/wakeywakey2.png';
 import ukiyo from '../../assets/ukiyo.png';
 import ukiyo1 from '../../assets/ukiyo1.png';
 import ukiyo2 from '../../assets/ukiyo2.png';
+
+// Import the new images for the marquee
+import customodoroLogo from '../../assets/customodoro.png';
+import ukiyoLogo from '../../assets/ukiyo-logo.png';
+import wakeyLogo from '../../assets/wakey2x-logo.png';
+import loverLogo from '../../assets/lover-logo.png';
+import assocLogo from '../../assets/assoc.png';
+import transiteaseLogo from '../../assets/transitease-logo.png';
+import feutechLogo from '../../assets/feutech-logo.png';
+import drinkLogo from '../../assets/drink-logo.png';
+import yabutechLogo from '../../assets/yabutech.png';
 
 const projects = [
 	{
@@ -361,7 +373,7 @@ export default function Projects() {
 		<div className={styles.projectsPage}>
 			<h2 className={styles.heading}>Projects</h2>
 			<p className={styles.subheading}>
-				A collection of real-world and personal projects I’ve developed during my
+				A collection of real-world and personal projects I've developed during my
 				internship, 4th year in college, and in my own time—each solving
 				practical problems through thoughtful design and code.
 			</p>
@@ -538,6 +550,104 @@ export default function Projects() {
 					</div>
 				))}
 			</div>
+			
+			{/* Technology Showcase Marquee - Full Width */}
+			<div className={styles.marqueeSection}>
+  <div className={styles.marqueeInner}>
+    <h3 className={styles.marqueeHeading}>Projects I’ve Brought to Life</h3>
+    <p className={styles.marqueeSubheading}>
+      Hover over the showcase below to pause and explore
+    </p>
+  </div>
+  <div className={styles.marqueeWrapper}>
+    <div className={styles.marqueeContainer}>
+      <Marquee
+        pauseOnHover={true}
+        speed={40} /* Adjust marquee speed */
+        gradientWidth={100}
+        gradient={true}
+        gradientColor="#000"
+        className={styles.marqueeContent}
+      >
+        <div className={styles.marqueeItemContainer}>
+          {/* Customodoro Timer */}
+          <div className={styles.marqueeItem}>
+            <img src={customodoroLogo} alt="Customodoro Timer" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>Customodoro Timer</h4>
+              <p>The ultimate customizable Pomodoro timer</p>
+            </div>
+          </div>
+          {/* Ukiyo QR */}
+          <div className={styles.marqueeItem}>
+            <img src={ukiyoLogo} alt="Ukiyo QR" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>Ukiyo QR</h4>
+              <p>Lightweight QR generator for everyone</p>
+            </div>
+          </div>
+          {/* Wakey Wakey */}
+          <div className={styles.marqueeItem}>
+            <img src={wakeyLogo} alt="Wakey Wakey" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>Wakey Wakey</h4>
+              <p>Wakey wakey, wakey wakey! It's time for scoo!</p>
+            </div>
+          </div>
+          {/* Lover App */}
+          <div className={styles.marqueeItem}>
+            <img src={loverLogo} alt="Lover App" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>Lover App</h4>
+              <p>Tinder, but it's only your lover</p>
+            </div>
+          </div>
+          {/* Associates Portal - HRIS */}
+          <div className={styles.marqueeItem}>
+            <img src={assocLogo} alt="Associates Portal - HRIS" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>Associates Portal - HRIS</h4>
+              <p>HRIS for FEU Tech, FEU Alabang, and FEU Diliman</p>
+            </div>
+          </div>
+          {/* TransitEase */}
+          <div className={styles.marqueeItem}>
+            <img src={transiteaseLogo} alt="TransitEase" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>TransitEase</h4>
+              <p>Web & Mobile Application using NFC for LRT - 1</p>
+            </div>
+          </div>
+          {/* FEU Tech Capstone Project Repository */}
+          <div className={styles.marqueeItem}>
+            <img src={feutechLogo} alt="FEU Tech Capstone Project Repository" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>FEU Tech Capstone Project Repository</h4>
+              <p>Unofficial Academic Showcase Platform for FEU Tech</p>
+            </div>
+          </div>
+          {/* Drink PH - Not Official */}
+          <div className={styles.marqueeItem}>
+            <img src={drinkLogo} alt="Drink PH" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>Drink PH - Not Official</h4>
+              <p>Client Communication Portal Demo for Interview</p>
+            </div>
+          </div>
+          {/* YabuTech */}
+          <div className={styles.marqueeItem}>
+            <img src={yabutechLogo} alt="YabuTech" className={styles.marqueeLogo} />
+            <div className={styles.marqueeItemText}>
+              <h4>YabuTech</h4>
+              <p>Learning never stops</p>
+            </div>
+          </div>
+        </div>
+      </Marquee>
+    </div>
+  </div>
+</div>
+			
 			{selected !== null && (
 				<div className={styles.modalBackdrop}>
 					<div
