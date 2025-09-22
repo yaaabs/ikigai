@@ -1,8 +1,32 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import { FaInfoCircle } from 'react-icons/fa';
-import { FaLinkedin } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaInfoCircle, FaLinkedin, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaBootstrap, FaPhp, FaPython } from 'react-icons/fa';
+import { SiExpress, SiPostgresql, SiSupabase, SiLaravel, SiKotlin, SiCodeigniter, SiJquery, SiFlask } from 'react-icons/si';
+import { SiVercel, SiRender, SiRailway } from 'react-icons/si';
+import { SiMysql } from 'react-icons/si';
+// Map tech names to icon components
+
+const techIconMeta: Record<string, { icon: React.ReactElement, color: string, url?: string }> = {
+    'JavaScript': { icon: <FaJs title="JavaScript" />, color: '#f7df1e', url: 'https://developer.mozilla.org/docs/Web/JavaScript' },
+    'HTML5': { icon: <FaHtml5 title="HTML5" />, color: '#e44d26', url: 'https://developer.mozilla.org/docs/Web/HTML' },
+    'CSS': { icon: <FaCss3Alt title="CSS" />, color: '#1572b6', url: 'https://developer.mozilla.org/docs/Web/CSS' },
+    'Express.js': { icon: <SiExpress title="Express.js" />, color: '#444', url: 'https://expressjs.com/' },
+    'PostgreSQL': { icon: <SiPostgresql title="PostgreSQL" />, color: '#336791', url: 'https://www.postgresql.org/' },
+    'Node.js': { icon: <FaNodeJs title="Node.js" />, color: '#3c873a', url: 'https://nodejs.org/' },
+    'Supabase': { icon: <SiSupabase title="Supabase" />, color: '#3ecf8e', url: 'https://supabase.com/' },
+    'Laravel': { icon: <SiLaravel title="Laravel" />, color: '#ff2d20', url: 'https://laravel.com/' },
+    'Kotlin': { icon: <SiKotlin title="Kotlin" />, color: '#7f52ff', url: 'https://kotlinlang.org/' },
+    'Bootstrap': { icon: <FaBootstrap title="Bootstrap" />, color: '#7952b3', url: 'https://getbootstrap.com/' },
+    'CodeIgniter': { icon: <SiCodeigniter title="CodeIgniter" />, color: '#ee4623', url: 'https://codeigniter.com/' },
+    'PHP': { icon: <FaPhp title="PHP" />, color: '#777bb4', url: 'https://www.php.net/' },
+    'MySQL': { icon: <SiMysql title="MySQL" />, color: '#00758f', url: 'https://www.mysql.com/' },
+    'jQuery': { icon: <SiJquery title="jQuery" />, color: '#0769ad', url: 'https://jquery.com/' },
+    'Python': { icon: <FaPython title="Python" />, color: '#3776ab', url: 'https://www.python.org/' },
+    'Flask': { icon: <SiFlask title="Flask" />, color: '#000', url: 'https://flask.palletsprojects.com/' },
+    'Vercel': { icon: <SiVercel title="Vercel" />, color: '#fff', url: 'https://vercel.com/' },
+    'Render': { icon: <SiRender title="Render" />, color: '#0099e5', url: 'https://render.com/' },
+    'Railway': { icon: <SiRailway title="Railway" />, color: '#fff', url: 'https://railway.app/' },
+};
 import styles from './Projects.module.css';
 
 import customodoro2 from '../../assets/customodoro2.png';
@@ -46,10 +70,12 @@ const projects = [
 			'PostgreSQL',
 			'PWA',
 			'SEO',
-			'Node.js',			
+			'Node.js',
 			'PageSpeed Insights',
 			'Productivity Tool',
 			'Supabase',
+			'Vercel',
+			'Render',
 		],
 		image: customodoro2,
 		images: [classic, reverse, customodoro1, customodoro4],
@@ -70,16 +96,19 @@ const projects = [
 		desc: 'An Online Ticket Management System with Mobile Application using NFC for LRT-1 | Researcher & Full-Stack Web Developer',
 		tech: [
 			'Laravel',
+			'PHP',
 			'Kotlin',
-			'HTML5',
-			'Bootstrap',
 			'JavaScript',
+			'HTML5',
 			'CSS',
+			'Bootstrap',
 			'Web Application Development',
+			'Railway',
 			'Responsive Web Design',
 			'NFC',
 			'Capstone Project',
 			'TICAP 18',
+
 		],
 		image: transitease,
 		images: [transitease1, transitease2, transitease3],
@@ -106,16 +135,14 @@ const projects = [
 			'FEU TECH',
 			'Navicat for MySQL',
 			'PHP',
-			'MySQL',
+			'MySQL', // Ensure MySQL is present
 			'Database Triggers',
 			'JavaScript',
+			'HTML5',
+			'CSS',
 			'jQuery',
 			'AJAX',
 			'Bootstrap',
-			'HTML',
-			'CSS',
-
-
 		],
 		image: assoc,
 		images: [assocPng, assoc2, assoc1],
@@ -132,19 +159,18 @@ const projects = [
 		fullDesc:
 			"The FEU Alabang, FEU Diliman, and FEU Institute of Technology Associates’ Portal is a web-based application that enables associates to create profiles and manage their work information, including attendance, overtime, leave, official business, and work schedules.<br><br>As a Junior Systems Developer, I was part of the development team responsible for creating and improving the Associates Portal - Human Resources Information System (HRIS) used across FEU Tech, FEU Alabang, and FEU Diliman. <br>",
 	},
-	{
-		title: 'FEU Tech Capstone Project Repository',
-		desc: 'Academic Showcase Platform | Full-Stack Web Developer',
-		tech: [
-			'PHP',
-			'Responsive Web Design',
-      		'CSS',
-			'JavaScript',
-			'Bootstrap',
-			'HTML5',
-      		'Web Development',
-
-		],
+		{
+				title: 'FEU Tech Capstone Project Repository',
+				desc: 'Academic Showcase Platform | Full-Stack Web Developer',
+				tech: [
+						'PHP',
+						'JavaScript',
+						'HTML5',
+						'CSS',
+						'Bootstrap',
+						'Responsive Web Design',
+						'Web Development',
+				],
 		image: fitcpr,
 		images: [fitcpr2, fitcpr1],
 		github: '', 
@@ -430,12 +456,83 @@ export default function Projects() {
 									
 								}
 							</p>
-							<div className={styles.techList}>
-								{project.tech.map(t => (
-									<span key={t} className={styles.tech}>
-										{t}
-									</span>
-								))}
+							<div className={styles.techList} style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center', marginTop: '0.3rem' }}>
+								{(() => {
+									const techsWithIcons = project.tech.filter(t => techIconMeta[t]);
+									return (
+										<>
+											{techsWithIcons.map(t => {
+												const meta = techIconMeta[t];
+												return meta.url ? (
+													<a
+														key={t}
+														href={meta.url}
+														target="_blank"
+														rel="noopener noreferrer"
+														className={styles.tech}
+														title={t}
+														style={{
+															background: '#18181f',
+															borderRadius: '0.6rem',
+															padding: '0.35rem 0.6rem',
+															boxShadow: '0 2px 8px rgba(0,0,0,0.13)',
+															display: 'inline-flex',
+															alignItems: 'center',
+															justifyContent: 'center',
+															fontSize: '1.45rem',
+															color: meta.color,
+															transition: 'transform 0.18s, box-shadow 0.18s',
+															cursor: 'pointer',
+														}}
+														tabIndex={0}
+														aria-label={t}
+														onMouseOver={e => {
+															e.currentTarget.style.transform = 'scale(1.18)';
+															e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.18)';
+														}}
+														onMouseOut={e => {
+															e.currentTarget.style.transform = 'scale(1)';
+															e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.13)';
+														}}
+													>
+														{meta.icon}
+													</a>
+												) : (
+													<span
+														key={t}
+														className={styles.tech}
+														title={t}
+														style={{
+															background: '#18181f',
+															borderRadius: '0.6rem',
+															padding: '0.35rem 0.6rem',
+															boxShadow: '0 2px 8px rgba(0,0,0,0.13)',
+															display: 'inline-flex',
+															alignItems: 'center',
+															justifyContent: 'center',
+															fontSize: '1.45rem',
+															color: meta.color,
+															transition: 'transform 0.18s, box-shadow 0.18s',
+															cursor: 'pointer',
+														}}
+														tabIndex={0}
+														aria-label={t}
+														onMouseOver={e => {
+															e.currentTarget.style.transform = 'scale(1.18)';
+															e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.18)';
+														}}
+														onMouseOut={e => {
+															e.currentTarget.style.transform = 'scale(1)';
+															e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.13)';
+														}}
+													>
+														{meta.icon}
+													</span>
+												);
+											})}
+										</>
+									);
+								})()}
 							</div>
 						</div>
 					</div>
