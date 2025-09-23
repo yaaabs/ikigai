@@ -554,9 +554,9 @@ export default function Projects() {
 			{/* Technology Showcase Marquee - Fixed width implementation */}
 			<div className={styles.marqueeSection}>
         <div className={styles.marqueeInner}>
-          <h3 className={styles.marqueeHeading}>Projects I've Brought to Life</h3>
+          <h3 className={styles.marqueeHeading}>Handcrafted by <b><i>YabuTech</i></b></h3>
           <p className={styles.marqueeSubheading}>
-            Hover over the showcase below to pause and explore
+            Tap or hover to pause the showcase
           </p>
         </div>
         <div className={styles.marqueeWrapper}>
