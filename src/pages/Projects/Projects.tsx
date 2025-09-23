@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FaExternalLinkAlt, FaInfoCircle, FaLinkedin, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaBootstrap, FaPhp, FaPython } from 'react-icons/fa';
-import { SiExpress, SiPostgresql, SiSupabase, SiLaravel, SiKotlin, SiCodeigniter, SiJquery, SiFlask } from 'react-icons/si';
+import { SiExpress, SiPostgresql, SiSupabase, SiLaravel, SiCodeigniter, SiJquery, SiFlask, SiReact, SiTypescript, SiVite, SiTailwindcss } from 'react-icons/si';
 import { SiVercel, SiRender, SiRailway } from 'react-icons/si';
 import { SiMysql } from 'react-icons/si';
 import Marquee from 'react-fast-marquee';
@@ -15,8 +15,7 @@ const techIconMeta: Record<string, { icon: React.ReactElement, color: string, ur
     'PostgreSQL': { icon: <SiPostgresql title="PostgreSQL" />, color: '#336791', url: 'https://www.postgresql.org/' },
     'Node.js': { icon: <FaNodeJs title="Node.js" />, color: '#3c873a', url: 'https://nodejs.org/' },
     'Supabase': { icon: <SiSupabase title="Supabase" />, color: '#3ecf8e', url: 'https://supabase.com/' },
-    'Laravel': { icon: <SiLaravel title="Laravel" />, color: '#ff2d20', url: 'https://laravel.com/' },
-    'Kotlin': { icon: <SiKotlin title="Kotlin" />, color: '#7f52ff', url: 'https://kotlinlang.org/' },
+	'Laravel': { icon: <SiLaravel title="Laravel" />, color: '#ff2d20', url: 'https://laravel.com/' },
     'Bootstrap': { icon: <FaBootstrap title="Bootstrap" />, color: '#7952b3', url: 'https://getbootstrap.com/' },
     'CodeIgniter': { icon: <SiCodeigniter title="CodeIgniter" />, color: '#ee4623', url: 'https://codeigniter.com/' },
     'PHP': { icon: <FaPhp title="PHP" />, color: '#777bb4', url: 'https://www.php.net/' },
@@ -24,6 +23,10 @@ const techIconMeta: Record<string, { icon: React.ReactElement, color: string, ur
     'jQuery': { icon: <SiJquery title="jQuery" />, color: '#0769ad', url: 'https://jquery.com/' },
     'Python': { icon: <FaPython title="Python" />, color: '#3776ab', url: 'https://www.python.org/' },
     'Flask': { icon: <SiFlask title="Flask" />, color: '#000', url: 'https://flask.palletsprojects.com/' },
+	'React': { icon: <SiReact title="React" />, color: '#60DAFA', url: 'https://reactjs.org/' },
+	'TypeScript': { icon: <SiTypescript title="TypeScript" />, color: '#3178c6', url: 'https://www.typescriptlang.org/' },
+	'Vite': { icon: <SiVite title="Vite" />, color: '#646cff', url: 'https://vitejs.dev/' },
+	'Tailwind CSS': { icon: <SiTailwindcss title="Tailwind CSS" />, color: '#38BDF8', url: 'https://tailwindcss.com/' },
     'Vercel': { icon: <SiVercel title="Vercel" />, color: '#fff', url: 'https://vercel.com/' },
     'Render': { icon: <SiRender title="Render" />, color: '#0099e5', url: 'https://render.com/' },
     'Railway': { icon: <SiRailway title="Railway" />, color: '#fff', url: 'https://railway.app/' },
@@ -58,6 +61,14 @@ import ukiyo from '../../assets/ukiyo.png';
 import ukiyo1 from '../../assets/ukiyo1.png';
 import ukiyo2 from '../../assets/ukiyo2.png';
 
+import lover from '../../assets/lover.png';
+import lover1 from '../../assets/lover1.png';
+import lover2 from '../../assets/lover2.png';
+
+import drinkph from '../../assets/drinkph.png';
+import drinkph1 from '../../assets/drinkph1.png';
+import drinkph2 from '../../assets/drinkph2.png';
+
 // Import the new images for the marquee
 import customodoroLogo from '../../assets/customodoro.png';
 import ukiyoLogo from '../../assets/ukiyo-logo.png';
@@ -77,10 +88,10 @@ const projects = [
 			'JavaScript',
 			'HTML5',
 			'CSS',
+			'Node.js',
 			'Express.js',
 			'PostgreSQL',
 			'PWA',
-			'Node.js',
 			'Supabase',
 			'Vercel',
 			'Render',
@@ -90,6 +101,7 @@ const projects = [
 		github: 'https://github.com/yaaabs/customodoro',
 		demo: 'https://customodoro.vercel.app',
 		tags: [
+			'Featured',
 			'JavaScript',
 			'PWA',
 			'SEO',
@@ -105,15 +117,14 @@ const projects = [
 		tech: [
 			'Laravel',
 			'PHP',
-			'Kotlin',
 			'JavaScript',
 			'HTML5',
 			'CSS',
 			'Bootstrap',
 			'NFC',
 			'Capstone Project',
+			'MySQL',
 			'Railway',
-
 
 		],
 		image: transitease,
@@ -121,8 +132,7 @@ const projects = [
 		github: 'https://github.com/yaaabs/transitease',
 		demo: 'https://transitease.up.railway.app/',
 		tags: [
-			'Laravel',
-			'Kotlin',
+			'PHP',
 			'HTML5',
 			'Bootstrap',
 			'JavaScript',
@@ -140,22 +150,22 @@ const projects = [
 			'CodeIgniter',
 			'Navicat for MySQL',
 			'PHP',
-			'MySQL', 
 			'JavaScript',
 			'HTML5',
 			'CSS',
+			'Bootstrap',
 			'jQuery',
 			'AJAX',
-			'Bootstrap',
+			'MySQL', 
+
 		],
 		image: assoc,
 		images: [assocPng, assoc2, assoc1],
 		github: '', 
 		demo: '', 
 		tags: [
-			'CodeIgniter',
-			'Navicat for MySQL',
 			'PHP',
+			'Navicat for MySQL',
 			'MySQL',
 			'Bootstrap',
 			'JavaScript',
@@ -238,6 +248,55 @@ const projects = [
 		],
 		fullDesc:
 			`Inspired by the Japanese concept of "ukiyo" (浮世) - meaning "floating world" or "living in the moment" - our tool embodies the philosophy of finding beauty in transient connections. Just as Hokusai's "The Great Wave off Kanagawa" captures a moment of natural power and beauty, QR codes create momentary bridges between the physical and digital worlds.`
+	},
+		{
+		title: 'Lover App',
+        desc: 'Tinder, but it\'s only your lover | Full-Stack Web Developer',
+        tech: [
+            'React',
+            'TypeScript',
+            'Vite',
+            'Tailwind CSS',
+            'PostgreSQL',
+            'Supabase',
+			'Vercel',
+
+        ],
+		image: lover,
+		images: [lover, lover1, lover2],
+		github: 'https://github.com/yaaabs/kaizen',
+		demo: 'https://1over.vercel.app/',
+		tags: [
+			'TypeScript',
+			'React'
+		],
+		fullDesc:
+			`Tinder, but it's only your lover`
+	},
+		{
+		title: 'Drink PH - Not Official',
+        desc: 'Client Communication Portal Demo for Interview | Full-Stack Web Developer',
+        tech: [
+            'React',
+            'TypeScript',
+            'Vite',
+            'Tailwind CSS',
+            'Node.js',
+            'PostgreSQL',
+            'Supabase',
+			'Vercel',
+
+        ],
+		image: drinkph,
+		images: [drinkph, drinkph1, drinkph2],
+		github: 'https://github.com/yaaabs/ukiyo',
+		demo: 'https://ukiyo-qr.onrender.com/',
+		tags: [
+			'TypeScript',
+			'React'
+		],
+		fullDesc:
+			`Client Communication Portal Demo for Interview`
 	},
 	
 	
@@ -347,9 +406,9 @@ function useImgModal(
 
 export default function Projects() {
 	const [selected, setSelected] = useState<number | null>(null);
-	const [filter, setFilter] = useState<string>('All');
+	const [filter, setFilter] = useState<string>('Featured');
 	const [imgModal, setImgModal] = useState<{projectIdx: number, imgIdx: number} | null>(null);
-	const majorTags = ['JavaScript', 'PWA', 'Python', 'Laravel', 'Kotlin', 'CodeIgniter'];
+	const majorTags = ['Featured', 'JavaScript', 'React', 'TypeScript', 'PHP', 'Python'];
 
 	const filteredProjects =
 		filter === 'All'
@@ -373,9 +432,7 @@ export default function Projects() {
 		<div className={styles.projectsPage}>
 			<h2 className={styles.heading}>Projects</h2>
 			<p className={styles.subheading}>
-				A collection of real-world and personal projects I've developed during my
-				internship, 4th year in college, and in my own time—each solving
-				practical problems through thoughtful design and code.
+				A collection of real-world and personal projects I've developed during my internship, in college, and in my own time, each solving practical problems through thoughtful design and code.
 			</p>
 			<div className={styles.filters}>
 				<button
@@ -389,12 +446,12 @@ export default function Projects() {
 				</button>
 				{majorTags.map(tag => {
 					let tagClass = styles.filterBtnRed;
-					if (tag === 'Laravel') tagClass += ' ' + styles.filterLaravel;
 					if (tag === 'JavaScript') tagClass += ' ' + styles.filterJavaScript;
-					if (tag === 'PWA') tagClass += ' ' + styles.filterPWA;
-					if (tag === 'Kotlin') tagClass += ' ' + styles.filterKotlin;
-					if (tag === 'CodeIgniter') tagClass += ' ' + styles.filterCodeIgniter;
+					if (tag === 'React') tagClass += ' ' + styles.filterReact;
+					if (tag === 'TypeScript') tagClass += ' ' + styles.filterTypeScript;
 					if (tag === 'Python') tagClass += ' ' + styles.filterPython;
+					if (tag === 'PHP') tagClass += ' ' + styles.filterPHP;
+					if (tag === 'Featured') tagClass += ' ' + styles.filterFeatured;
 					return (
 						<button
 							key={tag}
@@ -463,6 +520,14 @@ export default function Projects() {
 									: project.title === 'Ukiyo QR'
         							? <>
             							Lightweight QR generator for everyone | <strong>Full-Stack Web Developer</strong>
+       								</>
+									: project.title === 'Lover App'
+        							? <>
+            							Tinder, but it's only your lover | <strong>Full-Stack Web Developer</strong>
+       								</>
+									: project.title === 'Drink PH - Not Official'
+        							? <>
+            							Client Communication Portal Demo for Interview | <strong>Full-Stack Web Developer</strong>
        								</>
 									: project.desc
 									
@@ -709,6 +774,16 @@ export default function Projects() {
                 							'Full-Stack Web Developer',
                 							'<strong>Full-Stack Web Developer</strong>'
            								)
+									: filteredProjects[selected].title === 'Lover App'
+            							? filteredProjects[selected].fullDesc.replace(
+                							'Full-Stack Web Developer',
+                							'<strong>Full-Stack Web Developer</strong>'
+           								)
+									: filteredProjects[selected].title === 'Drink PH - Not Official'
+            							? filteredProjects[selected].fullDesc.replace(
+                							'Full-Stack Web Developer',
+                							'<strong>Full-Stack Web Developer</strong>'
+           								)																				
 									: filteredProjects[selected].fullDesc
 							}}
 						/>
