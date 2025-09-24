@@ -289,8 +289,8 @@ const projects = [
         ],
 		image: drinkph,
 		images: [drinkph, drinkph1, drinkph2],
-		github: 'https://github.com/yaaabs/ukiyo',
-		demo: 'https://ukiyo-qr.onrender.com/',
+		github: 'https://github.com/yaaabs/yugen',
+		demo: 'https://drinkph.vercel.app/',
 		tags: [
 			'TypeScript',
 			'React'

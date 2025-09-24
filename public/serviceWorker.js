@@ -1,6 +1,6 @@
 // This is the service worker with the Cache-first network strategy
 
-const CACHE = "yabutech-portfolio-cache-v2"; // Increment version to force a clean cache
+const CACHE = "yabutech-portfolio-cache-v3"; 
 
 const precacheResources = [
   '/',
