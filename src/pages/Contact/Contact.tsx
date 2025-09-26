@@ -224,7 +224,7 @@ export default function Contact() {
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? 'email-error' : undefined}
               required
-              placeholder="brianyabutech@email.com"
+              placeholder="brianyabutech@gmail.com"
             />
             {errors.email && <span className={styles.error} id="email-error">{errors.email}</span>}
           </div>
