@@ -1,11 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import styles from './About.module.css';
 import {
-  FaHtml5, FaCss3Alt, FaBootstrap, FaJs, FaLaravel, FaSearch, FaPython, FaJava, FaSwift, FaGit, FaAndroid, FaGithub
+  FaHtml5, FaCss3Alt, FaBootstrap, FaJs, FaLaravel, FaSearch, FaPython, FaJava, FaSwift, FaGit, FaAndroid, FaGithub, FaDatabase, FaBold
 } from 'react-icons/fa';
 import { 
-  SiCodeigniter, SiPwa, SiMysql, SiXcode, SiTypescript, SiVite, SiNextdotjs, SiReact, SiNodedotjs,
-  SiKotlin, SiFigma, SiAdobephotoshop, SiVercel, SiSupabase, SiFirebase, SiNotion, SiMongodb, SiExpress
+  SiCodeigniter, SiPwa, SiPhp, SiMysql, SiXcode, SiTypescript, SiVite, SiNextdotjs, SiReact, SiNodedotjs,
+  SiKotlin, SiFigma, SiAdobephotoshop, SiVercel, SiRender, SiRailway, SiHostinger, SiSupabase, SiFirebase, SiNotion, SiMongodb, SiExpress,
+  SiWordpress, SiElementor, SiCanva, SiVirtualbox
 } from 'react-icons/si';
 import { TbSeo } from 'react-icons/tb';
 import notepadppIcon from '../../assets/notepad++.png';
@@ -15,8 +16,7 @@ import pptIcon from '../../assets/msppt.svg';
 import inspireIcon from '../../assets/inspire.png';
 import scalerIcon from '../../assets/scaler.png';
 import msqlIcon from '../../assets/msql.svg';
-import canvaIcon from '../../assets/canva.png'; 
-import navicatIcon from '../../assets/navicat.png'; 
+
 
 const categories = [
   {
@@ -29,11 +29,12 @@ const categories = [
       { name: 'JavaScript', icon: <FaJs />, accent: '#f7df1e' },
       { name: 'Laravel', icon: <FaLaravel />, accent: '#ff2d20' },
       { name: 'CodeIgniter', icon: <SiCodeigniter />, accent: '#ee4623' },
+      { name: 'PHP', icon: <SiPhp />, accent: '#777bb3' },
       { name: 'SEO', icon: <TbSeo />, accent: '#3cb371' },
       { name: 'PWA', icon: <SiPwa />, accent: '#5a0fc8' },
       { name: 'PSI', icon: <FaSearch />, accent: '#00bcd4' },
       { name: 'MySQL', icon: <SiMysql />, accent: '#00758f' },
-      { name: 'Navicat for MySQL', icon: <img src={navicatIcon} alt="Navicat for MySQL" style={{height: '2rem'}} />, accent: '#4fa463' }, 
+      { name: 'Navicat for MySQL', icon: <FaDatabase />, accent: '#4fa463' }, 
     ],
   },
   {
@@ -61,12 +62,16 @@ const categories = [
       { name: 'Git', icon: <FaGit />, accent: '#f05032' },
       { name: 'GitHub', icon: <FaGithub />, accent: '#fff' },
       { name: 'Vercel', icon: <SiVercel />, accent: '#fff' },
+      { name: 'Render', icon: <SiRender />, accent: '#0099e5' },
+      { name: 'Railway', icon: <SiRailway />, accent: '#000' },
+      { name: 'Hostinger', icon: <SiHostinger />, accent: '#FF6A00' },
       { name: 'Figma', icon: <SiFigma />, accent: '#a259ff' },
       { name: 'Adobe Photoshop', icon: <SiAdobephotoshop />, accent: '#31a8ff' },
-      { name: 'Canva', icon: <img src={canvaIcon} alt="Canva" style={{height: '2rem'}} />, accent: '#00c4cc' }, 
+      { name: 'Canva', icon: <SiCanva />, accent: '#00c4cc' },
       { name: 'Notion', icon: <SiNotion />, accent: '#fff' },
       { name: 'Xcode', icon: <SiXcode />, accent: '#1575f9' },
       { name: 'Android Studio', icon: <FaAndroid />, accent: '#3ddc84' },
+      { name: 'Oracle VM VirtualBox', icon: <SiVirtualbox />, accent: '#183A61' },
     ],
   },
   {
@@ -81,7 +86,10 @@ const categories = [
       { name: 'Next.js', icon: <SiNextdotjs />, accent: '#fff' },
       { name: 'Supabase', icon: <SiSupabase />, accent: '#3ecf8e' },
       { name: 'Firebase', icon: <SiFirebase />, accent: '#ffca28' },
-      { name: 'MongoDB', icon: <SiMongodb />, accent: '#47A248' }, 
+      { name: 'MongoDB', icon: <SiMongodb />, accent: '#47A248' },
+      { name: 'WordPress', icon: <SiWordpress />, accent: '#21759b' },
+      { name: 'Bricks Builder', icon: <FaBold />, accent: '#FF6A00' },
+      { name: 'Elementor', icon: <SiElementor />, accent: '#673ab7' }, 
     ],
   },
 ];
@@ -117,31 +125,14 @@ export default function About() {
           Here are some of the technologies and tools I've worked with:
         </p>
         {/* Mode Switcher Button/Segmented Control - placed above Web Development */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '0.7rem',
-          marginBottom: '1.7rem'
-        }}>
+        <div className={styles.modeSwitcher}>
           {modeOptions.map(opt => (
             <button
               key={opt.key}
               type="button"
               onClick={() => setAnimMode(opt.key as 'none' | 'breathing' | 'wave')}
               aria-pressed={animMode === opt.key}
-              style={{
-                padding: '0.45rem 1.1rem',
-                borderRadius: '1.2rem',
-                border: animMode === opt.key ? '2px solid #69f0ae' : '2px solid #23232b',
-                background: animMode === opt.key ? '#23232b' : '#181820',
-                color: animMode === opt.key ? '#fff' : '#bdbdbd',
-                fontWeight: 600,
-                fontSize: '1rem',
-                cursor: 'pointer',
-                outline: animMode === opt.key ? '2px solid #69f0ae' : 'none',
-                transition: 'all 0.18s'
-              }}
+              className={styles.modeButton}
             >
               {opt.label}
             </button>
@@ -187,6 +178,52 @@ export default function About() {
             </div>
           </div>
         ))}
+  {/* Timeline (scoped styles, visually similar to daisyUI timeline) */}
+  <h2 className={styles.timelineHeading}>Experience</h2>
+  <div className={styles.timelineWrapper} aria-label="timeline of milestones">
+          <ul className={styles.timeline}>
+            <li>
+              <div className={styles.timelineMiddle} />
+              <div className={styles.timelineStart}>
+                <time className={styles.time}>Aug 2021</time>
+                <div className={styles.eventTitle}>Bachelor of Science in Information and Technology</div>
+                <p className={styles.eventText}>Studied at <strong><em>FEU Institute of Technology, specializing in Web and Mobile Application Development,</em></strong> with hands-on projects focused on creating responsive and user-friendly applications.</p>
+              </div>
+            </li>
+            <li>
+              <div className={styles.timelineMiddle} />
+              <div className={styles.timelineEnd}>
+                <time className={styles.time}>Jan 2025</time>
+                <div className={styles.eventTitle}>Junior Systems Developer</div>
+                <p className={styles.eventText}>Worked as a Junior Systems Developer at <strong><em>FEU Institute of Technology – Information Technology Services Office (ITSO)</em></strong> during Internship, contributing to the development of the Associates Portal x HRIS.</p>
+              </div>
+            </li>
+            <li>
+              <div className={styles.timelineMiddle} />
+              <div className={styles.timelineStart}>
+                <time className={styles.time}>April 2025</time>
+                <div className={styles.eventTitle}>Exhibit Developer</div>
+                <p className={styles.eventText}>Interned at <strong><em>Convey Health Solutions</em></strong>, where I created and maintained exhibits (automated letters) using Quadient Products. Contributed to workflow automation, built an Imaging File Mover, and assisted in QA testing to improve efficiency and accuracy of document processes.</p>
+              </div>
+            </li>
+            <li>
+              <div className={styles.timelineMiddle} />
+              <div className={styles.timelineEnd}>
+                <time className={styles.time}>May 2025</time>
+                <div className={styles.eventTitle}>Customodoro Developer</div>
+                <p className={styles.eventText}>Co-founded and led the development of <strong><em>Customodoro Timer</em></strong>, a fully customizable Pomodoro timer web app designed to help users improve focus, time management, and daily productivity.</p>
+              </div>
+            </li>
+            <li className={styles.present}>
+              <div className={styles.timelineMiddle} />
+              <div className={styles.timelineStart}>
+                <time className={styles.time}>October 2025</time>
+                <div className={styles.eventTitle}>Web Developer</div>
+                <p className={styles.eventText}>🔒 Hire me to unlock this quest.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
   );
