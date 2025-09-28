@@ -102,9 +102,21 @@ export default function About() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Use a responsive observer so the About section becomes visible
+    // earlier on small screens (reduces the large black gap on mobile).
+    // On mobile we shrink the effective viewport bottom using a negative
+    // rootMargin so the element intersects sooner.
+    // Treat devices up to tablet width as "small" so the reveal fires earlier
+    // on larger phones and small tablets. Use a less-negative bottom margin
+    // so the section intersects sooner (shorter black gap before fade-in).
+    const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+    const options: IntersectionObserverInit = isSmallScreen
+      ? { root: null, rootMargin: '0px 0px -40% 0px', threshold: 0 }
+      : { root: null, rootMargin: '0px', threshold: 0.15 };
+
     const observer = new window.IntersectionObserver(
       ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.15 }
+      options
     );
     observer.observe(el);
     return () => observer.disconnect();

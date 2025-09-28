@@ -266,7 +266,7 @@
 
 @media (max-width: 600px) {
   .section {
-    padding: 2rem 0.2rem 1rem 0.2rem;
+    padding: 1.6rem 0.2rem 0.8rem 0.2rem;
   }
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -440,7 +440,7 @@
   .time { font-size: 0.82rem; }
 
   /* Ensure grid spacing above timeline is reasonable on small screens */
-  .grid { margin-bottom: 2.2rem; }
+  .grid { margin-bottom: 1.4rem; }
 }
 
 /* Timeline heading */
