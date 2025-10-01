@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
-import profileImg from '../../assets/profile.jpg'; // Place your profile image here
+import profileImg from '../../assets/profile.jpg';
+import profileAltImg from '../../assets/profile1.jpg';
 
 const phrases = [
   'Web Developer',
@@ -43,6 +44,8 @@ function Home() {
     setFadeIn(true);
   }, []);
 
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleProjectsClick = () => {
     const el = document.getElementById('projects');
     if (el) {
@@ -57,11 +60,22 @@ function Home() {
       aria-label="Hero Section"
     >
       <div className={styles.centerContent}>
-        <div className={styles.profileWrapper}>
+        <div 
+          className={styles.profileWrapper}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onClick={() => setIsHovered(!isHovered)}
+        >
           <img
             src={profileImg}
             alt="Profile"
-            className={styles.profileImg}
+            className={`${styles.profileImg} ${styles.primaryImg} ${isHovered ? styles.hidden : ''}`}
+            loading="lazy"
+          />
+          <img
+            src={profileAltImg}
+            alt="Profile Alternative"
+            className={`${styles.profileImg} ${styles.altImg} ${isHovered ? styles.visible : ''}`}
             loading="lazy"
           />
         </div>
