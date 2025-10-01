@@ -1,6 +1,6 @@
 // This is the service worker with the Cache-first network strategy
 
-const CACHE = "yabutech-portfolio-cache-v5.0.1";
+const CACHE = "yabutech-portfolio-cache-v5.1.1";
 
 const precacheResources = [
   '/',

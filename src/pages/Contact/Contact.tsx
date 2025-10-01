@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import styles from './Contact.module.css';
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import beaconsLogo from '../../assets/beacons.png'; // Import your custom Beacons icon
 import customodoroLogo from '../../assets/customodoro.png'; // Make sure this asset exists
 // import resumeSvg from '../../assets/resume-download.svg'; // Optional: if you want to use a local SVG
@@ -22,6 +23,11 @@ const SOCIALS = [
     icon: <FaInstagram />,
     label: 'Instagram',
     url: 'https://www.instagram.com/brianjyabut/',
+  },
+  {
+    icon: <FaXTwitter />,
+    label: 'X / Twitter',
+    url: 'https://x.com/BJ_Yabut',
   },
   {
     icon: (
