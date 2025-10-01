@@ -14,6 +14,26 @@ function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const isManualClick = useRef(false);
 
+  // Handle initial load with hash in URL
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && hash !== '#home') {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveHash(hash);
+          // Set a flag to prevent scroll observer from changing URL during initial load
+          isManualClick.current = true;
+          setTimeout(() => {
+            isManualClick.current = false;
+          }, 1000); // Give enough time for the scroll to complete
+        }
+      }, 100);
+    }
+  }, []); // Run once on mount
+
   const navLinks = useMemo(() => [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
@@ -105,9 +125,13 @@ function Navbar() {
         if (visibleSections.length > 0) {
           const activeSection = `#${visibleSections[0].target.id}`;
           if (activeSection !== activeHash) {
+            // Always update the active state for highlighting
             setActiveHash(activeSection);
-            // Update URL hash without triggering scroll
-            window.history.replaceState(null, '', activeSection);
+            
+            // Only update URL during actual user scrolling
+            if (!isManualClick.current) {
+              window.history.replaceState(null, '', activeSection);
+            }
           }
         }
       },
