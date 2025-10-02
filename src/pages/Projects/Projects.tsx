@@ -41,7 +41,7 @@ import customodoro2 from '../../assets/customodoro2.png';
 import classic from '../../assets/classic.png';
 import reverse from '../../assets/reverse.png';
 import customodoro1 from '../../assets/customodoro1.png';
-import customodoro4 from '../../assets/customodoro4.jpg';
+import customodoro3 from '../../assets/customodoro3.png';
 
 import transitease from '../../assets/transitease.png';
 import transitease1 from '../../assets/transitease1.jpg';
@@ -105,7 +105,7 @@ const projects = [
 			'Render',
 		],
 		image: customodoro2,
-		images: [classic, reverse, customodoro1, customodoro4],
+		images: [classic, reverse, customodoro1, customodoro3],
 		github: 'https://github.com/yaaabs/customodoro',
 		demo: 'https://customodoro.vercel.app',
 		tags: [
