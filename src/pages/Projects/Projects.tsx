@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import { FaExternalLinkAlt, FaInfoCircle, FaLinkedin, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaBootstrap, FaPhp, FaPython } from 'react-icons/fa';
-import { SiExpress, SiPostgresql, SiSupabase, SiLaravel, SiCodeigniter, SiJquery, SiFlask, SiReact, SiTypescript, SiVite, SiTailwindcss } from 'react-icons/si';
+import { FaExternalLinkAlt, FaInfoCircle, FaLinkedin, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaBootstrap, FaPhp, FaPython, FaAndroid } from 'react-icons/fa';
+import { SiExpress, SiPostgresql, SiSupabase, SiLaravel, SiCodeigniter, SiJquery, SiFlask, SiReact, SiTypescript, SiVite, SiTailwindcss, SiExpo, SiAndroid } from 'react-icons/si';
 import { SiVercel, SiRender, SiRailway } from 'react-icons/si';
 import { SiMysql } from 'react-icons/si';
 import Marquee from 'react-fast-marquee';
@@ -30,6 +30,10 @@ const techIconMeta: Record<string, { icon: React.ReactElement, color: string, ur
     'Vercel': { icon: <SiVercel title="Vercel" />, color: '#fff', url: 'https://vercel.com/' },
     'Render': { icon: <SiRender title="Render" />, color: '#0099e5', url: 'https://render.com/' },
     'Railway': { icon: <SiRailway title="Railway" />, color: '#fff', url: 'https://railway.app/' },
+    'React Native': { icon: <SiReact title="React Native" />, color: '#60DAFA', url: 'https://reactnative.dev/' },
+    'Expo': { icon: <SiExpo title="Expo" />, color: '#000020', url: 'https://expo.dev/' },
+    'Android APK': { icon: <SiAndroid title="Android APK" />, color: '#3DDC84', url: 'https://developer.android.com/' },
+    'EAS': { icon: <SiExpo title="EAS" />, color: '#000020', url: 'https://expo.dev/eas' },
 };
 import styles from './Projects.module.css';
 
@@ -68,6 +72,10 @@ import lover2 from '../../assets/lover2.png';
 import drinkph from '../../assets/drinkph.png';
 import drinkph1 from '../../assets/drinkph1.png';
 import drinkph2 from '../../assets/drinkph2.png';
+
+import aifon from '../../assets/aifon.png';
+import aifon1 from '../../assets/aifon1.png';
+import aifon2 from '../../assets/aifon2.png';
 
 // Import the new images for the marquee
 import customodoroLogo from '../../assets/customodoro.png';
@@ -298,7 +306,31 @@ const projects = [
 		fullDesc:
 			`Client Communication Portal Demo for Interview`
 	},
-	
+		{
+		title: 'Aifon Calculator',
+        desc: 'A cross-platform calculator app built with React Native and Expo | Full-Stack Web Developer',
+        tech: [
+            'React Native',
+            'HTML5',
+            'CSS',			
+            'React',
+            'Expo',
+            'Vercel',
+            'Android APK',
+            'EAS',
+
+        ],
+		image: aifon,
+		images: [aifon, aifon1, aifon2],
+		github: 'https://github.com/yaaabs/aifon',
+		demo: 'https://aifon-calcu.vercel.app/',
+		apk: 'https://github.com/yaaabs/aifon/releases/download/v1.0.0/aifon-calculator.apk',
+		tags: [
+			'React'
+		],
+		fullDesc:
+			`A cross-platform calculator app built with React Native and Expo. Designed to mimic the iPhone calculator interface, available as an Android APK and a Progressive Web App (PWA).`
+	},	
 	
 ];
 
@@ -529,6 +561,10 @@ export default function Projects() {
         							? <>
             							Client Communication Portal Demo for Interview | <strong>Full-Stack Web Developer</strong>
        								</>
+									: project.title === 'Aifon Calculator'
+        							? <>
+            							A cross-platform calculator app built with React Native and Expo | <strong>Full-Stack Web Developer</strong>
+       								</>									
 									: project.desc
 									
 								}
@@ -783,7 +819,12 @@ export default function Projects() {
             							? filteredProjects[selected].fullDesc.replace(
                 							'Full-Stack Web Developer',
                 							'<strong>Full-Stack Web Developer</strong>'
-           								)																				
+           								)	
+									: filteredProjects[selected].title === 'Aifon Calculator'
+            							? filteredProjects[selected].fullDesc.replace(
+                							'Full-Stack Web Developer',
+                							'<strong>Full-Stack Web Developer</strong>'
+           								)																														
 									: filteredProjects[selected].fullDesc
 							}}
 						/>
@@ -859,6 +900,17 @@ export default function Projects() {
 								>
 									<span className={styles.linkedinIcon}><FaLinkedin /></span>
 									LinkedIn
+								</a>
+							)}
+							{filteredProjects[selected].title === 'Aifon Calculator' && filteredProjects[selected].apk && (
+								<a
+									href={filteredProjects[selected].apk}
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.actionBtnApk + ' ' + styles.apkBtn}
+								>
+									<span className={styles.apkIcon}><FaAndroid /></span>
+									Install
 								</a>
 							)}
 							{filteredProjects[selected].demo ? (

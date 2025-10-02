@@ -545,6 +545,29 @@ transform: translateX(0);
 opacity: 1;
 }
 
+.actionBtnApk {
+background: #2BB76B !important;
+color: #fff !important;
+border: none;
+border-radius: 0.7rem;
+padding: 0.7rem 1.5rem;
+font-size: 1.08rem;
+font-weight: 600;
+text-decoration: none !important;
+box-shadow: 0 2px 8px 0 rgba(43,183,107,0.13);
+transition: background 0.18s, color 0.18s, transform 0.18s;
+display: flex;
+align-items: center;
+gap: 0.7rem;
+}
+
+.actionBtnApk:hover,
+.actionBtnApk:focus {
+background: #1F8A57 !important;
+color: #fff !important;
+transform: scale(1.06);
+}
+
 /* Marquee Section Styles - Fix the width and positioning */
 .marqueeSection {
 margin-top: 4rem;
