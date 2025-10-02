@@ -324,7 +324,7 @@ const projects = [
 		images: [aifon, aifon1, aifon2],
 		github: 'https://github.com/yaaabs/aifon',
 		demo: 'https://aifon-calcu.vercel.app/',
-		apk: 'https://github.com/yaaabs/aifon/releases/download/v1.0.0/aifon-calculator.apk',
+		apk: 'https://expo.dev/accounts/yaaabs/projects/aifon-calculator/builds/62d300ca-8c7a-46d9-8ea2-9731d6ab73e7',
 		tags: [
 			'React'
 		],
