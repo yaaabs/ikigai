@@ -117,7 +117,7 @@ const projects = [
 			'PageSpeed Insights',
 		],
 		fullDesc:
-			'Customodoro is a powerful and fully customizable Pomodoro timer designed to help students, professionals, and creatives stay focused and productive. Featuring classic and reverse Pomodoro modes, immersive audio, beautiful themes, task tracking, and smart automation — all in one sleek, distraction-free app.',
+			'Customodoro is a powerful and fully Customizable Pomodoro Timer designed to help students, professionals, and creatives stay focused and productive. Featuring Classic and Reverse Pomodoro modes, immersive audio, beautiful themes, task tracking, and many more!',
 	},
 	{
 		title: 'TransitEase',
@@ -149,7 +149,7 @@ const projects = [
 			'NFC',
 		],
 		fullDesc:
-			'TransitEase is our capstone project — a web and mobile application for online ticketing, monitoring, and management system. It was designed to innovate the commuting experience for users and optimize business operations for LRT-1. TransitEase integrates NFC payment to help lessen crowd congestion.',
+			'TransitEase is our capstone project — a web and mobile application for online ticketing, monitoring, and management system. It was designed to innovate the commuting experience for users and optimize business operations for LRT-1.',
 	},
 	{
 		title: 'Associates Portal - HRIS',
@@ -204,7 +204,7 @@ const projects = [
 			'Web Development',
 		],
 		fullDesc:
-			'The FEU Tech Capstone Project Repository is a dynamic platform that highlights the innovative and impactful projects of students and faculty from the Far Eastern University - Institute of Technology. It serves as a showcase of technical expertise, research excellence, and problem-solving skills, reflecting the institution\'s commitment to academic excellence and real-world transformation.',
+			'The FEU Tech Capstone Project Repository is a dynamic platform that highlights the innovative and impactful projects of students and faculty from the Far Eastern University - Institute of Technology.',
 	},
 	{
 		title: 'Wakey Wakey',
@@ -227,7 +227,7 @@ const projects = [
 			'PWA'
 		],
 		fullDesc:
-			`<br><strong>What is Wakey Wakey?</strong><br>
+			`<strong>What is Wakey Wakey?</strong><br>
 		Wakey Wakey keeps your computer awake without needing to install software or change settings.<br><br>
 		<strong>Why I Built This?</strong><br>
 		As an intern on the graveyard shift, my work laptop would sleep every 5 minutes — and I couldn’t change the settings. I built this so I could eat lunch, grab a snack, or take a break without constant interruptions.<br>`
@@ -255,7 +255,7 @@ const projects = [
 			'JavaScript'
 		],
 		fullDesc:
-			`Inspired by the Japanese concept of "ukiyo" (浮世) - meaning "floating world" or "living in the moment" - our tool embodies the philosophy of finding beauty in transient connections. Just as Hokusai's "The Great Wave off Kanagawa" captures a moment of natural power and beauty, QR codes create momentary bridges between the physical and digital worlds.`
+			`Ukiyo QR was inspired by the Japanese concept of "ukiyo" (浮世) - meaning "floating world" or "living in the moment" - our tool embodies the philosophy of finding beauty in transient connections. Just as Hokusai's "The Great Wave off Kanagawa" captures a moment of natural power and beauty, QR codes create momentary bridges between the physical and digital worlds.`
 	},
 		{
 		title: 'Lover App',
@@ -279,7 +279,7 @@ const projects = [
 			'React'
 		],
 		fullDesc:
-			`Tinder, but it's only your lover`
+			`Tinder, but it’s only pictures of your partner and you can only swipe right. A modern romantic app where couples create personalized photo decks to share with each other. Built with React, TypeScript, and Supabase for a smooth, engaging experience, it lets you celebrate your relationship and surprise your partner in a fun, intimate way.`
 	},
 		{
 		title: 'Drink PH - Not Official',
@@ -304,7 +304,7 @@ const projects = [
 			'React'
 		],
 		fullDesc:
-			`Client Communication Portal Demo for Interview`
+			`This is a DEMO APPLICATION ONLY created for interview/portfolio purposes. This is NOT an official Drink PH website and is not affiliated with, endorsed by, or representing any actual company named "Drink PH" or similar organizations. This is purely a fictional demonstration of web development capabilities.`
 	},
 		{
 		title: 'Aifon Calculator',
@@ -329,7 +329,7 @@ const projects = [
 			'React'
 		],
 		fullDesc:
-			`A cross-platform calculator app built with React Native and Expo. Designed to mimic the iPhone calculator interface, available as an Android APK and a Progressive Web App (PWA).`
+			`Aifon Calculator is a cross-platform app built with React Native and Expo, designed to faithfully recreate the look and feel of the iPhone calculator. The PWA version is deployed live on Vercel for instant web access, while the Android build was packaged as an APK using the Expo SDK for mobile installation.`
 	},	
 	
 ];
