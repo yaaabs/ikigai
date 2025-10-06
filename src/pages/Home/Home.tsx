@@ -39,9 +39,19 @@ function Home() {
   const [fadeIn, setFadeIn] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const typing = useTypewriter(phrases);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     setFadeIn(true);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 150);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const [isHovered, setIsHovered] = useState(false);
@@ -64,6 +74,10 @@ function Home() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -133,6 +147,17 @@ function Home() {
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </button>
+
+        <button
+          className={`${styles.backToTopBtn} ${showBackToTop ? styles.visible : ''}`}
+          onClick={handleBackToTop}
+          aria-label="Back to Top"
+          title="Back to Top"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="18 15 12 9 6 15"></polyline>
           </svg>
         </button>
       </div>
