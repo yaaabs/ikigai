@@ -37,52 +37,52 @@ const techIconMeta: Record<string, { icon: React.ReactElement, color: string, ur
 };
 import styles from './Projects.module.css';
 
-import customodoro2 from '../../assets/customodoro2.png';
-import classic from '../../assets/classic.png';
-import reverse from '../../assets/reverse.png';
-import customodoro1 from '../../assets/customodoro1.png';
-import customodoro3 from '../../assets/customodoro3.png';
+import customodoro2 from '../../assets/customodoro2.webp';
+import classic from '../../assets/classic.webp';
+import reverse from '../../assets/reverse.webp';
+import customodoro1 from '../../assets/customodoro1.webp';
+import customodoro3 from '../../assets/customodoro3.webp';
 
-import transitease from '../../assets/transitease.png';
-import transitease1 from '../../assets/transitease1.jpg';
-import transitease2 from '../../assets/transitease2.jpg';
-import transitease3 from '../../assets/transitease3.jpg';
+import transitease from '../../assets/transitease.webp';
+import transitease1 from '../../assets/transitease1.webp';
+import transitease2 from '../../assets/transitease2.webp';
+import transitease3 from '../../assets/transitease3.webp';
 
-import assoc from '../../assets/assoc.jpg';
-import assocPng from '../../assets/assoc.png';
-import assoc2 from '../../assets/assoc2.png';
-import assoc1 from '../../assets/assoc1.png';
+import assoc from '../../assets/assoc.webp';
+import assocPng from '../../assets/assoc0.webp';
+import assoc2 from '../../assets/assoc2.webp';
+import assoc1 from '../../assets/assoc1.webp';
 
-import fitcpr from '../../assets/fitcpr.png';
-import fitcpr2 from '../../assets/fitcpr2.png';
-import fitcpr1 from '../../assets/fitcpr1.png';
+import fitcpr from '../../assets/fitcpr.webp';
+import fitcpr2 from '../../assets/fitcpr2.webp';
+import fitcpr1 from '../../assets/fitcpr1.webp';
 
-import wakeywakey1 from '../../assets/wakeywakey1.png';
-import wakeywakey from '../../assets/wakeywakey.png';
-import wakeywakey2 from '../../assets/wakeywakey2.png';
+import wakeywakey1 from '../../assets/wakeywakey1.webp';
+import wakeywakey from '../../assets/wakeywakey.webp';
+import wakeywakey2 from '../../assets/wakeywakey2.webp';
 
-import ukiyo from '../../assets/ukiyo.png';
-import ukiyo1 from '../../assets/ukiyo1.png';
-import ukiyo2 from '../../assets/ukiyo2.png';
+import ukiyo from '../../assets/ukiyo.webp';
+import ukiyo1 from '../../assets/ukiyo1.webp';
+import ukiyo2 from '../../assets/ukiyo2.webp';
 
-import lover from '../../assets/lover.png';
-import lover1 from '../../assets/lover1.png';
-import lover2 from '../../assets/lover2.png';
+import lover from '../../assets/lover.webp';
+import lover1 from '../../assets/lover1.webp';
+import lover2 from '../../assets/lover2.webp';
 
-import drinkph from '../../assets/drinkph.png';
-import drinkph1 from '../../assets/drinkph1.png';
-import drinkph2 from '../../assets/drinkph2.png';
+import drinkph from '../../assets/drinkph.webp';
+import drinkph1 from '../../assets/drinkph1.webp';
+import drinkph2 from '../../assets/drinkph2.webp';
 
-import aifon from '../../assets/aifon.png';
-import aifon1 from '../../assets/aifon1.png';
-import aifon2 from '../../assets/aifon2.png';
+import aifon from '../../assets/aifon.webp';
+import aifon1 from '../../assets/aifon1.webp';
+import aifon2 from '../../assets/aifon2.webp';
 
 // Import the new images for the marquee
 import customodoroLogo from '../../assets/customodoro.png';
 import ukiyoLogo from '../../assets/ukiyo-logo.png';
 import wakeyLogo from '../../assets/wakey2x-logo.png';
 import loverLogo from '../../assets/lover-logo.png';
-import assocLogo from '../../assets/assoc.png';
+import assocLogo from '../../assets/assoc0.webp';
 import transiteaseLogo from '../../assets/transitease-logo.png';
 import feutechLogo from '../../assets/feutech-logo.png';
 import drinkLogo from '../../assets/drink-logo.png';

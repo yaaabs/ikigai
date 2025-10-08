@@ -1,19 +1,19 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './Achievements.module.css';
 
-import html5Img from '../../assets/certificates/HTML5.png';
+import html5Img from '../../assets/certificates/HTML5.webp';
 import html5Pdf from '../../assets/certificates/HTML5.pdf';
-import jsImg from '../../assets/certificates/js.png';
-import rwdImg from '../../assets/certificates/rwd.png';
-import networkingImg from '../../assets/certificates/networking.png';
+import jsImg from '../../assets/certificates/js.webp';
+import rwdImg from '../../assets/certificates/rwd.webp';
+import networkingImg from '../../assets/certificates/networking.webp';
 import networkingPdf from '../../assets/certificates/networking.pdf';
-import bestwebImg from '../../assets/certificates/bestweb.png';
+import bestwebImg from '../../assets/certificates/bestweb.webp';
 import bestwebPdf from '../../assets/certificates/bestweb.pdf';
-import innovativeImg from '../../assets/certificates/innovative.png';
+import innovativeImg from '../../assets/certificates/innovative.webp';
 import innovativePdf from '../../assets/certificates/innovative.pdf';
-import bestideaImg from '../../assets/certificates/bestidea.jpg';
+import bestideaImg from '../../assets/certificates/bestidea.webp';
 import bestideaPdf from '../../assets/certificates/bestidea.pdf';
-import deanslisterImg from '../../assets/certificates/deanslister.jpg';
+import deanslisterImg from '../../assets/certificates/deanslister.webp';
 import deanslisterPdf from '../../assets/certificates/deanslister.pdf';
 
 const certifications = [

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
-import profileImg from '../../assets/profile.png';
-import profileAltImg from '../../assets/profile2.png';
+import profileImg from '../../assets/profile.webp';
+import profileAltImg from '../../assets/profile2.webp';
 
 const phrases = [
   'Web Developer',
