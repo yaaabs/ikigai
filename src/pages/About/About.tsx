@@ -226,12 +226,20 @@ export default function About() {
                 <p className={styles.eventText}>Co-founded and led the development of <strong><em>Customodoro Timer</em></strong>, a fully customizable Pomodoro timer web app designed to help users improve focus, time management, and daily productivity.</p>
               </div>
             </li>
-            <li className={styles.present}>
+            <li>
               <div className={styles.timelineMiddle} />
               <div className={styles.timelineStart}>
                 <time className={styles.time}>October 2025</time>
                 <div className={styles.eventTitle}>Web Developer</div>
                 <p className={styles.eventText}>🔒 Hire me to unlock this quest.</p>
+              </div>
+            </li>
+            <li className={styles.present}>
+              <div className={styles.timelineMiddle} />
+              <div className={styles.timelineEnd}>
+                <time className={styles.time}>November 2025</time>
+                <div className={styles.eventTitle}>Full Stack Developer</div>
+                <p className={styles.eventText}>⚔️ Quest Unlocked: Red Gate Dungeon</p>
               </div>
             </li>
           </ul>
