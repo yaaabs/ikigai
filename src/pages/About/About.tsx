@@ -218,7 +218,7 @@ export default function About() {
                 <p className={styles.eventText}>Interned at <strong><em>Convey Health Solutions</em></strong>, where I created and maintained exhibits (automated letters) using Quadient Products. Contributed to workflow automation, built an Imaging File Mover, and assisted in QA testing to improve efficiency and accuracy of document processes.</p>
               </div>
             </li>
-            <li>
+            <li className={styles.present}>
               <div className={styles.timelineMiddle} />
               <div className={styles.timelineEnd}>
                 <time className={styles.time}>May 2025</time>
