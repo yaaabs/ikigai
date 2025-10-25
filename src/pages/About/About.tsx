@@ -119,7 +119,58 @@ export default function About() {
       options
     );
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Helper to check element position manually. This covers cases where
+    // the browser jumps to a hash or the app navigates without triggering
+    // a scroll that the IntersectionObserver picks up (some browsers or
+    // smooth-scroll behaviors can cause a mismatch). If the URL targets
+    // the About section, or the element is within the viewport bounds,
+    // reveal it.
+    const checkAndSetVisible = () => {
+      try {
+        const r = el.getBoundingClientRect();
+        const inViewport = r.top < window.innerHeight && r.bottom > 0;
+        if (inViewport) {
+          setVisible(true);
+          return;
+        }
+        // If the URL explicitly points at the about anchor, reveal it
+        // immediately. Some nav implementations set the hash but do not
+        // cause a measurable intersection right away.
+        if (window.location.hash === '#about' || window.location.pathname.endsWith('/about')) {
+          setVisible(true);
+        }
+      } catch (e) {
+        // defensive - ignore errors
+      }
+    };
+
+    // Run check right away, and again after short delays to handle
+    // smooth scrolling or layout shifts that happen just after navigation.
+    checkAndSetVisible();
+    const t1 = window.setTimeout(checkAndSetVisible, 50);
+    const t2 = window.setTimeout(checkAndSetVisible, 250);
+
+    const onHashOrPop = () => {
+      // run checks shortly after the hash/popstate change
+      checkAndSetVisible();
+      window.setTimeout(checkAndSetVisible, 150);
+    };
+
+    window.addEventListener('hashchange', onHashOrPop);
+    window.addEventListener('popstate', onHashOrPop);
+    window.addEventListener('load', checkAndSetVisible);
+    window.addEventListener('resize', checkAndSetVisible);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.removeEventListener('hashchange', onHashOrPop);
+      window.removeEventListener('popstate', onHashOrPop);
+      window.removeEventListener('load', checkAndSetVisible);
+      window.removeEventListener('resize', checkAndSetVisible);
+    };
   }, []);
 
   const modeOptions = [
