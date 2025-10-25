@@ -389,7 +389,7 @@
   box-shadow: 0 8px 28px rgba(225,29,72,0.14);
 }
 .present .timelineMiddle::after { content: none; }
-.present .eventTitle::after {
+.present .time::after {
   content: " — Present";
   font-weight: 700;
   /* Present label color (requested) */
