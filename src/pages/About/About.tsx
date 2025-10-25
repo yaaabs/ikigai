@@ -162,6 +162,41 @@ export default function About() {
     window.addEventListener('load', checkAndSetVisible);
     window.addEventListener('resize', checkAndSetVisible);
 
+    // On large screens, add a throttled scroll handler that keeps the
+    // About section visible until its bottom edge reaches near the
+    // top of the viewport (approximate navbar height). This prevents an
+    // early fade-out when the next section's heading approaches.
+    let removeScroll = () => {};
+    if (!isSmallScreen) {
+      const navbar = document.querySelector('header, nav, .navbar, #navbar');
+      const navbarHeight = (navbar && (navbar as HTMLElement).clientHeight) || 72;
+
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          try {
+            const r = el.getBoundingClientRect();
+            // Consider visible if any part is in viewport AND its bottom
+            // is below the navbar area (so it hasn't scrolled past top).
+            const bottomPassedNavbar = r.bottom > navbarHeight + 24; // 24px buffer
+            const anyInView = r.top < window.innerHeight && r.bottom > 0;
+            const shouldBeVisible = anyInView && bottomPassedNavbar;
+            setVisible(shouldBeVisible);
+          } catch (e) {
+            // ignore
+          }
+          ticking = false;
+        });
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      // run an initial check so current scroll position is respected
+      onScroll();
+      removeScroll = () => window.removeEventListener('scroll', onScroll);
+    }
+
     return () => {
       observer.disconnect();
       window.clearTimeout(t1);
@@ -170,6 +205,7 @@ export default function About() {
       window.removeEventListener('popstate', onHashOrPop);
       window.removeEventListener('load', checkAndSetVisible);
       window.removeEventListener('resize', checkAndSetVisible);
+      removeScroll();
     };
   }, []);
 
