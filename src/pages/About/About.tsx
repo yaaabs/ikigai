@@ -305,20 +305,20 @@ export default function About() {
                 <p className={styles.eventText}>Interned at <strong><em>Convey Health Solutions</em></strong>, where I created and maintained exhibits (automated letters) using Quadient Products. Contributed to workflow automation, built an Imaging File Mover, and assisted in QA testing to improve efficiency and accuracy of document processes.</p>
               </div>
             </li>
-            <li className={styles.present}>
-              <div className={styles.timelineMiddle} />
-              <div className={styles.timelineEnd}>
-                <time className={styles.time}>May 2025</time>
-                <div className={styles.eventTitle}>Customodoro Developer</div>
-                <p className={styles.eventText}>Co-founded and led the development of <strong><em>Customodoro Timer</em></strong>, a fully customizable Pomodoro timer web app designed to help users improve focus, time management, and daily productivity.</p>
-              </div>
-            </li>
             <li>
               <div className={styles.timelineMiddle} />
-              <div className={styles.timelineStart}>
+              <div className={styles.timelineEnd}>
                 <time className={styles.time}>October 2025</time>
                 <div className={styles.eventTitle}>Web Developer</div>
                 <p className={styles.eventText}>🔒 Hire me to unlock this quest.</p>
+              </div>
+            </li>
+            <li className={styles.present}>
+              <div className={styles.timelineMiddle} />
+              <div className={styles.timelineStart}>
+                <time className={styles.time}>May 2025</time>
+                <div className={styles.eventTitle}>Customodoro Developer</div>
+                <p className={styles.eventText}>Co-founded and led the development of <strong><em>Customodoro Timer</em></strong>, a fully customizable Pomodoro timer web app designed to help users improve focus, time management, and daily productivity.</p>
               </div>
             </li>
             <li className={styles.present}>
