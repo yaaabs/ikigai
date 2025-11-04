@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FaExternalLinkAlt, FaInfoCircle, FaLinkedin, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaBootstrap, FaPhp, FaPython, FaAndroid } from 'react-icons/fa';
-import { SiExpress, SiPostgresql, SiSupabase, SiLaravel, SiCodeigniter, SiJquery, SiFlask, SiReact, SiTypescript, SiVite, SiTailwindcss, SiExpo, SiAndroid } from 'react-icons/si';
+import { SiExpress, SiPostgresql, SiSupabase, SiLaravel, SiCodeigniter, SiJquery, SiFlask, SiReact, SiTypescript, SiVite, SiTailwindcss, SiExpo, SiAndroid, SiNextdotjs, SiGreensock, SiFramer } from 'react-icons/si';
 import { SiVercel, SiRender, SiRailway } from 'react-icons/si';
 import { SiMysql } from 'react-icons/si';
 import Marquee from 'react-fast-marquee';
@@ -27,6 +27,9 @@ const techIconMeta: Record<string, { icon: React.ReactElement, color: string, ur
 	'TypeScript': { icon: <SiTypescript title="TypeScript" />, color: '#3178c6', url: 'https://www.typescriptlang.org/' },
 	'Vite': { icon: <SiVite title="Vite" />, color: '#646cff', url: 'https://vitejs.dev/' },
 	'Tailwind CSS': { icon: <SiTailwindcss title="Tailwind CSS" />, color: '#38BDF8', url: 'https://tailwindcss.com/' },
+	'Next.js': { icon: <SiNextdotjs title="Next.js" />, color: '#fff', url: 'https://nextjs.org/' },
+	'GSAP': { icon: <SiGreensock title="GSAP" />, color: '#88CE02', url: 'https://greensock.com/gsap/' },
+	'Framer Motion': { icon: <SiFramer title="Framer Motion" />, color: '#0055FF', url: 'https://www.framer.com/motion/' },
     'Vercel': { icon: <SiVercel title="Vercel" />, color: '#fff', url: 'https://vercel.com/' },
     'Render': { icon: <SiRender title="Render" />, color: '#0099e5', url: 'https://render.com/' },
     'Railway': { icon: <SiRailway title="Railway" />, color: '#fff', url: 'https://railway.app/' },
@@ -76,6 +79,8 @@ import drinkph2 from '../../assets/drinkph2.webp';
 import aifon from '../../assets/aifon.webp';
 import aifon1 from '../../assets/aifon1.webp';
 import aifon2 from '../../assets/aifon2.webp';
+
+import jericamix from '../../assets/jericamix.webp';
 
 // Import the new images for the marquee
 import customodoroLogo from '../../assets/customodoro.png';
@@ -311,8 +316,7 @@ const projects = [
         desc: 'A cross-platform calculator app built with React Native and Expo | Full-Stack Web Developer',
         tech: [
             'React Native',
-            'HTML5',
-            'CSS',			
+            'TypeScript',			
             'React',
             'Expo',
             'Vercel',
@@ -330,6 +334,29 @@ const projects = [
 		],
 		fullDesc:
 			`Aifon Calculator is a cross-platform app built with React Native and Expo, designed to faithfully recreate the look and feel of the iPhone calculator. The PWA version is deployed live on Vercel for instant web access, while the Android build was packaged as an APK using the Expo SDK for mobile installation.`
+	},	
+		{
+		title: 'Jericamix Portfolio',
+        desc: 'A cross-platform calculator app built with React Native and Expo | Full-Stack Web Developer',
+        tech: [
+    		'Next.js',
+    		'React',
+    		'TypeScript',
+    		'Tailwind CSS',
+    		'Vercel',
+    		'GSAP',
+    		'Framer Motion',
+
+        ],
+		image: jericamix,
+		images: [jericamix, jericamix, jericamix],
+		github: '',
+		demo: 'https://jericamix.vercel.app/',
+		tags: [
+			'React'
+		],
+		fullDesc:
+			`JericaMix is a modern, interactive portfolio website designed for a Multimedia Arts student, showcasing a stunning blend of creative design and technical expertise.`
 	},	
 	
 ];
@@ -564,7 +591,11 @@ export default function Projects() {
 									: project.title === 'Aifon Calculator'
         							? <>
             							A cross-platform calculator app built with React Native and Expo | <strong>Full-Stack Web Developer</strong>
-       								</>									
+       								</>			
+									: project.title === 'Jericamix Portfolio'
+        							? <>
+            							A website portfolio showcasing a Multimedia Artist Projects | <strong>Full-Stack Web Developer</strong>
+       								</>								
 									: project.desc
 									
 								}
@@ -824,7 +855,13 @@ export default function Projects() {
             							? filteredProjects[selected].fullDesc.replace(
                 							'Full-Stack Web Developer',
                 							'<strong>Full-Stack Web Developer</strong>'
-           								)																														
+           								)																											
+									: filteredProjects[selected].title === 'Jericamix Portfolio'
+            							? filteredProjects[selected].fullDesc.replace(
+                							'Full-Stack Web Developer',
+                							'<strong>Full-Stack Web Developer</strong>'
+           								)	
+
 									: filteredProjects[selected].fullDesc
 							}}
 						/>
