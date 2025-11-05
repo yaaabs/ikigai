@@ -595,7 +595,7 @@ export default function Projects() {
        								</>			
 									: project.title === 'Jericamix Portfolio'
         							? <>
-            							A website portfolio showcasing a Multimedia Artist Projects | <strong>Full-Stack Web Developer</strong>
+            							A website portfolio showcasing a Multimedia Artist’s projects. | <strong>Full-Stack Web Developer</strong>
        								</>								
 									: project.desc
 									
