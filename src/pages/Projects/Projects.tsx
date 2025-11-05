@@ -81,6 +81,8 @@ import aifon1 from '../../assets/aifon1.webp';
 import aifon2 from '../../assets/aifon2.webp';
 
 import jericamix from '../../assets/jericamix.webp';
+import jericamix1 from '../../assets/jericamix1.webp';
+import jericamix2 from '../../assets/jericamix2.webp';
 
 // Import the new images for the marquee
 import customodoroLogo from '../../assets/customodoro.png';
@@ -349,7 +351,7 @@ const projects = [
 
         ],
 		image: jericamix,
-		images: [jericamix, jericamix, jericamix],
+		images: [jericamix, jericamix1, jericamix2],
 		github: '',
 		demo: 'https://jericamix.vercel.app/',
 		tags: [
