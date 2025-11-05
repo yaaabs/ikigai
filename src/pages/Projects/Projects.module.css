@@ -35,7 +35,7 @@ flex-wrap: wrap;
 .filterPython { background: #1a2632; color: #407EAF; } /* Muted Python blue */
 .filterFeatured { background: #1a1a25; color: #ffd54f; } /* Featured gold */
 .filterReact { background: #0d1620; color: #61dafb; } /* React cyan */
-.filterTypeScript { background: #0f1724; color: #3178c6; } /* TypeScript blue */
+.filterNextjs { background: #1a1a1a; color: #fff; } /* Next.js black/white */
 
 .filterFeatured:hover,
 .filterFeatured.activeFilter {
@@ -116,12 +116,13 @@ color: #5a0fc8;
   box-shadow: 0 2px 12px 0 rgba(96,218,250,0.12);
 }
 
-.filterTypeScript:hover,
-.filterTypeScript.activeFilter {
-  background: #3178c6;
-  color: #0b0d12; /* black/dark text for contrast on TypeScript blue */
+.filterNextjs:hover,
+.filterNextjs.activeFilter {
+  /* Next.js - Black background with white text (matching Next.js logo) */
+  background: #fff;
+  color: #000;
   transform: scale(1.07);
-  box-shadow: 0 2px 12px 0 rgba(49,120,198,0.12);
+  box-shadow: 0 2px 12px 0 rgba(255,255,255,0.18);
 }
 
 .filterBootstrap:hover,

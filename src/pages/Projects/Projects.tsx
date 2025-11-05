@@ -353,7 +353,8 @@ const projects = [
 		github: '',
 		demo: 'https://jericamix.vercel.app/',
 		tags: [
-			'React'
+			'React',
+			'Next.js'
 		],
 		fullDesc:
 			`JericaMix is a modern, interactive portfolio website designed for a Multimedia Arts student, showcasing a stunning blend of creative design and technical expertise.`
@@ -467,7 +468,7 @@ export default function Projects() {
 	const [selected, setSelected] = useState<number | null>(null);
 	const [filter, setFilter] = useState<string>('Featured');
 	const [imgModal, setImgModal] = useState<{projectIdx: number, imgIdx: number} | null>(null);
-	const majorTags = ['Featured', 'JavaScript', 'React', 'TypeScript', 'PHP', 'Python'];
+	const majorTags = ['Featured', 'JavaScript', 'React', 'Next.js', 'PHP', 'Python'];
 
 	const filteredProjects =
 		filter === 'All'
@@ -507,7 +508,7 @@ export default function Projects() {
 					let tagClass = styles.filterBtnRed;
 					if (tag === 'JavaScript') tagClass += ' ' + styles.filterJavaScript;
 					if (tag === 'React') tagClass += ' ' + styles.filterReact;
-					if (tag === 'TypeScript') tagClass += ' ' + styles.filterTypeScript;
+					if (tag === 'Next.js') tagClass += ' ' + styles.filterNextjs;
 					if (tag === 'Python') tagClass += ' ' + styles.filterPython;
 					if (tag === 'PHP') tagClass += ' ' + styles.filterPHP;
 					if (tag === 'Featured') tagClass += ' ' + styles.filterFeatured;
