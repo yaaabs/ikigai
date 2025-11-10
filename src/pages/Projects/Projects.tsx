@@ -84,6 +84,10 @@ import jericamix from '../../assets/jericamix.webp';
 import jericamix1 from '../../assets/jericamix1.webp';
 import jericamix2 from '../../assets/jericamix2.webp';
 
+import birthday from '../../assets/birthday.webp';
+import birthday1 from '../../assets/birthday1.webp';
+import birthday2 from '../../assets/birthday2.webp';
+
 // Import the new images for the marquee
 import customodoroLogo from '../../assets/customodoro.png';
 import ukiyoLogo from '../../assets/ukiyo-logo.png';
@@ -339,7 +343,7 @@ const projects = [
 	},	
 		{
 		title: 'Jericamix Portfolio',
-        desc: 'A cross-platform calculator app built with React Native and Expo | Full-Stack Web Developer',
+        desc: 'A website portfolio showcasing a Multimedia Artist’s projects | Full-Stack Web Developer',
         tech: [
     		'Next.js',
     		'React',
@@ -361,7 +365,29 @@ const projects = [
 		fullDesc:
 			`JericaMix is a modern, interactive portfolio website designed for a Multimedia Arts student, showcasing a stunning blend of creative design and technical expertise.`
 	},	
-	
+		{
+		title: 'Birthday Website Series',
+        desc: 'A custom birthday web experience that turns celebrations into interactive stories | Full-Stack Web Developer',
+        tech: [
+    		'Next.js',
+    		'React',
+    		'TypeScript',
+    		'Tailwind CSS',
+    		'Vercel',
+
+
+        ],
+		image: birthday,
+		images: [birthday, birthday1, birthday2],
+		github: '',
+		demo: 'https://alysofab.vercel.app/',
+		tags: [
+			'React',
+			'Next.js'
+		],
+		fullDesc:
+			`Originally crafted as a heartfelt gift for my sister’s birthday, this project grew into a freelance offering where I create personalized, interactive birthday websites for clients celebrating their loved ones.`
+	},	
 ];
 
 function useModal(open: boolean, onClose: () => void) {
@@ -598,7 +624,11 @@ export default function Projects() {
 									: project.title === 'Jericamix Portfolio'
         							? <>
             							A website portfolio showcasing a Multimedia Artist’s projects. | <strong>Full-Stack Web Developer</strong>
-       								</>								
+       								</>			
+									: project.title === 'Birthday Website Series'
+        							? <>
+            							A custom birthday web experience that turns celebrations into interactive stories | <strong>Full-Stack Web Developer</strong>
+       								</>						
 									: project.desc
 									
 								}
@@ -860,6 +890,12 @@ export default function Projects() {
                 							'<strong>Full-Stack Web Developer</strong>'
            								)																											
 									: filteredProjects[selected].title === 'Jericamix Portfolio'
+            							? filteredProjects[selected].fullDesc.replace(
+                							'Full-Stack Web Developer',
+                							'<strong>Full-Stack Web Developer</strong>'
+           								)
+
+									: filteredProjects[selected].title === 'Birthday Website Series'
             							? filteredProjects[selected].fullDesc.replace(
                 							'Full-Stack Web Developer',
                 							'<strong>Full-Stack Web Developer</strong>'
