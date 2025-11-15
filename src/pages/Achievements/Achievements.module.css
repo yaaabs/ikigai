@@ -22,9 +22,11 @@
 }
 
 .card {
-  background: rgba(24,24,31,0.85);
-  border: 2.5px solid #D80024;
-  box-shadow: 0 0 0 3px #23232b, 0 2px 16px 0 rgba(216,0,36,0.13);
+  background: rgba(24, 24, 31, 0.85);
+  border: 2.5px solid #d80024;
+  box-shadow:
+    0 0 0 3px #23232b,
+    0 2px 16px 0 rgba(216, 0, 36, 0.13);
   border-radius: 1.3rem;
   overflow: hidden;
   display: flex;
@@ -32,19 +34,27 @@
   align-items: center;
   min-width: 0;
   position: relative;
-  animation: fadeCardIn 0.7s cubic-bezier(.4,0,.2,1) both;
+  animation: fadeCardIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
   height: 100%; /* Ensure card fills grid cell */
   justify-content: flex-start;
 }
 
 @keyframes fadeCardIn {
-  from { opacity: 0; transform: translateY(40px) scale(0.97);}
-  to { opacity: 1; transform: none;}
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .card:hover {
   transform: scale(1.045) translateY(-5px);
-  box-shadow: 0 16px 48px rgba(216,0,36,0.13), 0 8px 32px rgba(0,0,0,0.22);
+  box-shadow:
+    0 16px 48px rgba(216, 0, 36, 0.13),
+    0 8px 32px rgba(0, 0, 0, 0.22);
 }
 
 .imageWrap {
@@ -74,20 +84,20 @@
   object-fit: contain;
   border-radius: 1rem;
   background: #23232b;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .typeBadge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: rgba(216,0,36,0.92);
+  background: rgba(216, 0, 36, 0.92);
   color: #fff;
   font-size: 0.98rem;
   font-weight: 600;
   border-radius: 1.2rem;
   padding: 0.22rem 0.9rem;
-  box-shadow: 0 2px 8px rgba(216,0,36,0.13);
+  box-shadow: 0 2px 8px rgba(216, 0, 36, 0.13);
   z-index: 2;
   display: flex;
   align-items: center;
@@ -154,19 +164,22 @@
 }
 
 .pdfBtn {
-  background: linear-gradient(90deg, #D80024 0%, #ff5a5a 100%);
+  background: linear-gradient(90deg, #d80024 0%, #ff5a5a 100%);
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px 0 rgba(216,0,36,0.13);
-  transition: background 0.18s, color 0.18s, transform 0.18s;
+  box-shadow: 0 2px 8px 0 rgba(216, 0, 36, 0.13);
+  transition:
+    background 0.18s,
+    color 0.18s,
+    transform 0.18s;
   outline: none;
   text-decoration: none;
 }
 
 .pdfBtn:hover,
 .pdfBtn:focus {
-  background: linear-gradient(90deg, #ff5a5a 0%, #D80024 100%);
+  background: linear-gradient(90deg, #ff5a5a 0%, #d80024 100%);
   color: #fff;
   transform: scale(1.06);
   text-decoration: none;
@@ -177,8 +190,11 @@
   color: #0072c6;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px 0 rgba(0,114,198,0.13);
-  transition: background 0.18s, color 0.18s, transform 0.18s;
+  box-shadow: 0 2px 8px 0 rgba(0, 114, 198, 0.13);
+  transition:
+    background 0.18s,
+    color 0.18s,
+    transform 0.18s;
   outline: none;
   text-decoration: none;
 }
@@ -209,7 +225,7 @@
 .pdfBackdrop {
   position: fixed;
   inset: 0;
-  background: rgba(10,10,20,0.65);
+  background: rgba(10, 10, 20, 0.65);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -218,14 +234,18 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .pdfModal {
-  background: rgba(24,24,31,0.97);
+  background: rgba(24, 24, 31, 0.97);
   border-radius: 1.3rem;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.22);
   padding: 2.2rem 2rem 1.7rem 2rem;
   max-width: 700px;
   width: 95vw;
@@ -235,7 +255,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeCardIn 0.4s cubic-bezier(.4,0,.2,1) both;
+  animation: fadeCardIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .pdfHeader {
@@ -287,7 +307,7 @@
 }
 
 .pdfClose:hover {
-  color: #D80024;
+  color: #d80024;
 }
 
 .pdfFrame {
@@ -295,7 +315,7 @@
   height: 60vh;
   border-radius: 0.7rem;
   background: #23232b;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 0.7rem;
   border: none;
 }

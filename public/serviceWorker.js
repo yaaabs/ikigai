@@ -3,10 +3,10 @@
 const CACHE = "yabutech-portfolio-cache-v5.2.4";
 
 const precacheResources = [
-  '/',
-  '/index.html',
-  '/favicon.png',
-  '/manifest.json',
+  "/",
+  "/index.html",
+  "/favicon.png",
+  "/manifest.json",
 ];
 
 self.addEventListener("install", (event) => {
@@ -20,15 +20,15 @@ self.addEventListener("install", (event) => {
       // Use allSettled so a single failing fetch doesn't reject the whole install
       return Promise.allSettled(
         precacheResources.map((url) =>
-          fetch(url, { cache: 'no-cache' })
+          fetch(url, { cache: "no-cache" })
             .then((res) => {
               if (!res || !res.ok) return Promise.resolve();
               return cache.put(url, res.clone());
             })
-            .catch(() => Promise.resolve())
-        )
+            .catch(() => Promise.resolve()),
+        ),
       );
-    })
+    }),
   );
 });
 
@@ -46,9 +46,9 @@ self.addEventListener("activate", (event) => {
             console.log("Service Worker: Clearing Old Cache", cache);
             return caches.delete(cache);
           }
-        })
+        }),
       );
-    })
+    }),
   );
 });
 
@@ -56,18 +56,18 @@ self.addEventListener("fetch", (event) => {
   const req = event.request;
 
   // For navigation requests (HTML pages), prefer network-first then fall back to cached index.html
-  if (req.mode === 'navigate' || req.destination === 'document') {
+  if (req.mode === "navigate" || req.destination === "document") {
     event.respondWith(
       fetch(req)
         .then((networkResponse) => {
           // Update cache with latest HTML so future navigations can be served from cache when offline
           if (networkResponse && networkResponse.ok) {
             const copy = networkResponse.clone();
-            caches.open(CACHE).then((cache) => cache.put('/', copy));
+            caches.open(CACHE).then((cache) => cache.put("/", copy));
           }
           return networkResponse;
         })
-        .catch(() => caches.match('/').then((cached) => cached))
+        .catch(() => caches.match("/").then((cached) => cached)),
     );
     return;
   }
@@ -93,15 +93,23 @@ self.addEventListener("fetch", (event) => {
       }
 
       // No cache, wait for network (or fail gracefully)
-      return networkFetch.then((r) => r).catch(() => new Response('', { status: 503, statusText: 'Service Unavailable' }));
-    })
+      return networkFetch
+        .then((r) => r)
+        .catch(
+          () =>
+            new Response("", {
+              status: 503,
+              statusText: "Service Unavailable",
+            }),
+        );
+    }),
   );
 });
 
 // Allow the page to message the SW to trigger skipWaiting (install immediately)
-self.addEventListener('message', (event) => {
+self.addEventListener("message", (event) => {
   if (!event.data) return;
-  if (event.data.type === 'SKIP_WAITING') {
+  if (event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
   }
 });

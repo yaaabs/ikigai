@@ -19,7 +19,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #D80024; /* theme red on hover */
+  color: #d80024; /* theme red on hover */
 }
 
 body {
@@ -27,7 +27,7 @@ body {
   padding: 0;
   background: #000;
   color: #fff;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   display: block;
   place-items: center;
   min-width: 320px;
@@ -66,7 +66,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #D80024; /* theme red on hover */
+  border-color: #d80024; /* theme red on hover */
 }
 button:focus,
 button:focus-visible {
@@ -85,7 +85,7 @@ html {
     background-color: #ffffff;
   }
   a:hover {
-    color: #D80024;
+    color: #d80024;
   }
   button {
     background-color: #f9f9f9;

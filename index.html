@@ -6,25 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YabuTech Portfolio</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Brian Yabut's portfolio - Full Stack Developer, Web Projects, Achievements, and Contact. Explore YabuTech's work, skills, and resume." />
-    <meta name="keywords" content="Brian Yabut, YabuTech, Portfolio, Web Developer, Full Stack, Projects, Achievements, Resume, Contact, Software Engineer, Customodoro, Philippines" />
+    <meta
+      name="description"
+      content="Brian Yabut's portfolio - Full Stack Developer, Web Projects, Achievements, and Contact. Explore YabuTech's work, skills, and resume."
+    />
+    <meta
+      name="keywords"
+      content="Brian Yabut, YabuTech, Portfolio, Web Developer, Full Stack, Projects, Achievements, Resume, Contact, Software Engineer, Customodoro, Philippines"
+    />
     <meta name="author" content="Brian Yabut" />
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="YabuTech Portfolio - Brian Yabut" />
-    <meta property="og:description" content="Explore Brian Yabut's web development projects, achievements, and contact information. Download resume and connect with YabuTech." />
+    <meta
+      property="og:description"
+      content="Explore Brian Yabut's web development projects, achievements, and contact information. Download resume and connect with YabuTech."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://yabutech.com/" />
     <meta property="og:image" content="/og-image.png" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="YabuTech Portfolio - Brian Yabut" />
-    <meta name="twitter:description" content="Explore Brian Yabut's web development projects, achievements, and contact information. Download resume and connect with YabuTech." />
+    <meta
+      name="twitter:description"
+      content="Explore Brian Yabut's web development projects, achievements, and contact information. Download resume and connect with YabuTech."
+    />
     <meta name="twitter:image" content="/og-image.png" />
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#D80024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="apple-mobile-web-app-title" content="YabuTech" />
     <link rel="apple-touch-icon" href="/favicon.png" />
   </head>
@@ -33,11 +48,14 @@
     <script type="module" src="/src/main.tsx"></script>
     <script>
       // Check if service workers are supported
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/serviceWorker.js')
-            .then((reg) => console.log('Service Worker registered', reg))
-            .catch((err) => console.log('Service Worker registration failed', err));
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/serviceWorker.js")
+            .then((reg) => console.log("Service Worker registered", reg))
+            .catch((err) =>
+              console.log("Service Worker registration failed", err),
+            );
         });
       }
     </script>
