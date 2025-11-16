@@ -159,7 +159,7 @@
 .filterPHP.activeFilter {
   /* Use PHP logo-like color on active, keep dark text for contrast */
   background: #4f5b93;
-  color: #fff; /* white text for contrast on PHP accent */
+  color: #000; /* white text for contrast on PHP accent */
   transform: scale(1.07);
   box-shadow: 0 2px 12px 0 rgba(79, 91, 147, 0.12);
 }
