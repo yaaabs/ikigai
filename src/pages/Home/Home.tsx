@@ -9,6 +9,7 @@ const phrases = [
   "Junior Systems Developer",
   "Exhibit Developer",
   "Customodoro Developer",
+  "Full Stack Developer",
 ];
 
 function useTypewriter(words: string[], typingSpeed = 90, pause = 1200) {
