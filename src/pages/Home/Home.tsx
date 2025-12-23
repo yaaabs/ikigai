@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Snowfall from "react-snowfall";
 import styles from "./Home.module.css";
 import profileImg from "../../assets/profile.webp";
 import profileAltImg from "../../assets/profile2.webp";
@@ -60,6 +61,22 @@ function Home() {
 
   const [isHovered, setIsHovered] = useState(false);
 
+  // Determine whether to show snowfall:
+  // Priority: Vite env var VITE_SNOWFALL_ENABLED (set 'true' or 'false')
+  // Fallback: seasonal default (every Dec 1 through Jan 10 inclusive)
+  const _env = (import.meta as any).env?.VITE_SNOWFALL_ENABLED;
+  const showSnow = typeof _env !== 'undefined'
+    ? String(_env).toLowerCase() === 'true'
+    : (() => {
+        const now = new Date();
+        const month = now.getMonth(); // 0 = Jan, 11 = Dec
+        const date = now.getDate();
+        // Show during December (month === 11) OR January 1-10 (month === 0 && date <= 10)
+        if (month === 11) return true; // December 1-31
+        if (month === 0 && date <= 10) return true; // January 1-10
+        return false;
+      })();
+
   const handleProjectsClick = () => {
     const el = document.getElementById("projects");
     if (el) {
@@ -89,7 +106,24 @@ function Home() {
       ref={heroRef}
       className={`${styles.hero} ${fadeIn ? styles.fadeUp : ""}`}
       aria-label="Hero Section"
+      style={{ position: "relative", overflow: "hidden" }}
     >
+      {/* Snowfall overlay - show based on env var or seasonal default; pointerEvents none so UI is clickable */}
+      {showSnow && (
+        <Snowfall
+          color="#fff"
+          snowflakeCount={150}
+          style={{
+            position: "fixed",
+            width: "100vw",
+            height: "100vh",
+            top: 0,
+            left: 0,
+            pointerEvents: "none",
+            zIndex: 9999,
+          }}
+        />
+      )}
       <div className={styles.centerContent}>
         <div
           className={styles.profileWrapper}
