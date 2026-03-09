@@ -84,9 +84,6 @@ function Home() {
     }
   };
 
-  const handleResumeClick = () => {
-    window.open("/resume/BrianYabut_Resume_2025.pdf", "_blank");
-  };
 
   const handleResumeDownload = () => {
     const link = document.createElement("a");
@@ -155,9 +152,11 @@ function Home() {
         </h2>
 
         <div className={styles.ctaGroup}>
-          <button
+          <a
             className={`${styles.cta} ${styles.ctaPrimary}`}
-            onClick={handleResumeClick}
+            href="/resume/BrianYabut_Resume_2025.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="View Resume"
           >
             <svg
@@ -174,7 +173,7 @@ function Home() {
               <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
             View Resume
-          </button>
+          </a>
 
           <button
             className={`${styles.cta} ${styles.ctaSecondary}`}

@@ -1,6 +1,6 @@
 // This is the service worker with the Cache-first network strategy
 
-const CACHE = "yabutech-portfolio-cache-v5.2.4";
+const CACHE = "yabutech-portfolio-cache-v5.2.5";
 
 const precacheResources = [
   "/",
@@ -61,7 +61,12 @@ self.addEventListener("fetch", (event) => {
       fetch(req)
         .then((networkResponse) => {
           // Update cache with latest HTML so future navigations can be served from cache when offline
-          if (networkResponse && networkResponse.ok) {
+          // **only** cache actual HTML pages; a PDF or other binary navigation should not replace "/".
+          if (
+            networkResponse &&
+            networkResponse.ok &&
+            networkResponse.headers.get("content-type")?.includes("text/html")
+          ) {
             const copy = networkResponse.clone();
             caches.open(CACHE).then((cache) => cache.put("/", copy));
           }
